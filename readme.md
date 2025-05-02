@@ -40,6 +40,7 @@ IT Technician | H2 informática|2 years and 10 months | Remote or in-person tech
 ## Referências 📚
 
 - https://trello.com/b/1VHaJzbb/sptechprojetoindividual
+- https://outerworlds.obsidian.net/en
 
 ## Atualizações 🕐
 
