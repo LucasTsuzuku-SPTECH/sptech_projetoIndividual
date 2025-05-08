@@ -99,15 +99,7 @@ INSERT INTO companheiro_has_habilidadeEspecializada (fkCompanheiro, fkHabilidade
 INSERT INTO personagem_has_habilidadeBase (fkPersonagem, fkHabilidadeBase) VALUES 
 (100,650);
 
-SELECT * FROM usuario;
-SELECT * FROM personagem;
-SELECT * FROM atributo;
-SELECT * FROM companheiro;
-SELECT * FROM habilidadeBase;
-SELECT * FROM habilidadeEspecializada;
-SELECT * FROM personagem_has_habilidadeBase;
-SELECT * FROM personagem_has_companheiro;
-SELECT * FROM companheiro_has_habilidadeEspecializada;
+
 -- Constraints
 
 ALTER TABLE personagem ADD CONSTRAINT fkPersonagemUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario(idUsuario);
