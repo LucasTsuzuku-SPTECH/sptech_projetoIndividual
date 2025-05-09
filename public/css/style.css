@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  background-color: #120a04;
+}
+
+:root {
+  --tamanho-header: 128px;
+  --tamanho-banner: calc(
+    100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px
+  );
+  --tamanho-footer: 65px;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  margin: auto;
+}
+
+.header {
+  background-color: #000000;
+  color: #feac19;
+  height: var(--tamanho-header);
+  border-bottom: 2px solid #feac19;
+}
+
+.header .container {
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header a {
+  text-decoration: none;
+  color: #feac19;
+}
