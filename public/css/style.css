@@ -67,3 +67,19 @@ body {
   color: #feac19;
   cursor: pointer;
 }
+
+/* BANNER 1*/
+
+.banner {
+  height: 810px;
+  color: #feac19;
+  background-image: url("../assets/outerWorldsWallpaper.jpg");
+  background-size: cover;
+}
+
+.banner .container p {
+  width: 100%;
+  margin: 0px;
+  padding: 0;
+  font-size: 36px;
+}

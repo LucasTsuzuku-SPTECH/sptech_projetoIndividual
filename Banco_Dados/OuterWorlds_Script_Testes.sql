@@ -49,6 +49,8 @@ INSERT INTO personagem_has_habilidadeBase (fkPersonagem, fkHabilidadeBase) VALUE
 (101,602),
 (101,603);
 
+INSERT INTO 
+
 -- testes
 
 SELECT * FROM usuario;
@@ -70,3 +72,11 @@ INNER JOIN personagem ON fkUsuario = idUsuario WHERE usuario.nome = 'Lucas Hidea
 
 SELECT * FROM personagem 
 INNER JOIN atributo ON fkPersonagem = idPersonagem;
+
+-- ver personagem e suas habilidades base
+
+SELECT personagem.nome, habilidadeBase.categoria, habilidadeEspecializada.nome, habilidadeEspecializada.valor FROM personagem 
+INNER JOIN personagem_has_habilidadeBase ON fkPersonagem = idPersonagem
+INNER JOIN habilidadeBase ON fkHabilidadeBase = idHabilidadeBase
+INNER JOIN habilidadeEspecializada ON habilidadeEspecializada.fkHabilidadeBase = habilidadeBase.idHabilidadeBase 
+WHERE personagem.nome = 'Mark Anthony';
