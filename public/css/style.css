@@ -39,3 +39,31 @@ body {
   text-decoration: none;
   color: #feac19;
 }
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style: none;
+  font-size: 20px;
+}
+
+.navbar li:hover {
+  transition: transform 1.2s;
+  transform: scale(1.2);
+}
+
+.li_personagem a {
+  padding: 15px;
+  background-color: #feac19;
+  border-radius: 15px;
+  color: #000000;
+  transition: 0.3s;
+}
+
+.li_personagem a:hover {
+  background-color: #000000;
+  color: #feac19;
+  cursor: pointer;
+}
