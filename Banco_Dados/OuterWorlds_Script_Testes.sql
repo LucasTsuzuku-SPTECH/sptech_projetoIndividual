@@ -49,7 +49,6 @@ INSERT INTO personagem_has_habilidadeBase (fkPersonagem, fkHabilidadeBase) VALUE
 (101,602),
 (101,603);
 
-INSERT INTO 
 
 -- testes
 

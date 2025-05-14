@@ -80,6 +80,13 @@ body {
   align-items: center;
 }
 
+.banner .container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
 .banner span {
   margin: 0px;
   padding: 0px;
@@ -89,3 +96,207 @@ body {
 }
 
 /* SINOPSE*/
+
+.sinopse {
+  height: 810px;
+  color: #feac19;
+  background-image: url("../assets/imgs/sinopseBKG.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sinopse .container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.sinopse span {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10%;
+  font-size: 64px;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+/* BONANÇA*/
+
+.bonanca {
+  height: 810px;
+  color: #feac19;
+  background-image: url("../assets/imgs/bonancaBKG.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bonanca .container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.bonanca span {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10%;
+  font-size: 64px;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+/* BONANÇA DETALHES*/
+
+.bonanca_detalhes {
+  height: 810px;
+  color: #feac19;
+
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bonanca_detalhes .container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.bonanca_detalhes span {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10%;
+  font-size: 64px;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+/* Facções*/
+
+.faccoes {
+  height: 810px;
+  color: #feac19;
+  background-image: url("../assets/imgs/faccoesBKG.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faccoes .container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.faccoes span {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10%;
+  font-size: 64px;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+/* Aliados e Arsenal*/
+
+.arsenal {
+  height: 810px;
+  color: #feac19;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.arsenal .container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.arsenal span {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10%;
+  font-size: 64px;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+/* Destino*/
+
+.destino {
+  height: 810px;
+  color: #feac19;
+  background-image: url("../assets/imgs/destinoBKG.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.destino .container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.destino span {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10%;
+  font-size: 64px;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+/* Destino Detalhes*/
+
+.destino_detalhes {
+  height: 810px;
+  color: #feac19;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.destino_detalhes .container {
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: baseline;
+}
+
+.destino_detalhes span {
+  margin: 0px;
+  padding: 0px;
+  margin-top: 10%;
+  font-size: 64px;
+  text-shadow: 3px 3px 3px #000000;
+}
+
+.destino_detalhes a {
+  text-decoration: none;
+  color: #feac19;
+}
+
+.destino_detalhes a {
+  padding: 15px;
+  background-color: #feac19;
+  border-radius: 15px;
+  color: #000000;
+  transition: 0.3s;
+}
+
+.destino_detalhes a:hover {
+  background-color: #000000;
+  color: #feac19;
+  cursor: pointer;
+}
