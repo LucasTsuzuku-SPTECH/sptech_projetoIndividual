@@ -22,6 +22,8 @@ body {
   margin: auto;
 }
 
+/* HEADER */
+
 .header {
   background-color: #000000;
   color: #feac19;
@@ -299,4 +301,15 @@ body {
   background-color: #000000;
   color: #feac19;
   cursor: pointer;
+}
+
+.destino_detalhes img {
+  height: 250px;
+  width: auto;
+}
+
+/* Footer */
+
+.footer {
+  background-color: #ffffff;
 }
