@@ -45,7 +45,8 @@ nome VARCHAR (45) NOT NULL
 
 CREATE TABLE habilidadeBase (
 idHabilidadeBase INT PRIMARY KEY AUTO_INCREMENT,
-categoria VARCHAR(20)
+categoria VARCHAR(20) NOT NULL,
+pontoExtra TINYINT NOT NULL
 ) AUTO_INCREMENT = 600 ;
 
 CREATE TABLE habilidadeEspecializada (
