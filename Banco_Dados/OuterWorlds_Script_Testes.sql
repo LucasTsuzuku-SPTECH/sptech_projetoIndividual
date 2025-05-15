@@ -25,12 +25,12 @@ INSERT INTO atributo (forca, destreza, inteligencia, percepcao, charme, temperam
 (1,2,3,3,2,1,105),
 (2,1,3,2,3,1,106);
 
-INSERT INTO habilidadeBase (categoria) VALUES 
-('armasBrancas'),
-('longoAlcance'),
-('defesa'),
-('dialogo'),
-('furtividade');
+INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 
+('armasBrancas', 1),
+('longoAlcance', 0),
+('defesa', 0),
+('dialogo', 1),
+('furtividade', 0);
 
 INSERT INTO habilidadeEspecializada (nome, valor, fkHabilidadeBase) VALUES 
 ('1mao', 20, 600),
