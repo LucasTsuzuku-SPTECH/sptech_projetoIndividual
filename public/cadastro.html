@@ -52,14 +52,7 @@
                          Para inserir mais um campo, copie uma das inputs abaixo.
                          Assim que inserir vá para o script abaixo.
                      -->
-            <div class="campo">
-              <span>Código de ativação:</span>
-              <input
-                id="codigo_input"
-                type="text"
-                placeholder="Insira aqui seu código"
-              />
-            </div>
+
             <div class="campo">
               <span>Nome:</span>
               <input id="nome_input" type="text" placeholder="Seu nome" />
@@ -72,9 +65,17 @@
                 placeholder="meuemail@provedor.com"
               />
             </div>
-            <div class="cpf">
-              <span>CPF:</span>
-              <input id="cpf_input" type="text" placeholder="12345678910" />
+            <div class="campo">
+              <span>Telefone:</span>
+              <input
+                id="telefone_input"
+                type="text"
+                placeholder="11987654321"
+              />
+            </div>
+            <div class="campo">
+              <span>Pais | Grupo:</span>
+              <input id="pais_input" type="text" placeholder="Brasil | 1CCOA" />
             </div>
             <div class="campo">
               <span>Senha:</span>
@@ -121,20 +122,19 @@
     // Agora vá para o método fetch logo abaixo
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
+    var telefoneVar = telefone_input.value;
+    var paisVar = pais_input.value;
     var senhaVar = senha_input.value;
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
-    var codigoVar = codigo_input.value;
-    var idEmpresaVincular;
-    var cpfVar = cpf_input.value;
 
     // Verificando se há algum campo em branco
     if (
       nomeVar == "" ||
       emailVar == "" ||
-      cpfVar == "" ||
+      telefoneVar == "" ||
+      paisVar == "" ||
       senhaVar == "" ||
-      confirmacaoSenhaVar == "" ||
-      codigoVar == ""
+      confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
       mensagem_erro.innerHTML =
@@ -172,7 +172,7 @@
     }
 
     // Verificando se o código de ativação é de alguma empresa cadastrada
-    for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
+    /* for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
       if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
         idEmpresaVincular = listaEmpresasCadastradas[i].id;
         console.log("Código de ativação válido.");
@@ -182,7 +182,7 @@
         mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
         finalizarAguardar();
       }
-    }
+    } */
 
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
@@ -195,9 +195,9 @@
         // Agora vá para o arquivo routes/usuario.js
         nomeServer: nomeVar,
         emailServer: emailVar,
+        telefoneServer: telefoneVar,
+        paisServer: paisVar,
         senhaServer: senhaVar,
-        cpfServer: cpfVar,
-        idEmpresaVincularServer: idEmpresaVincular,
       }),
     })
       .then(function (resposta) {
@@ -228,7 +228,7 @@
   }
 
   // Listando empresas cadastradas
-  function listar() {
+  /* function listar() {
     fetch("/empresas/listar", {
       method: "GET",
     })
@@ -245,7 +245,7 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
       });
-  }
+  } */
 
   function sumirMensagem() {
     cardErro.style.display = "none";
