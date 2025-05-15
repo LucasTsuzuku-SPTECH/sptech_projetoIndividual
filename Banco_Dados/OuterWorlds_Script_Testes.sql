@@ -1,5 +1,11 @@
 -- Inserts de Teste
 
+TRUNCATE usuario;
+TRUNCATE personagem;
+TRUNCATE atributo;
+TRUNCATE habilidade;
+TRUNCATE personagem_has_habilidade;
+
 INSERT INTO usuario (nome,email,telefone,pais,senha) VALUES 
 ('Lucas Hideaki', 'lucas.tsuzuku@sptech.com', '11123456789','Brasil', '123456'),
 ('Amanda Nunes', 'amanda.nunes@sptech.com', '78945612312','Brasil', '123456'),
@@ -25,6 +31,51 @@ INSERT INTO atributo (forca, destreza, inteligencia, percepcao, charme, temperam
 (1,2,3,3,2,1,105),
 (2,1,3,2,3,1,106);
 
+INSERT INTO habilidade (1mao, 2mao, pistolas, armasLongas, armasPesadas, evasao, bloqueio, persuasao, mentira, intimidacao, esgueira, hacking, gazua, medicina, ciencia, engenharia, inspiracao, determinacao) 
+VALUES 
+(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
+(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
+(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
+(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
+(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
+(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
+(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20);
+
+INSERT INTO personagem_has_habilidade (fkPersonagem, fkHabilidade) VALUES 
+(100,600),
+(101,601);
+
+-- testes
+
+SELECT * FROM usuario;
+SELECT * FROM personagem;
+SELECT * FROM atributo;
+SELECT * FROM habilidade;
+SELECT * FROM personagem_has_habilidade;
+
+-- ver usuario e seus personagens
+
+SELECT * FROM usuario 
+INNER JOIN personagem ON fkUsuario = idUsuario;
+
+SELECT * FROM usuario 
+INNER JOIN personagem ON fkUsuario = idUsuario WHERE usuario.nome = 'Lucas Hideaki';
+
+-- ver personagem e sua aptidao
+
+SELECT * FROM personagem 
+INNER JOIN atributo ON fkPersonagem = idPersonagem;
+
+-- ver personagem e suas habilidades base
+
+SELECT personagem.nome, habilidade.* FROM personagem 
+INNER JOIN personagem_has_habilidade ON fkPersonagem = idPersonagem
+INNER JOIN habilidade ON fkHabilidade = idHabilidade;
+
+
+/*
+
+
 INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 
 ('armasBrancas', 1),
 ('longoAlcance', 0),
@@ -49,33 +100,8 @@ INSERT INTO personagem_has_habilidadeBase (fkPersonagem, fkHabilidadeBase) VALUE
 (101,602),
 (101,603);
 
-
--- testes
-
-SELECT * FROM usuario;
-SELECT * FROM personagem;
-SELECT * FROM atributo;
 SELECT * FROM habilidadeBase;
 SELECT * FROM habilidadeEspecializada;
 SELECT * FROM personagem_has_habilidadeBase;
 
--- ver usuario e seus personagens
-
-SELECT * FROM usuario 
-INNER JOIN personagem ON fkUsuario = idUsuario;
-
-SELECT * FROM usuario 
-INNER JOIN personagem ON fkUsuario = idUsuario WHERE usuario.nome = 'Lucas Hideaki';
-
--- ver personagem e sua aptidao
-
-SELECT * FROM personagem 
-INNER JOIN atributo ON fkPersonagem = idPersonagem;
-
--- ver personagem e suas habilidades base
-
-SELECT personagem.nome, habilidadeBase.categoria, habilidadeEspecializada.nome, habilidadeEspecializada.valor FROM personagem 
-INNER JOIN personagem_has_habilidadeBase ON fkPersonagem = idPersonagem
-INNER JOIN habilidadeBase ON fkHabilidadeBase = idHabilidadeBase
-INNER JOIN habilidadeEspecializada ON habilidadeEspecializada.fkHabilidadeBase = habilidadeBase.idHabilidadeBase 
-WHERE personagem.nome = 'Mark Anthony';
+*/
