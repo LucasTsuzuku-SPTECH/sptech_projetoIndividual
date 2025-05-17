@@ -18,7 +18,7 @@ body {
 .dash-right .avisos {
   width: 100%;
   color: rgb(216, 216, 216);
-  font-family: "Barlow", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
+  font-family: "Josefin Sans", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
 }
 
@@ -47,8 +47,8 @@ body {
 
 .dash-right .avisos .div-form textarea {
   width: 95%;
-  border: 3px solid #e6005a;
-  background-color: white;
+  border: 3px solid #feac19;
+  background-color: #000000;
   border-radius: 5px;
 }
 
@@ -61,8 +61,8 @@ body {
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: white;
-  background-color: #e6005a;
+  color: #000000;
+  background-color: #feac19;
   width: 120px;
 }
 
@@ -75,8 +75,8 @@ body {
   font-weight: 600;
   font-size: 14px;
   padding: 5px 8px;
-  color: white;
-  background-color: #e6005a;
+  color: #000000;
+  background-color: #feac19;
   width: 80px;
 }
 
@@ -87,7 +87,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  border-bottom: 3px solid #e6005a;
+  border-bottom: 3px solid #feac19;
   padding: 20px;
 }
 
@@ -125,7 +125,7 @@ body {
   position: relative;
   top: 0;
   left: 20%;
-  background-color: #161618;
+  background-color: #120a04;
   height: 100vh;
   overflow: auto;
 }
@@ -141,7 +141,7 @@ body {
 }
 
 .area-parametros-alerta .titulo-legenda {
-  color: white;
+  color: #000000;
   font-weight: 600;
   width: fit-content;
   margin: 10px 20px;
@@ -198,7 +198,7 @@ body {
   height: 450px;
   width: 100%;
   align-items: center;
-  color: white;
+  color: #000000;
 }
 
 .card-aquario {
@@ -243,7 +243,7 @@ body {
 
 .cards h1 {
   font-size: 22px;
-  border-bottom: solid white 1px;
+  border-bottom: solid #000000 1px;
   text-align: left;
   font-weight: lighter;
   margin: 20px;
@@ -291,21 +291,21 @@ body {
   font-weight: 600;
   font-size: 18px;
   padding: 10px 15px;
-  color: #e6005a;
-  background-color: white;
+  color: #feac19;
+  background-color: #000000;
   margin: 5px;
   border-radius: 3px;
   cursor: pointer;
 }
 
 .btn-pink {
-  color: white;
-  background-color: #e6005a;
+  color: #000000;
+  background-color: #feac19;
 }
 
 .btn-white {
-  color: #e6005a;
-  background-color: white;
+  color: #feac19;
+  background-color: #000000;
 }
 
 .label-captura {
@@ -338,7 +338,7 @@ canvas {
 
 .header-left a {
   text-decoration: none;
-  color: white;
+  color: #000000;
 }
 
 .header-left {
@@ -352,8 +352,8 @@ canvas {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border-right: 3px solid #32b9cd;
-  background-color: #212124;
+  border-right: 3px solid #feac19;
+  background-color: #000000;
 }
 
 .dash-right {
@@ -390,8 +390,8 @@ canvas {
 
 .btn-nav {
   width: 40%;
-  color: white;
-  background-color: #e6005a;
+  color: #000000;
+  background-color: #feac19;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
@@ -399,15 +399,15 @@ canvas {
 
 .btn-nav-white {
   width: 40%;
-  background-color: white;
-  border: 3px solid #e6005a;
+  background-color: #000000;
+  border: 3px solid #feac19;
   border-radius: 5px;
   text-align: center;
   padding: 2% 5%;
 }
 
 .btn-nav-white h3 {
-  color: #e6005a;
+  color: #feac19;
   padding: 0;
   margin: 0;
 }
@@ -422,8 +422,8 @@ canvas {
   margin: 0;
   padding: 0;
   width: 20%;
-  background-color: #32b9cd;
-  color: white;
+  background-color: #feac19;
+  color: #000000;
   border-radius: 10px;
   text-align: center;
   padding: 10px 15px;
