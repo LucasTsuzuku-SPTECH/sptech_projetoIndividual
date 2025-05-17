@@ -208,10 +208,11 @@ body {
   width: fit-content;
   flex-wrap: wrap;
   display: flex;
-  /* text-align: center; */
+  flex-direction: row;
+  text-align: center;
   height: 180px;
-  /* justify-content: right; */
-  background-color: #212124;
+  justify-content: center;
+  background-color: #000000;
   font-size: 20px;
 }
 
@@ -221,9 +222,20 @@ body {
 
 .card-aquario p {
   margin: 0;
-  font-size: 50px;
+  font-size: 20px;
   font-weight: lighter;
   text-align: left;
+  color: #feac19;
+}
+
+.card-aquario li {
+  margin: 0;
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: left;
+  color: #feac19;
+  text-decoration: none;
+  list-style: none;
 }
 
 .desc-aquario {
@@ -243,7 +255,8 @@ body {
 
 .cards h1 {
   font-size: 22px;
-  border-bottom: solid #000000 1px;
+  color: #feac19;
+  border-bottom: solid #feac19 1px;
   text-align: left;
   font-weight: lighter;
   margin: 20px;

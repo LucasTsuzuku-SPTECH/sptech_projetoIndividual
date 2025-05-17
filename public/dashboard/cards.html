@@ -23,7 +23,7 @@
     />
   </head>
 
-  <body onload="exibirAquarios()">
+  <body onload="exibirPersonagens()">
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -56,26 +56,24 @@
       <div class="dash">
         <div id="alerta"></div>
         <div class="area-parametros-alerta"></div>
-
-        <div class="cards" id="cardAquarios"></div>
+        <div class="cards" id="cardPersonagens"></div>
       </div>
     </div>
   </body>
 
   <script>
-    function exibirAquarios() {
-      JSON.parse(sessionStorage.AQUARIOS).forEach((item) => {
-        document.getElementById("cardAquarios").innerHTML += `
+    function exibirPersonagens() {
+      JSON.parse(sessionStorage.PERSONAGENS).forEach((item) => {
+        document.getElementById("cardPersonagens").innerHTML += `
                     <div class="card-aquario">
                         <div class="title-aquario">
-                            <h1>${item.descricao}</h1>
+                            <h1>${item.nome}</h1>
                         </div>
-                        <div class="desc-aquario">
-                        <div class="temperatura">
-                            <p id="temp_aquario_${item.id}">-°C</p>
-                        </div>
-                        <div class="cor-alerta" id="card_${item.id}"></div>
-                    </div>
+                        <li>
+                          <ul>Data de Criação: ${item.dataCriacao}</ul>
+                          <ul>Acertos teste: ${item.acertosTeste}</ul>
+                        </li>
+
                     </div>
                     `;
       });
