@@ -238,6 +238,12 @@ body {
   list-style: none;
 }
 
+.card-aquario:hover {
+  cursor: pointer;
+  transition: transform 1.2s;
+  transform: scale(1.1);
+}
+
 .desc-aquario {
   display: flex;
   flex-direction: row;
