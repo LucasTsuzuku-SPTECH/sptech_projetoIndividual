@@ -11,8 +11,12 @@ router.get("/tempo-real/:idAquario", function (req, res) {
   medidaController.buscarMedidasEmTempoReal(req, res);
 });
 
-router.get("/todosPersonagens", function (req, res) {
-  medidaController.buscarTodosPersonagens(req, res);
+router.get("/todosPersonagensPorDataCriacao", function (req, res) {
+  medidaController.buscarTodosPersonagensPorDataCriacao(req, res);
+});
+
+router.get("/todasHabilidadeTodosPersonagens", function (req, res) {
+  medidaController.buscarTodasHabilidadeTodosPersonagens(req, res);
 });
 
 module.exports = router;

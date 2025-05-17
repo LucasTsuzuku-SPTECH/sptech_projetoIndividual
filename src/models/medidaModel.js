@@ -27,8 +27,8 @@ function buscarMedidasEmTempoReal(idAquario) {
   return database.executar(instrucaoSql);
 }
 
-function buscarTodosPersonagens() {
-  var instrucaoSql = `SELECT * FROM personagem`;
+function buscarTodosPersonagensPorDataCriacao() {
+  var instrucaoSql = `SELECT COUNT(idPersonagem) as Quantidade_Personagens , DATE(dataCriacao) AS Data_Criacao FROM personagem GROUP BY Data_Criacao;`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
@@ -37,5 +37,5 @@ function buscarTodosPersonagens() {
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
-  buscarTodosPersonagens,
+  buscarTodosPersonagensPorDataCriacao,
 };

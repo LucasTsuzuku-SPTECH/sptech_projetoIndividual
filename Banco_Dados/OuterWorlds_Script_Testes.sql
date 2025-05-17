@@ -72,7 +72,8 @@ SELECT personagem.nome, habilidade.* FROM personagem
 INNER JOIN personagem_has_habilidade ON fkPersonagem = idPersonagem
 INNER JOIN habilidade ON fkHabilidade = idHabilidade;
 
-
+-- buscar personagem por data de criação
+SELECT COUNT(idPersonagem) as Quantidade_Personagens , DATE(dataCriacao) AS novaData FROM personagem GROUP BY novaData;
 /*
 
 

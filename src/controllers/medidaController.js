@@ -50,7 +50,7 @@ function buscarMedidasEmTempoReal(req, res) {
     });
 }
 
-function buscarTodosPersonagens(req, res) {
+function buscarTodosPersonagensPorDataCriacao(req, res) {
   //const limite_linhas = 7;
 
   var idAquario = req.params.idAquario;
@@ -58,7 +58,7 @@ function buscarTodosPersonagens(req, res) {
   console.log(`Recuperando as ultimas  medidas`);
 
   medidaModel
-    .buscarTodosPersonagens()
+    .buscarTodosPersonagensPorDataCriacao()
     .then(function (resultado) {
       if (resultado.length > 0) {
         res.status(200).json(resultado);
@@ -79,5 +79,5 @@ function buscarTodosPersonagens(req, res) {
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
-  buscarTodosPersonagens,
+  buscarTodosPersonagensPorDataCriacao,
 };

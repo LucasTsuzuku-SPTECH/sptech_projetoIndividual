@@ -618,14 +618,14 @@
     });
   }
 
-  /* OBTER dados gráfico de linha */
+  /* OBTER dados gráfico de linha de todos os personagens */
 
   function obterDadosGraficoLinha() {
     if (proximaAtualizacao != undefined) {
       clearTimeout(proximaAtualizacao);
     }
 
-    fetch(`/medidas/todosPersonagens`, { cache: "no-store" })
+    fetch(`/medidas/todosPersonagensPorDataCriacao`, { cache: "no-store" })
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
@@ -644,6 +644,8 @@
         );
       });
   }
+
+  /* CRIACÃO dados gráfico de linha de todos os personagens*/
 
   function plotarGraficoGraficoLinhaTodosPersonagens(resposta) {
     console.log("iniciando plotagem do gráfico...");
@@ -672,10 +674,11 @@
     console.log(resposta);
 
     // Inserindo valores recebidos em estrutura para plotar o gráfico
+    // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
     for (i = 0; i < resposta.length; i++) {
       var registro = resposta[i];
-      labels.push(registro.dataCriacao);
-      dados.datasets[0].data.push(1);
+      labels.push(registro.Data_Criacao);
+      dados.datasets[0].data.push(registro.Quantidade_Personagens);
     }
 
     console.log("----------------------------------------------");
@@ -696,5 +699,32 @@
     let myChart = new Chart(document.getElementById(`linha`), config);
 
     //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+  }
+
+  /* OBTER dados gráfico de barra de todos os atributos de cada personagem */
+
+  function obterDadosGraficoBarra() {
+    if (proximaAtualizacao != undefined) {
+      clearTimeout(proximaAtualizacao);
+    }
+
+    fetch(`/medidas/todasHabilidadesTodosPersonagens`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            plotarGraficoGraficoLinhaTodosPersonagens(resposta);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
   }
 </script>
