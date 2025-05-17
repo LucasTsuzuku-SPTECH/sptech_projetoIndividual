@@ -20,15 +20,16 @@ function autenticar(req, res) {
           console.log(resultadoAutenticar);
 
           aquarioModel
-            .buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-            .then((resultadoAquarios) => {
-              if (resultadoAquarios.length > 0) {
+            .buscarAquariosPorEmpresa(resultadoAutenticar[0].idUsuario)
+            .then((resultadoPersonagens) => {
+              if (resultadoPersonagens.length > 0) {
                 res.json({
-                  id: resultadoAutenticar[0].id,
+                  id: resultadoAutenticar[0].idUsuario,
                   email: resultadoAutenticar[0].email,
                   nome: resultadoAutenticar[0].nome,
-                  senha: resultadoAutenticar[0].senha,
-                  aquarios: resultadoAquarios,
+                  telefone: resultadoAutenticar[0].telefone,
+                  pais: resultadoAutenticar[0].pais,
+                  aquarios: resultadoPersonagens,
                 });
               } else {
                 res.status(204).json({ aquarios: [] });
