@@ -12,7 +12,7 @@
     <title>AquaTech | Dashboards</title>
 
     <link rel="stylesheet" href="./../css/dashboards.css" />
-    <link rel="stylesheet" href="./../css/estilo.css" />
+    <link rel="stylesheet" href="./../css/estiloAquatech.css" />
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -34,7 +34,7 @@
 
   <!-- <body onload=" atualizarFeed()"> -->
 
-  <body>
+  <body onload="obterDados()">
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -63,14 +63,56 @@
           <h3>Sair</h3>
         </div>
       </div>
-
       <div class="dash">
+        <h3 style="color: #feac19">Estatística geral</h3>
         <div id="alerta"></div>
 
-        <div class="btns-dash" id="btnAquario">
-          <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+        <!-- <div class="btns-dash" id="btnAquario"> -->
+        <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
+        <!-- </div> -->
+        <div id="graficos">
+          <div id="graficos_linha">
+            <!-- Elemento canvas onde o gráfico de linha será desenhado -->
+            <canvas id="linha"></canvas>
+          </div>
+          <div id="graficos_colunas_blocos">
+            <!-- Elemento canvas onde o gráfico de barra será desenhado -->
+            <div id="graficos_barra">
+              <canvas id="barra"></canvas>
+            </div>
+
+            <div class="conjuntoBlocos">
+              <div id="bloco">
+                <span>Dias monitorados</span>
+                <span>15</span>
+              </div>
+              <div id="bloco">
+                <span>Dias monitorados</span>
+                <span>15</span>
+              </div>
+              <div id="bloco">
+                <span>Dias monitorados</span>
+                <span>15</span>
+              </div>
+              <div id="bloco">
+                <span>Dias monitorados</span>
+                <span>15</span>
+              </div>
+            </div>
+          </div>
+          <div class="graficos_donut">
+            <!-- Elemento canvas onde o gráfico de barra será desenhado -->
+            <div class="donuts_individuais">
+              <canvas id="donut"></canvas>
+            </div>
+            <div class="donuts_individuais">
+              <canvas id="donut2"></canvas>
+            </div>
+            <div class="donuts_individuais">
+              <canvas id="donut3"></canvas>
+            </div>
+          </div>
         </div>
-        <div id="graficos"></div>
       </div>
     </div>
   </body>
@@ -338,5 +380,240 @@
           `Erro na obtenção dos dados p/ gráfico: ${error.message}`
         );
       });
+  }
+
+  /* SCRIPT DADOS GRAFICO ESTATICO */
+
+  function obterDados() {
+    // Aqui seria a função que obteria os dados do banco de dados
+    // No caso, aqui você colocaria o fetch que teria o endereço da sua rota que você criou na pasta /routes e chamaria a função plotarGraficoLinha nessa função. Exemplo:
+
+    // fetch('/obterDados')
+    // .then(function(response){
+    //   return response.json();
+    // })
+    // .then(function(data){
+    //   plotarGraficoLinha(data);
+    //   plotarGraficoBarra(data);
+    // })
+    // .catch(function(err){
+    //   console.log(err);
+    // })
+
+    // Como eu não configurei as rotas, eu criei um array com os dados para simular a obtenção dos dados
+    var dados = [
+      {
+        jogador: "01/01/2025",
+        votos: 10,
+      },
+      {
+        jogador: "02/01/2025",
+        votos: 5,
+      },
+      {
+        jogador: "03/01/2025",
+        votos: 15,
+      },
+      {
+        jogador: "04/01/2025",
+        votos: 20,
+      },
+      {
+        jogador: "05/01/2025",
+        votos: 25,
+      },
+      {
+        jogador: "06/01/2025",
+        votos: 30,
+      },
+    ];
+
+    // Chamando a função para plotar o gráfico de linha com os dados
+    plotarGraficoLinha(dados);
+    // Chamando a função para plotar o gráfico de barra com os dados
+    plotarGraficoBarra(dados);
+    // Chamando a função para plotar o gráfico de donuts com os dados
+    plotarGraficoDonut(dados);
+    plotarGraficoDonut2(dados);
+    plotarGraficoDonut3(dados);
+  }
+
+  // Função para plotar o gráfico de linha
+  function plotarGraficoLinha(dados) {
+    // Separando os rótulos (labels) e os dados dos votos
+    var votos = [];
+    var jogadores = [];
+
+    // Preenchendo os arrays com os dados
+    for (var i = 0; i < dados.length; i++) {
+      votos.push(dados[i].votos);
+      jogadores.push(dados[i].jogador);
+    }
+
+    // Capturando o elemento canvas pelo id
+    var ctx = document.getElementById("linha").getContext("2d");
+    // Criando o gráfico de linha usando o Chart.js
+    var myChart = new Chart(ctx, {
+      type: "line", // Tipo de gráfico: linha
+      data: {
+        // Dados para o gráfico
+        labels: jogadores, // Rótulos no eixo X
+        datasets: [
+          {
+            label: "Votos", // Nome do conjunto de dados
+            data: votos, // Dados dos votos
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)", // Cor de fundo das linhas
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)", // Cor da borda das linhas
+            ],
+            borderWidth: 1, // Largura da borda das linhas
+          },
+        ],
+      },
+    });
+  }
+
+  // Função para plotar o gráfico de barra
+  function plotarGraficoBarra(dados) {
+    var votos = [];
+    var jogadores = [];
+
+    // Preenchendo os arrays com os dados
+    for (var i = 0; i < dados.length; i++) {
+      votos.push(dados[i].votos);
+      jogadores.push(dados[i].jogador);
+    }
+
+    // Capturando o elemento canvas pelo id
+    var ctx = document.getElementById("barra").getContext("2d");
+    // Criando o gráfico de barra usando o Chart.js
+    var myChart = new Chart(ctx, {
+      type: "bar", // Tipo de gráfico: barra
+      data: {
+        // Dados para o gráfico
+        labels: jogadores, // Rótulos no eixo X
+        datasets: [
+          {
+            label: "Votos", // Nome do conjunto de dados
+            data: votos, // Dados dos votos
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)", // Cor de fundo das barras
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)", // Cor da borda das barras
+            ],
+            borderWidth: 1, // Largura da borda das barras
+          },
+        ],
+      },
+    });
+  }
+
+  // Função para plotar o gráfico de donut
+  function plotarGraficoDonut(dados) {
+    var votos = [];
+    var jogadores = [];
+
+    // Preenchendo os arrays com os dados
+    for (var i = 0; i < dados.length; i++) {
+      votos.push(dados[i].votos);
+      jogadores.push(dados[i].jogador);
+    }
+
+    // Capturando o elemento canvas pelo id
+    var ctx = document.getElementById("donut").getContext("2d");
+    // Criando o gráfico de barra usando o Chart.js
+    var myChart = new Chart(ctx, {
+      type: "doughnut", // Tipo de gráfico: barra
+      data: {
+        // Dados para o gráfico
+        labels: jogadores, // Rótulos no eixo X
+        datasets: [
+          {
+            label: "Votos", // Nome do conjunto de dados
+            data: votos, // Dados dos votos
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)", // Cor de fundo das barras
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)", // Cor da borda das barras
+            ],
+            borderWidth: 1, // Largura da borda das barras
+          },
+        ],
+      },
+    });
+  }
+  // Função para plotar o gráfico de donut
+  function plotarGraficoDonut2(dados) {
+    var votos = [];
+    var jogadores = [];
+
+    // Preenchendo os arrays com os dados
+    for (var i = 0; i < dados.length; i++) {
+      votos.push(dados[i].votos);
+      jogadores.push(dados[i].jogador);
+    }
+
+    // Capturando o elemento canvas pelo id
+    var ctx = document.getElementById("donut2").getContext("2d");
+    // Criando o gráfico de barra usando o Chart.js
+    var myChart = new Chart(ctx, {
+      type: "doughnut", // Tipo de gráfico: barra
+      data: {
+        // Dados para o gráfico
+        labels: jogadores, // Rótulos no eixo X
+        datasets: [
+          {
+            label: "Votos", // Nome do conjunto de dados
+            data: votos, // Dados dos votos
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)", // Cor de fundo das barras
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)", // Cor da borda das barras
+            ],
+            borderWidth: 1, // Largura da borda das barras
+          },
+        ],
+      },
+    });
+  }
+  // Função para plotar o gráfico de donut
+  function plotarGraficoDonut3(dados) {
+    var votos = [];
+    var jogadores = [];
+
+    // Preenchendo os arrays com os dados
+    for (var i = 0; i < dados.length; i++) {
+      votos.push(dados[i].votos);
+      jogadores.push(dados[i].jogador);
+    }
+
+    // Capturando o elemento canvas pelo id
+    var ctx = document.getElementById("donut3").getContext("2d");
+    // Criando o gráfico de barra usando o Chart.js
+    var myChart = new Chart(ctx, {
+      type: "doughnut", // Tipo de gráfico: barra
+      data: {
+        // Dados para o gráfico
+        labels: jogadores, // Rótulos no eixo X
+        datasets: [
+          {
+            label: "Votos", // Nome do conjunto de dados
+            data: votos, // Dados dos votos
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)", // Cor de fundo das barras
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)", // Cor da borda das barras
+            ],
+            borderWidth: 1, // Largura da borda das barras
+          },
+        ],
+      },
+    });
   }
 </script>
