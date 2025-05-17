@@ -15,7 +15,7 @@ router.get("/todosPersonagensPorDataCriacao", function (req, res) {
   medidaController.buscarTodosPersonagensPorDataCriacao(req, res);
 });
 
-router.get("/todasHabilidadeTodosPersonagens", function (req, res) {
+router.get("/todasHabilidadesTodosPersonagens", function (req, res) {
   medidaController.buscarTodasHabilidadeTodosPersonagens(req, res);
 });
 

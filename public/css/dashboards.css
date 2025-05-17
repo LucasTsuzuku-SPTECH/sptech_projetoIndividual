@@ -460,14 +460,14 @@ canvas {
 }
 
 #graficos_barra {
-  width: 65%;
+  width: 100%;
 }
 
 .conjuntoBlocos {
   display: flex;
   justify-content: space-between;
 
-  width: 300px;
+  width: 100%;
   flex-wrap: wrap;
 }
 

@@ -35,7 +35,7 @@
   <!-- <body onload=" atualizarFeed()"> -->
 
   <!-- <body onload="obterDados()"> -->
-  <body onload="obterDadosGraficoLinha()">
+  <body onload="obterDadosGraficoLinha(), obterDadosGraficoBarra()">
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -81,24 +81,23 @@
             <div id="graficos_barra">
               <canvas id="barra"></canvas>
             </div>
-
-            <div class="conjuntoBlocos">
-              <div id="bloco">
-                <span>Dias monitorados</span>
-                <span>15</span>
-              </div>
-              <div id="bloco">
-                <span>Dias monitorados</span>
-                <span>15</span>
-              </div>
-              <div id="bloco">
-                <span>Dias monitorados</span>
-                <span>15</span>
-              </div>
-              <div id="bloco">
-                <span>Dias monitorados</span>
-                <span>15</span>
-              </div>
+          </div>
+          <div class="conjuntoBlocos">
+            <div id="bloco">
+              <span>Dias monitorados</span>
+              <span>15</span>
+            </div>
+            <div id="bloco">
+              <span>Dias monitorados</span>
+              <span>15</span>
+            </div>
+            <div id="bloco">
+              <span>Dias monitorados</span>
+              <span>15</span>
+            </div>
+            <div id="bloco">
+              <span>Dias monitorados</span>
+              <span>15</span>
             </div>
           </div>
           <div class="graficos_donut">
@@ -715,7 +714,7 @@
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
 
-            plotarGraficoGraficoLinhaTodosPersonagens(resposta);
+            plotarGraficoTodasHabilidadesTodosPersonagens(resposta);
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na API");
@@ -726,5 +725,99 @@
           `Erro na obtenção dos dados p/ gráfico: ${error.message}`
         );
       });
+  }
+
+  function plotarGraficoTodasHabilidadesTodosPersonagens(resposta) {
+    console.log("iniciando plotagem do gráfico...");
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Habilidades",
+          data: [],
+          fill: false,
+          backgroundColor: [
+            "rgb(75, 192, 192)", // Cor de fundo das barras
+          ],
+          borderColor: "rgb(75, 192, 192)",
+          tension: 0.1,
+        },
+      ],
+    };
+
+    console.log("----------------------------------------------");
+    console.log(
+      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+    );
+    console.log(resposta);
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
+    var registro = resposta[0];
+    labels.push(
+      "Soma_1mao",
+      "Soma_2mao",
+      "Soma_pistolas",
+      "Soma_armasLongas",
+      "Soma_armasPesadas",
+      "Soma_evasao",
+      "Soma_bloqueio",
+      "Soma_persuasao",
+      "Soma_mentira",
+      "Soma_intimidacao",
+      "Soma_esgueira",
+      "Soma_hacking",
+      "Soma_gazua",
+      "Soma_medicina",
+      "Soma_ciencia",
+      "Soma_engenharia",
+      "Soma_inspiracao",
+      "Soma_determinacao"
+    );
+
+    dados.datasets[0].data.push(
+      registro.Soma_1mao,
+      registro.Soma_2mao,
+      registro.Soma_pistolas,
+      registro.Soma_armasLongas,
+      registro.Soma_armasPesadas,
+      registro.Soma_evasao,
+      registro.Soma_bloqueio,
+      registro.Soma_persuasao,
+      registro.Soma_mentira,
+      registro.Soma_intimidacao,
+      registro.Soma_esgueira,
+      registro.Soma_hacking,
+      registro.Soma_gazua,
+      registro.Soma_medicina,
+      registro.Soma_ciencia,
+      registro.Soma_engenharia,
+      registro.Soma_inspiracao,
+      registro.Soma_determinacao
+    );
+
+    console.log("----------------------------------------------");
+    console.log("O gráfico será plotado com os respectivos valores:");
+    console.log("Labels:");
+    console.log(labels);
+    console.log("Dados:");
+    console.log(dados.datasets);
+    console.log("----------------------------------------------");
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: "bar",
+      data: dados,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(document.getElementById(`barra`), config);
+
+    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
   }
 </script>
