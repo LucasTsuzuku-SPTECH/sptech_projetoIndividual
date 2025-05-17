@@ -74,6 +74,33 @@ INNER JOIN habilidade ON fkHabilidade = idHabilidade;
 
 -- buscar personagem por data de criação
 SELECT COUNT(idPersonagem) as Quantidade_Personagens , DATE(dataCriacao) AS novaData FROM personagem GROUP BY novaData;
+
+-- agrupar as pontuações das habilidades para descobrir qual é a mais escolhida pelas pessoas
+SELECT * FROM habilidade;
+SELECT 
+SUM(1mao) as Soma_1mao,
+SUM(2mao) as Soma_2mao,
+SUM(pistolas) as Soma_pistolas,
+SUM(armasLongas) as Soma_armasLongas,
+SUM(armasPesadas) as Soma_armasPesadas,
+SUM(evasao) as Soma_evasao,
+SUM(bloqueio) as Soma_bloqueio,
+SUM(persuasao) as Soma_persuasao,
+SUM(mentira) as Soma_mentira,
+SUM(intimidacao) as Soma_intimidacao,
+SUM(esgueira) as Soma_esgueira,
+SUM(hacking) as Soma_hacking,
+SUM(gazua) as Soma_gazua,
+SUM(medicina) as Soma_medicina,
+SUM(ciencia) as Soma_ciencia,
+SUM(engenharia) as Soma_engenharia,
+SUM(inspiracao) as Soma_inspiracao,
+SUM(determinacao) as Soma_determinacao
+FROM habilidade;
+
+/*Temho que ver uma maneira de trasformar as linhas em colunas para ser mais dinâmico*/
+
+
 /*
 
 
