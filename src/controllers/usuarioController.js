@@ -29,7 +29,7 @@ function autenticar(req, res) {
                   nome: resultadoAutenticar[0].nome,
                   telefone: resultadoAutenticar[0].telefone,
                   pais: resultadoAutenticar[0].pais,
-                  aquarios: resultadoPersonagens,
+                  personagens: resultadoPersonagens,
                 });
               } else {
                 res.status(204).json({ aquarios: [] });
