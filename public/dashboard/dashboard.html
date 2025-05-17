@@ -124,7 +124,7 @@
 
   let proximaAtualizacao;
 
-  window.onload = exibirAquariosDoUsuario();
+  //window.onload = exibirAquariosDoUsuario();
 
   function exibirAquariosDoUsuario() {
     var aquarios = JSON.parse(sessionStorage.AQUARIOS);
@@ -674,8 +674,8 @@
     // Inserindo valores recebidos em estrutura para plotar o gráfico
     for (i = 0; i < resposta.length; i++) {
       var registro = resposta[i];
-      labels.push(registro.momento_grafico);
-      dados.datasets[0].data.push(registro.umidade);
+      labels.push(registro.dataCriacao);
+      dados.datasets[0].data.push(1);
     }
 
     console.log("----------------------------------------------");
@@ -693,11 +693,8 @@
     };
 
     // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(
-      document.getElementById(`myChartCanvas${idAquario}`),
-      config
-    );
+    let myChart = new Chart(document.getElementById(`linha`), config);
 
-    setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
   }
 </script>
