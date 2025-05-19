@@ -88,27 +88,30 @@
               <span>15</span>
             </div>
             <div id="bloco">
-              <span>Dias monitorados</span>
+              <span>Quantidade Personagens</span>
               <span>15</span>
             </div>
             <div id="bloco">
-              <span>Dias monitorados</span>
+              <span>Token mais escolhido</span>
               <span>15</span>
             </div>
             <div id="bloco">
-              <span>Dias monitorados</span>
+              <span>Companheiro mais escolhido</span>
               <span>15</span>
             </div>
           </div>
           <div class="graficos_donut">
             <!-- Elemento canvas onde o gráfico de barra será desenhado -->
             <div class="donuts_individuais">
+              <!-- 5 Aptidões mais escolhidas -->
               <canvas id="donut"></canvas>
             </div>
             <div class="donuts_individuais">
+              <!-- 5 Falhas mais escolhidas -->
               <canvas id="donut2"></canvas>
             </div>
             <div class="donuts_individuais">
+              <!-- Atributos com mais pontos -->
               <canvas id="donut3"></canvas>
             </div>
           </div>
@@ -819,5 +822,32 @@
     let myChart = new Chart(document.getElementById(`barra`), config);
 
     //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
+  }
+
+  /* OBTER dados gráfico de Donut de atributos cm mais pontos */
+
+  function obterDadosGraficoDonutAtributos() {
+    if (proximaAtualizacao != undefined) {
+      clearTimeout(proximaAtualizacao);
+    }
+
+    fetch(`/medidas/todosPersonagensPorDataCriacao`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            plotarGraficoGraficoLinhaTodosPersonagens(resposta);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
+      });
   }
 </script>
