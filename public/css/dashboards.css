@@ -507,6 +507,39 @@ canvas {
 }
 
 .dash-right-personagem-container {
-  width: 95%;
+  width: 80%;
   height: 100%;
+}
+
+#painelPersonagem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: #feac19;
+}
+
+.partePainel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid red;
+  width: 45%;
+  margin: 3rem;
+}
+
+#div_atributos {
+  background-color: rgba(0, 0, 0, 0.35);
+  border-radius: 15px;
+  padding: 1rem;
+  margin: 1rem;
+  width: 75%;
+}
+
+.div_atributos__informacao__registro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
