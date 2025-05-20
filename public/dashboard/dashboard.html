@@ -35,7 +35,9 @@
   <!-- <body onload=" atualizarFeed()"> -->
 
   <!-- <body onload="obterDados()"> -->
-  <body onload="obterDadosGraficoLinha(), obterDadosGraficoBarra()">
+  <body
+    onload="obterDadosGraficoLinha(), obterDadosGraficoBarra(), obterDadosGraficoDonutAtributos()"
+  >
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -824,21 +826,21 @@
     //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
   }
 
-  /* OBTER dados gráfico de Donut de atributos cm mais pontos */
+  /* OBTER dados gráfico de Donut de atributos com mais pontos */
 
   function obterDadosGraficoDonutAtributos() {
     if (proximaAtualizacao != undefined) {
       clearTimeout(proximaAtualizacao);
     }
 
-    fetch(`/medidas/todosPersonagensPorDataCriacao`, { cache: "no-store" })
+    fetch(`/medidas/todosAtributosTodosPersonagens`, { cache: "no-store" })
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
 
-            plotarGraficoGraficoLinhaTodosPersonagens(resposta);
+            plotarGraficoDonutTodosAtributos(resposta);
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na API");
@@ -849,5 +851,83 @@
           `Erro na obtenção dos dados p/ gráfico: ${error.message}`
         );
       });
+  }
+
+  function plotarGraficoDonutTodosAtributos(resposta) {
+    console.log("iniciando plotagem do gráfico...");
+
+    // Criando estrutura para plotar gráfico - labels
+    let labels = [];
+
+    // Criando estrutura para plotar gráfico - dados
+    let dados = {
+      labels: labels,
+      datasets: [
+        {
+          label: "Atributos",
+          data: [],
+          fill: false,
+          backgroundColor: [
+            "rgb(16, 0, 43)", // Cor de fundo das partes
+            "rgb(36, 0, 70)", // Cor de fundo das partes
+            "rgb(60, 9, 108)", // Cor de fundo das partes
+            "rgb(123, 44, 191)", // Cor de fundo das partes
+            "rgb(157, 78, 221)", // Cor de fundo das partes
+            "rgb(199, 125, 255)", // Cor de fundo das partes
+          ],
+          borderColor: "#120a04",
+          borderWidth: 7,
+          cutout: 130,
+          borderRadius: 50,
+          tension: 0.1,
+        },
+      ],
+    };
+
+    console.log("----------------------------------------------");
+    console.log(
+      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
+    );
+    console.log(resposta);
+
+    // Inserindo valores recebidos em estrutura para plotar o gráfico
+    // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
+    var registro = resposta[0];
+    labels.push(
+      "Soma_forca",
+      "Soma_destreza",
+      "Soma_inteligencia",
+      "Soma_percepcao",
+      "Soma_charme",
+      "Soma_temperamento"
+    );
+
+    dados.datasets[0].data.push(
+      registro.Soma_forca,
+      registro.Soma_destreza,
+      registro.Soma_inteligencia,
+      registro.Soma_percepcao,
+      registro.Soma_charme,
+      registro.Soma_temperamento
+    );
+
+    console.log("----------------------------------------------");
+    console.log("O gráfico será plotado com os respectivos valores:");
+    console.log("Labels:");
+    console.log(labels);
+    console.log("Dados:");
+    console.log(dados.datasets);
+    console.log("----------------------------------------------");
+
+    // Criando estrutura para plotar gráfico - config
+    const config = {
+      type: "doughnut",
+      data: dados,
+    };
+
+    // Adicionando gráfico criado em div na tela
+    let myChart = new Chart(document.getElementById(`donut`), config);
+
+    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
   }
 </script>

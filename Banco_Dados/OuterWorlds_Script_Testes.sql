@@ -100,7 +100,16 @@ FROM habilidade;
 
 /*Temho que ver uma maneira de trasformar as linhas em colunas para ser mais dinâmico*/
 
-
+--  Selecionar atributos de todos os personagens
+SELECT * FROM atributo;
+SELECT 
+SUM(forca) as Soma_forca,
+SUM(destreza) as Soma_destreza,
+SUM(inteligencia) as Soma_inteligencia,
+SUM(percepcao) as Soma_percepcao,
+SUM(charme) as Soma_charme,
+SUM(temperamento) as Soma_temperamento
+FROM habilidade;
 /*
 
 

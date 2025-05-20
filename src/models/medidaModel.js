@@ -62,9 +62,26 @@ FROM habilidade
   return database.executar(instrucaoSql);
 }
 
+function buscarTodosAtributosTodosPersonagens() {
+  var instrucaoSql = `
+  SELECT 
+SUM(forca) as Soma_forca,
+SUM(destreza) as Soma_destreza,
+SUM(inteligencia) as Soma_inteligencia,
+SUM(percepcao) as Soma_percepcao,
+SUM(charme) as Soma_charme,
+SUM(temperamento) as Soma_temperamento
+FROM atributo
+  `;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
   buscarTodosPersonagensPorDataCriacao,
   buscarTodasHabilidadeTodosPersonagens,
+  buscarTodosAtributosTodosPersonagens,
 };
