@@ -62,17 +62,6 @@
         <div id="alerta"></div>
         <div class="area-parametros-alerta"></div>
         <div class="cards" id="cardPersonagens">
-
-          <div class="card-aquario" onclick="paginaPersonagem()">
-            <div class="title-aquario">
-                <h1>Teste</h1>
-            </div>
-            <li>
-              <ul>Data de Criação: ${item.dataCriacao}</ul>
-              <ul>Acertos teste: ${item.acertosTeste}</ul>
-            </li>
-
-        </div>
       </div>
     </div>
   </body>
@@ -81,7 +70,7 @@
     function exibirPersonagens() {
       JSON.parse(sessionStorage.PERSONAGENS).forEach((item) => {
         document.getElementById("cardPersonagens").innerHTML += `
-                    <div class="card-aquario" onclick="paginaPersonagem()">
+                    <div class="card-aquario" onclick="paginaPersonagem(${item.idPersonagem})">
                     <div class="title-aquario">
                         <h1>${item.nome}</h1>
                     </div>
@@ -93,7 +82,8 @@
       });
     }
 
-    function paginaPersonagem(){
+    function paginaPersonagem(idPersonagem){
+      sessionStorage.PERSONAGEM_SELECIONADO = idPersonagem;
       window.location = "./personagem.html";
     }
 
