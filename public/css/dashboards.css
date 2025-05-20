@@ -497,3 +497,16 @@ canvas {
 .donuts_individuais {
   width: 35%;
 }
+
+/* Quadro de personagens */
+
+.dash-right-personagem-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dash-right-personagem-container {
+  width: 95%;
+  height: 100%;
+}

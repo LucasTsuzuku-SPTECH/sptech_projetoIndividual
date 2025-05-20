@@ -23,7 +23,7 @@
     />
   </head>
 
-  <body >
+  <body onload="exibirPersonagens(), validarSessao()">
 
   </div>
 
@@ -49,7 +49,7 @@
 
         <div class="btn-nav-white">
           <a href="../criacaoPersonagem.html">
-            <h3>Criar um personagem</h3>
+            <h3>Criar mais um personagem</h3>
           </a>
         </div>
 
@@ -57,38 +57,14 @@
           <h3>Sair</h3>
         </div>
       </div>
-
       <div class="dash">
-        <div id="alerta"></div>
-        <div class="area-parametros-alerta"></div>
-        <div class="cards" id="cardPersonagens">
-
-          
-
-        </div>
+        <!-- <div id="alerta"></div> -->
+        <!-- <div class="area-parametros-alerta"></div> -->
+        <div class="dash-right-personagem-container" ></div>
       </div>
     </div>
   </body>
 
   <script>
-    function exibirPersonagens() {
-      JSON.parse(sessionStorage.PERSONAGENS).forEach((item) => {
-        document.getElementById("cardPersonagens").innerHTML += `
-                    <div class="card-aquario" onclick="paginaPersonagem()">
-                    <div class="title-aquario">
-                        <h1>${item.nome}</h1>
-                    </div>
-                    <li>
-                      <ul>Data de Criação: ${item.dataCriacao}</ul>
-                      <ul>Acertos teste: ${item.acertosTeste}</ul>
-                    </li>
-                    `;
-      });
-    }
-
-    function paginaPersonagem(){
-      window.location = "./personagem.html";
-    }
-
   </script>
 </html>
