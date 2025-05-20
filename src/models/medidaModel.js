@@ -28,7 +28,7 @@ function buscarMedidasEmTempoReal(idAquario) {
 }
 
 function buscarTodosPersonagensPorDataCriacao() {
-  var instrucaoSql = `SELECT COUNT(idPersonagem) as Quantidade_Personagens , DATE(dataCriacao) AS Data_Criacao FROM personagem GROUP BY Data_Criacao;`;
+  var instrucaoSql = `SELECT COUNT(idPersonagem) as Quantidade_Personagens , DATE_FORMAT(dataCriacao, "%Y-%m-%d") AS Data_Criacao FROM personagem GROUP BY Data_Criacao`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
@@ -87,6 +87,15 @@ function buscarTodasFalhasTodosPersonagens() {
   return database.executar(instrucaoSql);
 }
 
+function buscarTodasAptidaoTodosPersonagens() {
+  var instrucaoSql = `
+  SELECT aptidao, COUNT(aptidao) as Contagem_aptidao from personagem GROUP BY aptidao ORDER BY Contagem_aptidao DESC LIMIT 6
+  `;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
@@ -94,4 +103,5 @@ module.exports = {
   buscarTodasHabilidadeTodosPersonagens,
   buscarTodosAtributosTodosPersonagens,
   buscarTodasFalhasTodosPersonagens,
+  buscarTodasAptidaoTodosPersonagens,
 };

@@ -115,7 +115,12 @@ FROM atributo;
 
 SELECT * FROM personagem;
 
-SELECT falha, COUNT(falha) as Contagem_falhas from personagem GROUP BY falha ORDER BY Contagem_falhas DESC LIMIT 5 ;
+SELECT falha, COUNT(falha) as Contagem_falhas from personagem GROUP BY falha ORDER BY Contagem_falhas DESC LIMIT 6 ;
+
+--  Selecionar aptidoes de todos os personagens e contar
+
+SELECT * FROM personagem;
+SELECT aptidao, COUNT(aptidao) as Contagem_aptidao from personagem GROUP BY aptidao ORDER BY Contagem_aptidao DESC LIMIT 6 ;
 
 /*
 INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 
