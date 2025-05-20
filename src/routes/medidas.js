@@ -23,4 +23,8 @@ router.get("/todosAtributosTodosPersonagens", function (req, res) {
   medidaController.buscarTodosAtributosTodosPersonagens(req, res);
 });
 
+router.get("/todasFalhasTodosPersonagens", function (req, res) {
+  medidaController.buscarTodasFalhasTodosPersonagens(req, res);
+});
+
 module.exports = router;

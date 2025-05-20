@@ -15,12 +15,12 @@ INSERT INTO usuario (nome,email,telefone,pais,senha) VALUES
 
 INSERT INTO personagem (nome,sexo,aptidao,falha,dataCriacao,fkUsuario,token1,token2, acertosTeste, companheiro1, companheiro2) VALUES 
 ('Mark Anthony', 1, 'nenhuma aptidao discernivel','acrofobia','2025-05-07 11:10:59', 1, 'assassino', 'labias de vendedor', 3, 'ellie', 'nyoka'),
-('Nicole Dash', 1, 'Burocrata, rank 0','robofobia','2025-05-07 10:10:59', 1, 'labias de vendedor', 'vingança', 2, 'parvati', 'max'),
-('Jake Hony', 1, 'Técnico de Serviço de Bebidas','gastador compulsivo','2025-05-07 09:10:59', 2, 'soliquo', 'vingança', 1, 'felix', 'sam'),
-('Nick Back', 1, 'Caixa, Sub-Nível, Não Supervisionador','hipermetropia','2025-05-07 08:10:59', 3, 'labias de vendedor', 'soliquo', 3, 'felix', 'nyoka'),
-('João Rubio', 1, 'Eletricista, parte de cabeamento','acrofobia','2025-05-07 07:10:59', 4, 'demonstracao fatal', 'vingança', 0, 'sam', 'parvati'),
-('Jeremias Carros', 1, 'Fazendeiro','gastador compulsivo','2025-05-07 06:10:59', 5, 'soliquo', 'vingança', 1, 'ellie', 'parvati'),
-('John Ken', 1, 'Sub Sous Chef','robôfobia','2025-05-06 11:10:59', 5, 'assassino', 'labias de vendedor', 2, 'ellie', 'max');
+('Nicole Dash', 1, 'Burocrata, rank 0','robofobia','2025-05-08 10:10:59', 1, 'labias de vendedor', 'vingança', 2, 'parvati', 'max'),
+('Jake Hony', 1, 'Técnico de Serviço de Bebidas','gastador compulsivo','2025-05-09 09:10:59', 2, 'soliquo', 'vingança', 1, 'felix', 'sam'),
+('Nick Back', 1, 'Caixa, Sub-Nível, Não Supervisionador','hipermetropia','2025-05-10 08:10:59', 3, 'labias de vendedor', 'soliquo', 3, 'felix', 'nyoka'),
+('João Rubio', 1, 'Eletricista, parte de cabeamento','cinofobia','2025-05-10 07:10:59', 4, 'demonstracao fatal', 'vingança', 0, 'sam', 'parvati'),
+('Jeremias Carros', 1, 'Fazendeiro','gastador compulsivo','2025-05-10 06:10:59', 5, 'soliquo', 'vingança', 1, 'ellie', 'parvati'),
+('John Ken', 1, 'Sub Sous Chef','robôfobia','2025-05-11 11:10:59', 5, 'assassino', 'labias de vendedor', 2, 'ellie', 'max');
 
 INSERT INTO atributo (forca, destreza, inteligencia, percepcao, charme, temperamento, fkPersonagem) VALUES 
 (-1,3,3,3,3,1,100),
@@ -33,13 +33,13 @@ INSERT INTO atributo (forca, destreza, inteligencia, percepcao, charme, temperam
 
 INSERT INTO habilidade (1mao, 2mao, pistolas, armasLongas, armasPesadas, evasao, bloqueio, persuasao, mentira, intimidacao, esgueira, hacking, gazua, medicina, ciencia, engenharia, inspiracao, determinacao) 
 VALUES 
-(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
-(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
-(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
-(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
-(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
-(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20),
-(20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20,20);
+(20,40,20,56,56,10,23,85,56,.6,20,45,10,56,47,89,96,25),
+(10,20,20,47,20,20,20,58,20,20,20,11,20,20,20,65,20,14),
+(20,20,01,47,20,47,20,20,65,20,20,20,56,20,98,20,45,20),
+(20,47,45,20,12,20,20,20,32,20,56,20,1,20,20,25,20,20),
+(20,10,20,56,20,47,20,20,20,20,20,25,20,65,20,54,20,65),
+(20,20,20,1,20,20,20,25,20,58,10,20,20,36,20,47,20,20),
+(20,20,20,20,58,20,20,85,58,20,74,20,58,20,47,69,20,20);
 
 INSERT INTO personagem_has_habilidade (fkPersonagem, fkHabilidade) VALUES 
 (100,600),
@@ -109,10 +109,15 @@ SUM(inteligencia) as Soma_inteligencia,
 SUM(percepcao) as Soma_percepcao,
 SUM(charme) as Soma_charme,
 SUM(temperamento) as Soma_temperamento
-FROM habilidade;
+FROM atributo;
+
+--  Selecionar falhas de todos os personagens e contar
+
+SELECT * FROM personagem;
+
+SELECT falha, COUNT(falha) as Contagem_falhas from personagem GROUP BY falha ORDER BY Contagem_falhas DESC LIMIT 5 ;
+
 /*
-
-
 INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 
 ('armasBrancas', 1),
 ('longoAlcance', 0),

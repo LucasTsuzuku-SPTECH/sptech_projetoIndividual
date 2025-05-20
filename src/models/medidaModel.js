@@ -78,10 +78,20 @@ FROM atributo
   return database.executar(instrucaoSql);
 }
 
+function buscarTodasFalhasTodosPersonagens() {
+  var instrucaoSql = `
+  SELECT falha, COUNT(falha) as Contagem_falhas from personagem GROUP BY falha ORDER BY Contagem_falhas DESC LIMIT 6
+  `;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
   buscarTodosPersonagensPorDataCriacao,
   buscarTodasHabilidadeTodosPersonagens,
   buscarTodosAtributosTodosPersonagens,
+  buscarTodasFalhasTodosPersonagens,
 };
