@@ -530,7 +530,14 @@ canvas {
   margin: 3rem;
 }
 
-#div_atributos {
+.informacao__registro {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.div_cards {
   background-color: rgba(0, 0, 0, 0.35);
   border-radius: 15px;
   padding: 1rem;
@@ -538,8 +545,6 @@ canvas {
   width: 75%;
 }
 
-.div_atributos__informacao__registro {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+.div_cards span {
+  color: #ffffff;
 }
