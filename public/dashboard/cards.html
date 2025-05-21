@@ -59,13 +59,18 @@
       </div>
 
       <div class="dash">
-        <div class="container"></div>
+        
+          <div id="alerta"></div>
+          <div class="area-parametros-alerta"></div>
+          <div class="cards" id="cardPersonagens"></div>
+        
       </div>
     </div>
   </body>
 
   <script>
     function exibirPersonagens() {
+      console.log("Executando...")
       JSON.parse(sessionStorage.PERSONAGENS).forEach((item) => {
         document.getElementById("cardPersonagens").innerHTML += `
                     <div class="card-aquario" onclick="paginaPersonagem(${item.idPersonagem})">
