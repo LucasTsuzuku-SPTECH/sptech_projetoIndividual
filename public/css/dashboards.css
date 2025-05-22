@@ -540,11 +540,20 @@ canvas {
 .div_cards {
   background-color: rgba(0, 0, 0, 0.35);
   border-radius: 15px;
-  padding: 1rem;
+  padding: 1.5rem;
   margin: 1rem;
-  width: 75%;
+  width: 85%;
 }
 
 .div_cards span {
   color: #ffffff;
+  font-size: 24px;
+}
+
+#div_desempenho {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
 }
