@@ -71,7 +71,7 @@
                 </div>
                 <div id="div_desempenho_texto">
                   <br>
-                  <span>Quantidade de acertos: 3</span>
+                  <span>Quantidade de acertos: <span id="quantidadeAcertos"></span></span>
                   <br>
                   <br>
                   <span>Bonança pode se beneficiar muito com esse funcionário !</span>
@@ -298,7 +298,8 @@
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
             console.log(resposta)   
-            personagemSelecionadoHabilidade = resposta;         
+            personagemSelecionadoHabilidade = resposta;
+            atualizarValores()         
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na API");
@@ -311,5 +312,10 @@
       });
 
   }
+
+  function atualizarValores(){
+    quantidadeAcertos.innerHTML = personagemSelecionado.acertosTeste
+  }
+
 </script>
 

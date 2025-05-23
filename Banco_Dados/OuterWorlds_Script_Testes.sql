@@ -122,6 +122,41 @@ SELECT falha, COUNT(falha) as Contagem_falhas from personagem GROUP BY falha ORD
 SELECT * FROM personagem;
 SELECT aptidao, COUNT(aptidao) as Contagem_aptidao from personagem GROUP BY aptidao ORDER BY Contagem_aptidao DESC LIMIT 6 ;
 
+-- selecionar atributos 1 personagem;
+SELECT * FROM personagem;
+SELECT * FROM atributo;
+SELECT forca, destreza, inteligencia, percepcao, charme, temperamento FROM atributo WHERE fkPersonagem = 100;
+
+-- selecionar habilidades 1 personagem;
+SELECT * FROM personagem;
+SELECT * FROM personagem_has_habilidade;
+SELECT * FROM habilidade;
+
+SELECT fkHabilidade FROM personagem_has_habilidade WHERE fkPersonagem = 100;
+
+SELECT * FROM habilidade WHERE idHabilidade = (SELECT personagem_has_habilidade.fkHabilidade FROM personagem_has_habilidade WHERE fkPersonagem = 100);
+
+
+SELECT 
+1mao, 
+2mao, 
+pistolas,
+armasLongas,
+armasPesadas,
+evasao,
+bloqueio,
+persuasao,
+mentira,
+intimidacao,
+esgueira,
+hacking,
+gazua,
+medicina,
+ciencia,
+engenharia,
+inspiracao,
+determinacao FROM habilidade WHERE idHabilidade = (SELECT personagem_has_habilidade.fkHabilidade FROM personagem_has_habilidade WHERE fkPersonagem = 100);
+
 /*
 INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 
 ('armasBrancas', 1),
