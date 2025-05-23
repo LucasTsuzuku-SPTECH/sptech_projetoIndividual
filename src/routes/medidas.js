@@ -31,4 +31,8 @@ router.get("/todasAptidaoTodosPersonagens", function (req, res) {
   medidaController.buscarTodasAptidaoTodosPersonagens(req, res);
 });
 
+router.get("/todosAtributosPersonagem/:idPersonagem", function (req, res) {
+  medidaController.buscarTodosAtributosPersonagem(req, res);
+});
+
 module.exports = router;

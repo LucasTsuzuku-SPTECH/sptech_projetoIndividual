@@ -96,6 +96,15 @@ function buscarTodasAptidaoTodosPersonagens() {
   return database.executar(instrucaoSql);
 }
 
+function buscarTodosAtributosPersonagem(idPersonagem) {
+  var instrucaoSql = `
+  SELECT forca, destreza, inteligencia, percepcao, charme, temperamento FROM atributo WHERE fkPersonagem = ${idPersonagem}
+  `;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
@@ -104,4 +113,5 @@ module.exports = {
   buscarTodosAtributosTodosPersonagens,
   buscarTodasFalhasTodosPersonagens,
   buscarTodasAptidaoTodosPersonagens,
+  buscarTodosAtributosPersonagem,
 };

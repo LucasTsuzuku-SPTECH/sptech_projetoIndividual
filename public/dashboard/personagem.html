@@ -23,7 +23,7 @@
     />
   </head>
 
-  <body onload="exibirPersonagens(), validarSessao()">
+  <body onload="pegarDadosPersonagemEspecifico()">
 
   </div>
 
@@ -254,7 +254,42 @@
       </div>
     </div>
   </body>
-
-  <script>
-  </script>
 </html>
+<script>
+  var personagemSelecionado;
+  var personagemSelecionadoAtributo;
+  var personagemSelecionadoHabilidade;
+  function pegarDadosPersonagemEspecifico () {
+    var listaPersonagensUsuario = JSON.parse(sessionStorage.PERSONAGENS)
+    var idPersonagemSelecionado = sessionStorage.PERSONAGEM_SELECIONADO
+    console.log(idPersonagemSelecionado)
+    console.log(listaPersonagensUsuario)
+    for(var i = 0; i< listaPersonagensUsuario.length;i++){
+      if(listaPersonagensUsuario[i].idPersonagem == idPersonagemSelecionado) {
+        console.log("Personagem Encontrado")
+        personagemSelecionado = listaPersonagensUsuario[i];
+      }
+    }
+    console.log(personagemSelecionado)
+
+    fetch(`/medidas/todosAtributosPersonagem/${idPersonagemSelecionado}`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+            console.log(resposta)   
+            personagemSelecionadoAtributo = resposta;         
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados: ${error.message}`
+        );
+      });
+  }
+</script>
+
