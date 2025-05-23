@@ -105,6 +105,34 @@ function buscarTodosAtributosPersonagem(idPersonagem) {
   return database.executar(instrucaoSql);
 }
 
+function buscarTodasHabilidadesPersonagem(idPersonagem) {
+  var instrucaoSql = `
+  SELECT 
+  1mao,
+  2mao,
+  pistolas,
+  armasLongas,
+  armasPesadas,
+  evasao,
+  bloqueio,
+  persuasao,
+  mentira,
+  intimidacao,
+  esgueira,
+  hacking,
+  gazua,
+  medicina,
+  ciencia,
+  engenharia,
+  inspiracao,
+  determinacao 
+  FROM habilidade WHERE idHabilidade = (SELECT personagem_has_habilidade.fkHabilidade FROM personagem_has_habilidade WHERE fkPersonagem = ${idPersonagem})
+  `;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
@@ -114,4 +142,5 @@ module.exports = {
   buscarTodasFalhasTodosPersonagens,
   buscarTodasAptidaoTodosPersonagens,
   buscarTodosAtributosPersonagem,
+  buscarTodasHabilidadesPersonagem,
 };
