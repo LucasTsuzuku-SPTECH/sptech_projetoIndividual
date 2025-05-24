@@ -67,7 +67,7 @@
                 <span>Lucas Hideaki Tsuzuku</span>
                 <br>
                 <div id="div_desempenho_imagem">
-                  <img src="../assets/imgs/maleProfile.png" alt="Imagem Homem">
+                  
                 </div>
                 <div id="div_desempenho_texto">
                   <br>
@@ -323,6 +323,19 @@
     } else {
       avaliacaoFuncionario.innerHTML = "Bonança pode se beneficiar muito com esse funcionário !"
     }
+
+    if (personagemSelecionado.sexo == 1) {
+      div_desempenho_imagem.innerHTML = 
+      `
+      <img src="../assets/imgs/maleProfile.png" alt="Imagem Personagem">
+      `
+    } else {
+      div_desempenho_imagem.innerHTML = 
+      `
+      <img src="../assets/imgs/femaleProfile.png" alt="Imagem Personagem">
+      `
+    }
+
     valorForca.innerHTML = personagemSelecionadoAtributo[0].forca
     valorDestreza.innerHTML = personagemSelecionadoAtributo[0].destreza
     valorInteligencia.innerHTML = personagemSelecionadoAtributo[0].inteligencia

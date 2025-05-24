@@ -15,10 +15,10 @@ INSERT INTO usuario (nome,email,telefone,pais,senha) VALUES
 
 INSERT INTO personagem (nome,sexo,aptidao,falha,dataCriacao,fkUsuario,token1,token2, acertosTeste, companheiro1, companheiro2) VALUES 
 ('Mark Anthony', 1, 'nenhuma aptidao discernivel','acrofobia','2025-05-07 11:10:59', 1, 'assassino', 'labias de vendedor', 3, 'ellie', 'nyoka'),
-('Nicole Dash', 1, 'Burocrata, rank 0','robofobia','2025-05-08 10:10:59', 1, 'labias de vendedor', 'vingança', 2, 'parvati', 'max'),
+('Nicole Dash', 0, 'Burocrata, rank 0','robofobia','2025-05-08 10:10:59', 1, 'labias de vendedor', 'vingança', 2, 'parvati', 'max'),
 ('Jake Hony', 1, 'Técnico de Serviço de Bebidas','gastador compulsivo','2025-05-09 09:10:59', 2, 'soliquo', 'vingança', 1, 'felix', 'sam'),
-('Nick Back', 1, 'Caixa, Sub-Nível, Não Supervisionador','hipermetropia','2025-05-10 08:10:59', 3, 'labias de vendedor', 'soliquo', 3, 'felix', 'nyoka'),
-('João Rubio', 1, 'Eletricista, parte de cabeamento','cinofobia','2025-05-10 07:10:59', 4, 'demonstracao fatal', 'vingança', 0, 'sam', 'parvati'),
+('Ana Back', 0, 'Caixa, Sub-Nível, Não Supervisionador','hipermetropia','2025-05-10 08:10:59', 3, 'labias de vendedor', 'soliquo', 3, 'felix', 'nyoka'),
+('Maria Rubio', 0, 'Eletricista, parte de cabeamento','cinofobia','2025-05-10 07:10:59', 4, 'demonstracao fatal', 'vingança', 0, 'sam', 'parvati'),
 ('Jeremias Carros', 1, 'Fazendeiro','gastador compulsivo','2025-05-10 06:10:59', 5, 'soliquo', 'vingança', 1, 'ellie', 'parvati'),
 ('John Ken', 1, 'Sub Sous Chef','robôfobia','2025-05-11 11:10:59', 5, 'assassino', 'labias de vendedor', 2, 'ellie', 'max');
 
