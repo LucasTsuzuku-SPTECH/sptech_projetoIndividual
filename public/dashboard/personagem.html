@@ -150,98 +150,98 @@
                   <div class="informacao__registro">
                     <span>1 Mão</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valor1Mao"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>2 Mãos</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valor2Mao"></span>
                   </div>
                   <h1>LONGO ALCANCE</h1>
                   <div class="informacao__registro">
                     <span>Pistolas</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorPistolas"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Armas Longas</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorArmasLongas"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Armas Pesadas</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorArmasPesadas"></span>
                   </div>
                   <h1>DEFESA</h1>
                   <div class="informacao__registro">
                     <span>Evasão</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorEvasao"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Bloqueio</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorBloqueio"></span>
                   </div>
                   <h1>DIÁLOGO</h1>
                   <div class="informacao__registro">
                     <span>Persuasão</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorPersuasao"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Mentira</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorMentira"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Intimidação</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorIntimidacao"></span>
                   </div>
                   <h1>FURTIVIDADE</h1>
                   <div class="informacao__registro">
                     <span>Esgueira</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorEsgueira"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Hacking</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorHacking"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Gazua</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorGazua"></span>
                   </div>
                   <h1>TECNOLOGIA</h1>
                   <div class="informacao__registro">
                     <span>Medicina</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorMedicina"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Ciência</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorCiencia"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Engenharia</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorEngenharia"></span>
                   </div>
                   <h1>LIDERANÇA</h1>
                   <div class="informacao__registro">
                     <span>Inspiração</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorInspiracao"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Determinação</span>
                     <div id="line"></div>
-                    <span>20</span>
+                    <span id="valorDeterminacao"></span>
                   </div>
                 </div>
               </div>
@@ -355,6 +355,24 @@
     companheiroSelecionado1.innerHTML = personagemSelecionado.companheiro1;
     companheiroSelecionado2.innerHTML = personagemSelecionado.companheiro2;
     
+    valor1Mao.innerHTML = personagemSelecionadoHabilidade[0]["1mao"];
+    valor2Mao.innerHTML = personagemSelecionadoHabilidade[0]["2mao"];
+    valorPistolas.innerHTML = personagemSelecionadoHabilidade[0]["pistolas"];
+    valorArmasLongas.innerHTML = personagemSelecionadoHabilidade[0]["armasLongas"];
+    valorArmasPesadas.innerHTML = personagemSelecionadoHabilidade[0]["armasPesadas"];
+    valorEvasao.innerHTML = personagemSelecionadoHabilidade[0]["evasao"];
+    valorBloqueio.innerHTML = personagemSelecionadoHabilidade[0]["bloqueio"];
+    valorPersuasao.innerHTML = personagemSelecionadoHabilidade[0]["persuasao"];
+    valorMentira.innerHTML = personagemSelecionadoHabilidade[0]["mentira"];
+    valorIntimidacao.innerHTML = personagemSelecionadoHabilidade[0]["intimidacao"];
+    valorEsgueira.innerHTML = personagemSelecionadoHabilidade[0]["esgueira"];
+    valorHacking.innerHTML = personagemSelecionadoHabilidade[0]["hacking"];
+    valorGazua.innerHTML = personagemSelecionadoHabilidade[0]["gazua"];
+    valorMedicina.innerHTML = personagemSelecionadoHabilidade[0]["medicina"];
+    valorCiencia.innerHTML = personagemSelecionadoHabilidade[0]["ciencia"];
+    valorEngenharia.innerHTML = personagemSelecionadoHabilidade[0]["engenharia"];
+    valorInspiracao.innerHTML = personagemSelecionadoHabilidade[0]["inspiracao"];
+    valorDeterminacao.innerHTML = personagemSelecionadoHabilidade[0]["determinacao"];
     
   }
 
