@@ -74,7 +74,7 @@
                   <span>Quantidade de acertos: <span id="quantidadeAcertos"></span></span>
                   <br>
                   <br>
-                  <span>Bonança pode se beneficiar muito com esse funcionário !</span>
+                  <span id="avaliacaoFuncionario">Bonança pode se beneficiar muito com esse funcionário !</span>
                 </div>
               </div>
               <div class="div_cards">
@@ -85,35 +85,35 @@
                   <h1>CORPO</h1>
                   <div class="informacao__registro">
                     <span>Força</span>
-                    <span>Mediano</span>
-                    <span>0</span>
+                    <div id="line"></div>
+                    <span id="valorForca">0</span>
                   </div>
                   <div class="informacao__registro">
                     <span>Destreza</span>
-                    <span>Muito Alto</span>
-                    <span>3</span>
+                    <div id="line"></div>
+                    <span id="valorDestreza">3</span>
                   </div>
                   <h1>MENTE</h1>
                   <div class="informacao__registro">
                     <span>Inteligência</span>
-                    <span>Alto</span>
-                    <span>2</span>
+                    <div id="line"></div>
+                    <span id="valorInteligencia">2</span>
                   </div>
                   <div class="informacao__registro">
                     <span>Percepção</span>
-                    <span>Abaixo da média</span>
-                    <span>-1</span>
+                    <div id="line"></div>
+                    <span id="valorPercepcao">-1</span>
                   </div>
                   <h1>PERSONALIDADE</h1>
                   <div class="informacao__registro">
                     <span>Charme</span>
-                    <span>Bom</span>
-                    <span>1</span>
+                    <div id="line"></div>
+                    <span id="valorCharme">1</span>
                   </div>
                   <div class="informacao__registro">
                     <span>Temperamento</span>
-                    <span>Abaixo da média</span>
-                    <span>-1</span>
+                    <div id="line"></div>
+                    <span id="valorTemperamento">-1</span>
                   </div>
                 </div>
               </div>
@@ -256,6 +256,7 @@
   </body>
 </html>
 <script>
+  b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
   var personagemSelecionado;
   var personagemSelecionadoAtributo;
   var personagemSelecionadoHabilidade;
@@ -315,6 +316,20 @@
 
   function atualizarValores(){
     quantidadeAcertos.innerHTML = personagemSelecionado.acertosTeste
+    if (personagemSelecionado.acertosTeste < 2) {
+      avaliacaoFuncionario.innerHTML = "Que a Lei tenha piedade desse empregado"
+    } else if (personagemSelecionado.acertosTeste < 3) {
+      avaliacaoFuncionario.innerHTML = "Com pouco de empenho, sua chance de sobrevivência é bem razoável !"
+    } else {
+      avaliacaoFuncionario.innerHTML = "Bonança pode se beneficiar muito com esse funcionário !"
+    }
+    valorForca.innerHTML = personagemSelecionadoAtributo[0].forca
+    valorDestreza.innerHTML = personagemSelecionadoAtributo[0].destreza
+    valorInteligencia.innerHTML = personagemSelecionadoAtributo[0].inteligencia
+    valorPercepcao.innerHTML = personagemSelecionadoAtributo[0].percepcao
+    valorCharme.innerHTML = personagemSelecionadoAtributo[0].charme
+    valorTemperamento.innerHTML = personagemSelecionadoAtributo[0].temperamento
+    
   }
 
 </script>
