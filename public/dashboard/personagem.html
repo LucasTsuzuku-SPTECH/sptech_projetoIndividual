@@ -64,7 +64,7 @@
           <div id="painelPersonagem">
             <div class="partePainel" id="painel_1">
               <div class="div_cards" id="div_desempenho">
-                <span>Lucas Hideaki Tsuzuku</span>
+                <span id="nomePersonagem"></span>
                 <br>
                 <div id="div_desempenho_imagem">
                   
@@ -74,7 +74,7 @@
                   <span>Quantidade de acertos: <span id="quantidadeAcertos"></span></span>
                   <br>
                   <br>
-                  <span id="avaliacaoFuncionario">Bonança pode se beneficiar muito com esse funcionário !</span>
+                  <span id="avaliacaoFuncionario"></span>
                 </div>
               </div>
               <div class="div_cards">
@@ -86,56 +86,56 @@
                   <div class="informacao__registro">
                     <span>Força</span>
                     <div id="line"></div>
-                    <span id="valorForca">0</span>
+                    <span id="valorForca"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Destreza</span>
                     <div id="line"></div>
-                    <span id="valorDestreza">3</span>
+                    <span id="valorDestreza"></span>
                   </div>
                   <h1>MENTE</h1>
                   <div class="informacao__registro">
                     <span>Inteligência</span>
                     <div id="line"></div>
-                    <span id="valorInteligencia">2</span>
+                    <span id="valorInteligencia"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Percepção</span>
                     <div id="line"></div>
-                    <span id="valorPercepcao">-1</span>
+                    <span id="valorPercepcao"></span>
                   </div>
                   <h1>PERSONALIDADE</h1>
                   <div class="informacao__registro">
                     <span>Charme</span>
                     <div id="line"></div>
-                    <span id="valorCharme">1</span>
+                    <span id="valorCharme"></span>
                   </div>
                   <div class="informacao__registro">
                     <span>Temperamento</span>
                     <div id="line"></div>
-                    <span id="valorTemperamento">-1</span>
+                    <span id="valorTemperamento"></span>
                   </div>
                 </div>
               </div>
               <div class="div_cards">
                 <div class="informacao">
                   <h1>APTIDÃO</h1>
-                  <div class="informacao__registro">
-                    <span>“Nenhuma Aptidão Discernível”</span>
-                  </div>
+                  
+                    <span id="aptidaoSelecionado"></span>
+                  
                   <h1>FALHAS</h1>
-                  <div class="informacao__registro">
-                    <span>Acrofobia</span>
-                  </div>
+                  
+                    <span id="falhaSelecionado"></span>
+                  
                   <h1>TOKENS</h1>
-                  <span>Assassino</span>
+                  <span id="tokenSelecionado1"></span>
                   <br>
-                  <span>Vingança</span>
+                  <span id="tokenSelecionado2"></span>
       
                   <h1>Companheiros</h1>
-                  <span>Ellie, a Médica</span> 
+                  <span id="companheiroSelecionado1"></span> 
                   <br>
-                  <span>Nyoka, a caçadora</span>
+                  <span id="companheiroSelecionado2"></span>
                 </div>
               </div>
             </div>
@@ -315,14 +315,8 @@
   }
 
   function atualizarValores(){
-    quantidadeAcertos.innerHTML = personagemSelecionado.acertosTeste
-    if (personagemSelecionado.acertosTeste < 2) {
-      avaliacaoFuncionario.innerHTML = "Que a Lei tenha piedade desse empregado"
-    } else if (personagemSelecionado.acertosTeste < 3) {
-      avaliacaoFuncionario.innerHTML = "Com pouco de empenho, sua chance de sobrevivência é bem razoável !"
-    } else {
-      avaliacaoFuncionario.innerHTML = "Bonança pode se beneficiar muito com esse funcionário !"
-    }
+
+    nomePersonagem.innerHTML = personagemSelecionado.nome
 
     if (personagemSelecionado.sexo == 1) {
       div_desempenho_imagem.innerHTML = 
@@ -336,14 +330,55 @@
       `
     }
 
+    quantidadeAcertos.innerHTML = personagemSelecionado.acertosTeste
+    if (personagemSelecionado.acertosTeste < 2) {
+      avaliacaoFuncionario.innerHTML = "Que a Lei tenha piedade desse empregado"
+    } else if (personagemSelecionado.acertosTeste < 3) {
+      avaliacaoFuncionario.innerHTML = "Com pouco de empenho, sua chance de sobrevivência é bem razoável !"
+    } else {
+      avaliacaoFuncionario.innerHTML = "Bonança pode se beneficiar muito com esse funcionário !"
+    }
+
+    
+
     valorForca.innerHTML = personagemSelecionadoAtributo[0].forca
     valorDestreza.innerHTML = personagemSelecionadoAtributo[0].destreza
     valorInteligencia.innerHTML = personagemSelecionadoAtributo[0].inteligencia
     valorPercepcao.innerHTML = personagemSelecionadoAtributo[0].percepcao
     valorCharme.innerHTML = personagemSelecionadoAtributo[0].charme
     valorTemperamento.innerHTML = personagemSelecionadoAtributo[0].temperamento
+
+    aptidaoSelecionado.innerHTML = personagemSelecionado.aptidao;
+    falhaSelecionado.innerHTML = personagemSelecionado.falha;
+    tokenSelecionado1.innerHTML = personagemSelecionado.token1;
+    tokenSelecionado2.innerHTML = personagemSelecionado.token2;
+    companheiroSelecionado1.innerHTML = personagemSelecionado.companheiro1;
+    companheiroSelecionado2.innerHTML = personagemSelecionado.companheiro2;
+    
     
   }
 
 </script>
 
+<!-- 
+
+{
+    "idPersonagem": 100,
+    "nome": "Mark Anthony",
+    "sexo": 1,
+    "aptidao": "nenhuma aptidao discernivel",
+    "falha": "acrofobia",
+    "dataCriacao": "2025-05-07 11:10:59",
+    "token1": "assassino",
+    "token2": "labias de vendedor",
+    "fkUsuario": 1,
+    "acertosTeste": 3,
+    "companheiro1": "ellie",
+    "companheiro2": "nyoka"
+}
+
+[{"forca":-1,"destreza":3,"inteligencia":3,"percepcao":3,"charme":3,"temperamento":1}]
+
+[{"1mao":20,"2mao":40,"pistolas":20,"armasLongas":56,"armasPesadas":56,"evasao":10,"bloqueio":23,"persuasao":85,"mentira":56,"intimidacao":1,"esgueira":20,"hacking":45,"gazua":10,"medicina":56,"ciencia":47,"engenharia":89,"inspiracao":96,"determinacao":25}]
+
+-->
