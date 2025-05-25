@@ -257,7 +257,11 @@
                     </div>
                     <div class="div_cards_titulo_checkbox">
                       <h1>ARMAS BRANCAS</h1>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        id="cheArmasBrancas"
+                        onclick="adicionar10PontosArmasBrancas()"
+                      />
                     </div>
                     <div class="informacao__registro">
                       <span>1 Mão</span>
@@ -271,7 +275,11 @@
                     </div>
                     <div class="div_cards_titulo_checkbox">
                       <h1>LONGO ALCANCE</h1>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        id="cheLongoAlcance"
+                        onclick="adicionar10PontosLongoAlcance()"
+                      />
                     </div>
                     <div class="informacao__registro">
                       <span>Pistolas</span>
@@ -419,9 +427,17 @@
 
   /* PARTE ATRIBUTOS */
   let pontosAtributosDisponiveis = 6;
+
+  function atualizarPontosDisponiveis() {
+    quantidadeAtributosDisponiveis.innerHTML = pontosAtributosDisponiveis;
+    quantidadeHabilidadesDisponiveis.innerHTML = pontosHabilidadesDisponiveis;
+  }
+
   // script personagemAtributos.js
 
   /* PARTE HABILIDADES */
+
+  let pontosHabilidadesDisponiveis = 2;
 
   function atualizarValoresHabilidadesCards() {
     valor1Mao.innerHTML = habilidadePersonagem.habilidade1Mao;
@@ -442,6 +458,63 @@
     valorEngenharia.innerHTML = habilidadePersonagem.habilidadeEngenharia;
     valorInspiracao.innerHTML = habilidadePersonagem.habilidadeInspiracao;
     valorDeterminacao.innerHTML = habilidadePersonagem.habilidadeDeterminacao;
+    console.log(habilidadePersonagem);
+  }
+
+  function adicionar10PontosArmasBrancas() {
+    const checkbox = document.getElementById("cheArmasBrancas");
+    if (pontosHabilidadesDisponiveis == 0 && checkbox.checked == "false") {
+      alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
+      checkbox.checked = "false";
+      return;
+    }
+    if (checkbox.checked) {
+      pontosHabilidadesDisponiveis -= 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidade1Mao =
+        Number(habilidadePersonagem.habilidade1Mao) + 10;
+      habilidadePersonagem.habilidade2Mao =
+        Number(habilidadePersonagem.habilidade2Mao) + 10;
+      atualizarValoresHabilidadesCards();
+    } else {
+      pontosHabilidadesDisponiveis += 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidade1Mao =
+        Number(habilidadePersonagem.habilidade1Mao) - 10;
+      habilidadePersonagem.habilidade2Mao =
+        Number(habilidadePersonagem.habilidade2Mao) - 10;
+      atualizarValoresHabilidadesCards();
+    }
+  }
+
+  function adicionar10PontosLongoAlcance() {
+    const checkbox = document.getElementById("cheLongoAlcance");
+    if (pontosHabilidadesDisponiveis == 0 && checkbox.checked == "false") {
+      alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
+      checkbox.checked = "false";
+      return;
+    }
+    if (checkbox.checked) {
+      pontosHabilidadesDisponiveis -= 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadePistolas =
+        Number(habilidadePersonagem.habilidadePistolas) + 10;
+      habilidadePersonagem.habilidadeArmasLongas =
+        Number(habilidadePersonagem.habilidadeArmasLongas) + 10;
+      habilidadePersonagem.habilidadeArmasPesadas =
+        Number(habilidadePersonagem.habilidadeArmasPesadas) + 10;
+      atualizarValoresHabilidadesCards();
+    } else {
+      pontosHabilidadesDisponiveis += 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadePistolas =
+        Number(habilidadePersonagem.habilidadePistolas) - 10;
+      habilidadePersonagem.habilidadeArmasLongas =
+        Number(habilidadePersonagem.habilidadeArmasLongas) - 10;
+      habilidadePersonagem.habilidadeArmasPesadas =
+        Number(habilidadePersonagem.habilidadeArmasPesadas) - 10;
+      atualizarValoresHabilidadesCards();
+    }
   }
 
   /* PARTE ATRIBUTOS */

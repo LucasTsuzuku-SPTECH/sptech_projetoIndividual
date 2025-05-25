@@ -1,7 +1,3 @@
-function atualizarPontosDisponiveis() {
-  quantidadeAtributosDisponiveis.innerHTML = pontosAtributosDisponiveis;
-}
-
 /* Esse array vou ter que levar á para o final para fazer a subtração com o objeto do personagem */
 
 let arrayAtributoForca = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
