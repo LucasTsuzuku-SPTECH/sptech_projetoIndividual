@@ -100,7 +100,10 @@
                       <h1>ATRIBUTOS:</h1>
                     </div>
                     <h1>CORPO</h1>
-                    <div class="informacao__registro">
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(1)"
+                    >
                       <span>Força</span>
 
                       <select
@@ -117,7 +120,10 @@
                       </select>
                     </div>
                     <br />
-                    <div class="informacao__registro">
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(2)"
+                    >
                       <span>Destreza</span>
                       <select
                         id="sel_nivel_atributoDestreza"
@@ -133,7 +139,10 @@
                       </select>
                     </div>
                     <h1>MENTE</h1>
-                    <div class="informacao__registro">
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(3)"
+                    >
                       <span>Inteligência</span>
                       <select
                         id="sel_nivel_atributoInteligencia"
@@ -149,7 +158,10 @@
                       </select>
                     </div>
                     <br />
-                    <div class="informacao__registro">
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(4)"
+                    >
                       <span>Percepção</span>
                       <select
                         id="sel_nivel_atributoPercepcao"
@@ -165,7 +177,10 @@
                       </select>
                     </div>
                     <h1>PERSONALIDADE</h1>
-                    <div class="informacao__registro">
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(5)"
+                    >
                       <span>Charme</span>
                       <select
                         id="sel_nivel_atributoCharme"
@@ -181,7 +196,10 @@
                       </select>
                     </div>
                     <br />
-                    <div class="informacao__registro">
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(6)"
+                    >
                       <span>Temperamento</span>
                       <select
                         id="sel_nivel_atributoTemperamento"
@@ -198,7 +216,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="dash__div_cards_informacoes__card">teste</div>
+                <div
+                  class="dash__div_cards_informacoes__card"
+                  id="cardInfoAtributo"
+                >
+                  Passe por cima de um dos atributos para mais detalhes
+                </div>
               </div>
               <button onclick="juntarAtributoHabilidade()">Confirmar</button>
               <div id="avisoAtributo"></div>
@@ -579,6 +602,120 @@
       return;
     }
     atualizarPontosDisponiveis();
+  }
+
+  function alterarDescricao(number) {
+    if (number == 1) {
+      cardInfoAtributo.innerHTML = `
+      <h3>Força</h3>
+                  <p>
+                    Afeta a arma corpo a corpo e o dano e a quantidade de peso
+                    que você pode carregar
+                  </p>
+                  <ul>
+                    <li>Armas Brancas de 1 Mão</li>
+                    <li>Armas Brancas de 2 Mãos</li>
+                    <li>Armas Pesadas</li>
+                    <li>Bloqueio</li>
+                    <li>Intimidação</li>
+                    <li>Inspiração</li>
+                    <li>
+                      Penalidade: A drenagem da Dilatação Tática do Tempo
+                      (habilidade de parar o tempo) para movimento é dobrada.
+                    </li>
+                  </ul>
+      `;
+    } else if (number == 2) {
+      cardInfoAtributo.innerHTML = `
+      <h3>Destreza</h3>
+                  <p>
+                    Afeta a velocidade de ataque corpo a corpo e a velocidade de recarga de armas de longo alcance.
+                  </p>
+                  <ul>
+                    <li>Armas Brancas de 1 Mão</li>
+                    <li>Pistolas</li>
+                    <li>Evasão</li>
+                    <li>Bloqueio</li>
+                    <li>Esgueira</li>
+                    <li>Gazua</li>
+                    <li>
+                      Penalidade: A perda de durabilidade da arma é aumentada.
+                    </li>
+                  </ul>
+      `;
+    } else if (number == 3) {
+      cardInfoAtributo.innerHTML = `
+      <h3>Inteligência</h3>
+                  <p>
+                    Afeta o dano bônus de acerto crítico.
+                  </p>
+                  <ul>
+                    <li>Armas Longas</li>
+                    <li>Persuasão</li>
+                    <li>Hack</li>
+                    <li>Medicina</li>
+                    <li>Ciência</li>
+                    <li>Determinação</li>
+                    <li>
+                      Penalidade: O dano de acerto crítico foi drasticamente reduzido. Palavras são difíceis. Pensar não presta. Opções de diálogo idiotas desbloqueadas.
+                    </li>
+                  </ul>
+      `;
+    } else if (number == 4) {
+      cardInfoAtributo.innerHTML = `
+      <h3>Percepção</h3>
+                  <p>
+                    Afeta bônus de dano de tiro na cabeça e ponto fraco
+                  </p>
+                  <ul>
+                    <li>Pistolas</li>
+                    <li>Armas Longas</li>
+                    <li>Armas Pesadas</li>
+                    <li>Evasão</li>
+                    <li>Gazua</li>
+                    <li>Engenharia</li>
+                    <li>
+                      Penalidade: Acertos de tiro na cabeça e em pontos fracos não causam dano extra.
+                    </li>
+                  </ul>
+      `;
+    } else if (number == 5) {
+      cardInfoAtributo.innerHTML = `
+      <h3>Charme</h3>
+                  <p>
+                    Afeta a reputação da facção e o tempo de recarga das habilidades dos companheiros.
+                  </p>
+                  <ul>
+                    <li>Persuasão</li>
+                    <li>Mentira</li>
+                    <li>Intimidação</li>
+                    <li>Hack</li>
+                    <li>Ciência</li>
+                    <li>Inspiração</li>
+                    <li>
+                      Penalidade: Os ganhos de reputação são reduzidos significativamente.
+                    </li>
+                  </ul>
+      `;
+    } else if (number == 6) {
+      cardInfoAtributo.innerHTML = `
+      <h3>Charme</h3>
+                  <p>
+                    Melhora a regeneração natural da sua saúde.
+                  </p>
+                  <ul>
+                    <li>Armas Brancas de 2 Mãos</li>
+                    <li>Mentira</li>
+                    <li>Esgueira</li>
+                    <li>Medicina</li>
+                    <li>Engenharia</li>
+                    <li>Determinação</li>
+                    <li>
+                      Penalidade: Sem regeneração passiva de saúde
+                    </li>
+                  </ul>
+      `;
+    }
   }
 
   /* No final, juntar tudo no botao de confirmar e atualizar o objeto habilidadePersonagem*/
