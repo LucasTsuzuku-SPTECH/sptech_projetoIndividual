@@ -183,17 +183,33 @@
   let pontosAtributosDisponiveis = 6;
 
   /* Esse array vou ter que levar á para o final para fazer a subtração com o objeto do personagem */
-  let arrayAtributoForca = [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-  ];
+  let arrayAtributoForca = [];
 
   function atributoForca() {
+    arrayAtributoForca = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var medidaForca = sel_nivel_atributoForca.value;
     console.log(medidaForca);
     if (medidaForca == "abaixo") {
       arrayAtributoForca = [
         -3, -3, 0, 0, -3, 0, -3, 0, 0, -3, 0, 0, 0, 0, 0, 0, -3, 0,
       ];
+    } else if (medidaForca == "mediano") {
+      return;
+    } else if (medidaForca == "acima") {
+      arrayAtributoForca = [
+        3, 3, 0, 0, 3, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 3, 0,
+      ];
+    } else if (medidaForca == "alto") {
+      arrayAtributoForca = [
+        4, 4, 0, 0, 4, 0, 4, 0, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0,
+      ];
+    } else if (medidaForca == "muitoAlto") {
+      arrayAtributoForca = [
+        5, 5, 0, 0, 5, 0, 5, 0, 0, 5, 0, 0, 0, 0, 0, 0, 5, 0,
+      ];
+    } else {
+      console.log("Valor passado inválido");
+      return;
     }
   }
 
