@@ -362,7 +362,11 @@
                     </div>
                     <div class="div_cards_titulo_checkbox">
                       <h1>TECNOLOGIA</h1>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        id="cheTecnologia"
+                        onclick="adicionar10PontosTecnologia()"
+                      />
                     </div>
                     <div class="informacao__registro">
                       <span>Medicina</span>
@@ -381,7 +385,11 @@
                     </div>
                     <div class="div_cards_titulo_checkbox">
                       <h1>LIDERANÇA</h1>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        id="cheLideranca"
+                        onclick="adicionar10PontosLideranca()"
+                      />
                     </div>
                     <div class="informacao__registro">
                       <span>Inspiração</span>
@@ -614,6 +622,64 @@
         Number(habilidadePersonagem.habilidadeHacking) - 10;
       habilidadePersonagem.habilidadeGazua =
         Number(habilidadePersonagem.habilidadeGazua) - 10;
+      atualizarValoresHabilidadesCards();
+    }
+  }
+
+  function adicionar10PontosTecnologia() {
+    const checkbox = document.getElementById("cheTecnologia");
+    if (pontosHabilidadesDisponiveis <= 0 && checkbox.checked == true) {
+      alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
+      checkbox.checked = false;
+      return;
+    }
+    if (checkbox.checked) {
+      pontosHabilidadesDisponiveis -= 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadeMedicina =
+        Number(habilidadePersonagem.habilidadeMedicina) + 10;
+      habilidadePersonagem.habilidadeCiencia =
+        Number(habilidadePersonagem.habilidadeCiencia) + 10;
+      habilidadePersonagem.habilidadeEngenharia =
+        Number(habilidadePersonagem.habilidadeEngenharia) + 10;
+
+      atualizarValoresHabilidadesCards();
+    } else {
+      pontosHabilidadesDisponiveis += 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadeMedicina =
+        Number(habilidadePersonagem.habilidadeMedicina) - 10;
+      habilidadePersonagem.habilidadeCiencia =
+        Number(habilidadePersonagem.habilidadeCiencia) - 10;
+      habilidadePersonagem.habilidadeEngenharia =
+        Number(habilidadePersonagem.habilidadeEngenharia) - 10;
+      atualizarValoresHabilidadesCards();
+    }
+  }
+
+  function adicionar10PontosLideranca() {
+    const checkbox = document.getElementById("cheLideranca");
+    if (pontosHabilidadesDisponiveis <= 0 && checkbox.checked == true) {
+      alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
+      checkbox.checked = false;
+      return;
+    }
+    if (checkbox.checked) {
+      pontosHabilidadesDisponiveis -= 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadeInspiracao =
+        Number(habilidadePersonagem.habilidadeInspiracao) + 10;
+      habilidadePersonagem.habilidadeDeterminacao =
+        Number(habilidadePersonagem.habilidadeDeterminacao) + 10;
+
+      atualizarValoresHabilidadesCards();
+    } else {
+      pontosHabilidadesDisponiveis += 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadeInspiracao =
+        Number(habilidadePersonagem.habilidadeInspiracao) - 10;
+      habilidadePersonagem.habilidadeDeterminacao =
+        Number(habilidadePersonagem.habilidadeDeterminacao) - 10;
       atualizarValoresHabilidadesCards();
     }
   }
