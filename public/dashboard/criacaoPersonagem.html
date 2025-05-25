@@ -100,9 +100,14 @@
                     <div class="informacao__registro">
                       <span>Força</span>
                       <div id="triangulos"></div>
-                      <select id="sel_nivel_atributo">
+                      <select
+                        id="sel_nivel_atributoForca"
+                        onchange="atributoForca()"
+                      >
                         <option value="abaixo">Abaixo da Média</option>
-                        <option value="mediano">Mediano</option>
+                        <option selected="selected" value="mediano">
+                          Mediano
+                        </option>
                         <option value="acima">Acima da Média</option>
                         <option value="alto">Alto</option>
                         <option value="muitoAlto">Muito Alto</option>
@@ -140,6 +145,7 @@
                 </div>
                 <div class="dash__div_cards_informacoes__card">teste</div>
               </div>
+              <button onclick="juntarAtributoHabilidade()">Confirmar</button>
             </div>
           </div>
         </div>
@@ -151,21 +157,74 @@
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-  let habilidade1Mao = 6;
-  let habilidadePistolas = 6;
-  let habilidadeArmasLongas = 6;
-  let habilidadeArmasPesadas = 6;
-  let habilidadeEvasao = 6;
-  let habilidadeBloqueio = 6;
-  let habilidadePersuasao = 6;
-  let habilidadeMentira = 6;
-  let habilidadeIntimidacao = 6;
-  let habilidadeEsgueira = 6;
-  let habilidadeHacking = 6;
-  let habilidadeGazua = 6;
-  let habilidadeMedicima = 6;
-  let habilidadeCiencia = 6;
-  let habilidadeEngenharia = 6;
-  let habilidadeInspiracao = 6;
-  let habilidadeDeterminacao = 6;
+  let habilidadePersonagem = {
+    habilidade1Mao: 6,
+    habilidade2Mao: 6,
+    habilidadePistolas: 6,
+    habilidadeArmasLongas: 6,
+    habilidadeArmasPesadas: 6,
+    habilidadeEvasao: 6,
+    habilidadeBloqueio: 6,
+    habilidadePersuasao: 6,
+    habilidadeMentira: 6,
+    habilidadeIntimidacao: 6,
+    habilidadeEsgueira: 6,
+    habilidadeHacking: 6,
+    habilidadeGazua: 6,
+    habilidadeMedicina: 6,
+    habilidadeCiencia: 6,
+    habilidadeEngenharia: 6,
+    habilidadeInspiracao: 6,
+    habilidadeDeterminacao: 6,
+  };
+
+  /* PARTE ATRIBUTOS */
+
+  let pontosAtributosDisponiveis = 6;
+
+  /* Esse array vou ter que levar á para o final para fazer a subtração com o objeto do personagem */
+  let arrayAtributoForca = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ];
+
+  function atributoForca() {
+    var medidaForca = sel_nivel_atributoForca.value;
+    console.log(medidaForca);
+    if (medidaForca == "abaixo") {
+      arrayAtributoForca = [
+        -3, -3, 0, 0, -3, 0, -3, 0, 0, -3, 0, 0, 0, 0, 0, 0, -3, 0,
+      ];
+    }
+  }
+
+  /* No final, juntar tudo no botao de confirmar e atualizar o objeto habilidadePersonagem*/
+
+  function juntarAtributoHabilidade() {
+    habilidadePersonagem.habilidade1Mao += arrayAtributoForca[0];
+    habilidadePersonagem.habilidade2Mao += arrayAtributoForca[1];
+    habilidadePersonagem.habilidadePistolas += arrayAtributoForca[2];
+    habilidadePersonagem.habilidadeArmasLongas += arrayAtributoForca[3];
+    habilidadePersonagem.habilidadeArmasPesadas += arrayAtributoForca[4];
+    habilidadePersonagem.habilidadeEvasao += arrayAtributoForca[5];
+    habilidadePersonagem.habilidadeBloqueio += arrayAtributoForca[6];
+    habilidadePersonagem.habilidadePersuasao += arrayAtributoForca[7];
+    habilidadePersonagem.habilidadeMentira += arrayAtributoForca[8];
+    habilidadePersonagem.habilidadeIntimidacao += arrayAtributoForca[9];
+    habilidadePersonagem.habilidadeEsgueira += arrayAtributoForca[10];
+    habilidadePersonagem.habilidadeHacking += arrayAtributoForca[11];
+    habilidadePersonagem.habilidadeGazua += arrayAtributoForca[12];
+    habilidadePersonagem.habilidadeMedicina += arrayAtributoForca[13];
+    habilidadePersonagem.habilidadeCiencia += arrayAtributoForca[14];
+    habilidadePersonagem.habilidadeEngenharia += arrayAtributoForca[15];
+    habilidadePersonagem.habilidadeInspiracao += arrayAtributoForca[16];
+    habilidadePersonagem.habilidadeDeterminacao += arrayAtributoForca[17];
+
+    console.log(habilidadePersonagem);
+  }
+
+  /* PARTE ATRIBUTOS */
+  /* PARTE ATRIBUTOS */
+  /* PARTE ATRIBUTOS */
+  /* PARTE ATRIBUTOS */
+  /* PARTE ATRIBUTOS */
 </script>
