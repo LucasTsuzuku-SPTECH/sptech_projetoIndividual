@@ -582,6 +582,18 @@ canvas {
 
 /* Parter Criacao personagens  */
 
+select {
+  font-size: 20px;
+  padding: 10px;
+  width: 250px;
+  border-radius: 15px;
+  border: 5px solid #ecdcba;
+  background-color: #4a3a19;
+  color: #ffffff;
+  font-family: "Josefin Sans", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+}
+
 .containerCriacaoPersonagem {
   display: flex;
   flex-direction: column;
