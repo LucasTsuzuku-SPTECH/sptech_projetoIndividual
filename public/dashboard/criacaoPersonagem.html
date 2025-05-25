@@ -89,7 +89,10 @@
                 especializar. Cuidado! Atributos ABAIXO DA MÉDIA vêm com uma
                 penalidade.
               </p>
-              <p>Pontos disponíveis: 6</p>
+              <p>
+                Pontos disponíveis:
+                <span id="quantidadeAtributosDisponiveis">6</span>
+              </p>
               <div class="dash__div_cards_informacoes">
                 <div class="dash__div_cards_informacoes__card">
                   <div class="informacao">
@@ -166,6 +169,7 @@
                 <div class="dash__div_cards_informacoes__card">teste</div>
               </div>
               <button onclick="juntarAtributoHabilidade()">Confirmar</button>
+              <div id="avisoAtributo"></div>
             </div>
           </div>
         </div>
@@ -211,20 +215,35 @@
 
   let pontosAtributosDisponiveis = 6;
 
+  function atualizarPontosDisponiveis() {
+    quantidadeAtributosDisponiveis.innerHTML = pontosAtributosDisponiveis;
+  }
+
   /* Esse array vou ter que levar á para o final para fazer a subtração com o objeto do personagem */
+
   let arrayAtributoForca = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
   ];
 
   function atributoForca() {
-    arrayAtributoForca = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     var medida = sel_nivel_atributoForca.value;
+    if (pontosAtributosDisponiveis <= 0 && medida != "abaixo") {
+      console.log("Sem pontos disponíveis");
+      avisoAtributo.innerHTML =
+        "Não tem pontos o suficiente, as habilidades não foram alteradas";
+      return;
+    }
+    avisoAtributo.innerHTML = "";
+    arrayAtributoForca = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
     console.log(medida);
     if (medida == "abaixo") {
       arrayAtributoForca = [
         -3, -3, 0, 0, -3, 0, -3, 0, 0, -3, 0, 0, 0, 0, 0, 0, -3, 0,
       ];
       atributosPersonagem.forca = -1;
+      pontosAtributosDisponiveis++;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "mediano") {
       return;
     } else if (medida == "acima") {
@@ -232,20 +251,27 @@
         3, 3, 0, 0, 3, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 3, 0,
       ];
       atributosPersonagem.forca = 1;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 1;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "alto") {
       arrayAtributoForca = [
         4, 4, 0, 0, 4, 0, 4, 0, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0,
       ];
       atributosPersonagem.forca = 2;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 2;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "muitoAlto") {
       arrayAtributoForca = [
         5, 5, 0, 0, 5, 0, 5, 0, 0, 5, 0, 0, 0, 0, 0, 0, 5, 0,
       ];
       atributosPersonagem.forca = 3;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 3;
+      console.log(pontosAtributosDisponiveis);
     } else {
       console.log("Valor passado inválido");
       return;
     }
+    atualizarPontosDisponiveis();
   }
 
   let arrayAtributoDestreza = [
@@ -253,16 +279,26 @@
   ];
 
   function atributoDestreza() {
+    var medida = sel_nivel_atributoDestreza.value;
+    if (pontosAtributosDisponiveis <= 0 && medida != "abaixo") {
+      console.log("Sem pontos disponíveis");
+      avisoAtributo.innerHTML =
+        "Não tem pontos o suficiente, as habilidades não foram alteradas";
+      return;
+    }
+    avisoAtributo.innerHTML = "";
     arrayAtributoDestreza = [
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ];
-    var medida = sel_nivel_atributoDestreza.value;
+
     console.log(medida);
     if (medida == "abaixo") {
       arrayAtributoDestreza = [
         -3, 0, -3, 0, 0, -3, -3, 0, 0, 0, -3, 0, -3, 0, 0, 0, 0, 0,
       ];
       atributosPersonagem.destreza = -1;
+      pontosAtributosDisponiveis++;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "mediano") {
       return;
     } else if (medida == "acima") {
@@ -270,20 +306,27 @@
         3, 0, 3, 0, 0, 3, 3, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0,
       ];
       atributosPersonagem.destreza = 1;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 1;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "alto") {
       arrayAtributoDestreza = [
         4, 0, 4, 0, 0, 4, 4, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0,
       ];
       atributosPersonagem.destreza = 2;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 2;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "muitoAlto") {
       arrayAtributoDestreza = [
         5, 0, 5, 0, 0, 5, 5, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0,
       ];
       atributosPersonagem.destreza = 3;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 3;
+      console.log(pontosAtributosDisponiveis);
     } else {
       console.log("Valor passado inválido");
       return;
     }
+    atualizarPontosDisponiveis();
   }
 
   let arrayAtributoInteligencia = [
@@ -291,6 +334,14 @@
   ];
 
   function atributoInteligencia() {
+    var medida = sel_nivel_atributoInteligencia.value;
+    if (pontosAtributosDisponiveis <= 0 && medida != "abaixo") {
+      console.log("Sem pontos disponíveis");
+      avisoAtributo.innerHTML =
+        "Não tem pontos o suficiente, as habilidades não foram alteradas";
+      return;
+    }
+    avisoAtributo.innerHTML = "";
     arrayAtributoInteligencia = [
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     ];
@@ -301,6 +352,8 @@
         0, 0, 0, -3, 0, 0, 0, -3, 0, 0, 0, -3, 0, -3, -3, 0, 0, -3,
       ];
       atributosPersonagem.inteligencia = -1;
+      pontosAtributosDisponiveis++;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "mediano") {
       return;
     } else if (medida == "acima") {
@@ -308,20 +361,27 @@
         0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 3, 3, 0, 0, 3,
       ];
       atributosPersonagem.inteligencia = 1;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 1;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "alto") {
       arrayAtributoInteligencia = [
         0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 4, 4, 0, 0, 4,
       ];
       atributosPersonagem.inteligencia = 2;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 2;
+      console.log(pontosAtributosDisponiveis);
     } else if (medida == "muitoAlto") {
       arrayAtributoInteligencia = [
         0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5, 5, 0, 0, 5,
       ];
       atributosPersonagem.inteligencia = 3;
+      pontosAtributosDisponiveis = pontosAtributosDisponiveis - 3;
+      console.log(pontosAtributosDisponiveis);
     } else {
       console.log("Valor passado inválido");
       return;
     }
+    atualizarPontosDisponiveis();
   }
 
   /* No final, juntar tudo no botao de confirmar e atualizar o objeto habilidadePersonagem*/
