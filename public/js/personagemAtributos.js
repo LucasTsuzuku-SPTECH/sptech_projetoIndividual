@@ -417,7 +417,7 @@ function alterarDescricao(number) {
       `;
   } else if (number == 6) {
     cardInfoAtributo.innerHTML = `
-      <h3>Charme</h3>
+      <h3>Temperamento</h3>
                   <p>
                     Melhora a regeneração natural da sua saúde.
                   </p>
@@ -442,135 +442,140 @@ function juntarAtributoHabilidade() {
   if (pontosAtributosDisponiveis < 0) {
     avisoAtributo.innerHTML = "Pontuação abaixo de 0, refaça as habilidades";
     return;
+  } else {
+    habilidadePersonagem.habilidade1Mao +=
+      arrayAtributoForca[0] +
+      arrayAtributoDestreza[0] +
+      arrayAtributoInteligencia[0] +
+      arrayAtributoPercepcao[0] +
+      arrayAtributoCharme[0] +
+      arrayAtributoTemperamento[0];
+    habilidadePersonagem.habilidade2Mao +=
+      arrayAtributoForca[1] +
+      arrayAtributoDestreza[1] +
+      arrayAtributoInteligencia[1] +
+      arrayAtributoPercepcao[1] +
+      arrayAtributoCharme[1] +
+      arrayAtributoTemperamento[1];
+    habilidadePersonagem.habilidadePistolas +=
+      arrayAtributoForca[2] +
+      arrayAtributoDestreza[2] +
+      arrayAtributoInteligencia[2] +
+      arrayAtributoPercepcao[2] +
+      arrayAtributoCharme[2] +
+      arrayAtributoTemperamento[2];
+    habilidadePersonagem.habilidadeArmasLongas +=
+      arrayAtributoForca[3] +
+      arrayAtributoDestreza[3] +
+      arrayAtributoInteligencia[3] +
+      arrayAtributoPercepcao[3] +
+      arrayAtributoCharme[3] +
+      arrayAtributoTemperamento[3];
+    habilidadePersonagem.habilidadeArmasPesadas +=
+      arrayAtributoForca[4] +
+      arrayAtributoDestreza[4] +
+      arrayAtributoInteligencia[4] +
+      arrayAtributoPercepcao[4] +
+      arrayAtributoCharme[4] +
+      arrayAtributoTemperamento[4];
+    habilidadePersonagem.habilidadeEvasao +=
+      arrayAtributoForca[5] +
+      arrayAtributoDestreza[5] +
+      arrayAtributoInteligencia[5] +
+      arrayAtributoPercepcao[5] +
+      arrayAtributoCharme[5] +
+      arrayAtributoTemperamento[5];
+    habilidadePersonagem.habilidadeBloqueio +=
+      arrayAtributoForca[6] +
+      arrayAtributoDestreza[6] +
+      arrayAtributoInteligencia[6] +
+      arrayAtributoPercepcao[6] +
+      arrayAtributoCharme[6] +
+      arrayAtributoTemperamento[6];
+    habilidadePersonagem.habilidadePersuasao +=
+      arrayAtributoForca[7] +
+      arrayAtributoDestreza[7] +
+      arrayAtributoInteligencia[7] +
+      arrayAtributoPercepcao[7] +
+      arrayAtributoCharme[7] +
+      arrayAtributoTemperamento[7];
+    habilidadePersonagem.habilidadeMentira +=
+      arrayAtributoForca[8] +
+      arrayAtributoDestreza[8] +
+      arrayAtributoInteligencia[8] +
+      arrayAtributoPercepcao[8] +
+      arrayAtributoCharme[8] +
+      arrayAtributoTemperamento[8];
+    habilidadePersonagem.habilidadeIntimidacao +=
+      arrayAtributoForca[9] +
+      arrayAtributoDestreza[9] +
+      arrayAtributoInteligencia[9] +
+      arrayAtributoPercepcao[9] +
+      arrayAtributoCharme[9] +
+      arrayAtributoTemperamento[9];
+    habilidadePersonagem.habilidadeEsgueira +=
+      arrayAtributoForca[10] +
+      arrayAtributoDestreza[10] +
+      arrayAtributoInteligencia[10] +
+      arrayAtributoPercepcao[10] +
+      arrayAtributoCharme[10] +
+      arrayAtributoTemperamento[10];
+    habilidadePersonagem.habilidadeHacking +=
+      arrayAtributoForca[11] +
+      arrayAtributoDestreza[11] +
+      arrayAtributoInteligencia[11] +
+      arrayAtributoPercepcao[11] +
+      arrayAtributoCharme[11] +
+      arrayAtributoTemperamento[11];
+    habilidadePersonagem.habilidadeGazua +=
+      arrayAtributoForca[12] +
+      arrayAtributoDestreza[12] +
+      arrayAtributoInteligencia[12] +
+      arrayAtributoPercepcao[12] +
+      arrayAtributoCharme[12] +
+      arrayAtributoTemperamento[12];
+    habilidadePersonagem.habilidadeMedicina +=
+      arrayAtributoForca[13] +
+      arrayAtributoDestreza[13] +
+      arrayAtributoInteligencia[13] +
+      arrayAtributoPercepcao[13] +
+      arrayAtributoCharme[13] +
+      arrayAtributoTemperamento[13];
+    habilidadePersonagem.habilidadeCiencia +=
+      arrayAtributoForca[14] +
+      arrayAtributoDestreza[14] +
+      arrayAtributoInteligencia[14] +
+      arrayAtributoPercepcao[14] +
+      arrayAtributoCharme[14] +
+      arrayAtributoTemperamento[14];
+    habilidadePersonagem.habilidadeEngenharia +=
+      arrayAtributoForca[15] +
+      arrayAtributoDestreza[15] +
+      arrayAtributoInteligencia[15] +
+      arrayAtributoPercepcao[15] +
+      arrayAtributoCharme[15] +
+      arrayAtributoTemperamento[15];
+    habilidadePersonagem.habilidadeInspiracao +=
+      arrayAtributoForca[16] +
+      arrayAtributoDestreza[16] +
+      arrayAtributoInteligencia[16] +
+      arrayAtributoPercepcao[16] +
+      arrayAtributoCharme[16] +
+      arrayAtributoTemperamento[16];
+    habilidadePersonagem.habilidadeDeterminacao +=
+      arrayAtributoForca[17] +
+      arrayAtributoDestreza[17] +
+      arrayAtributoInteligencia[17] +
+      arrayAtributoPercepcao[17] +
+      arrayAtributoCharme[17] +
+      arrayAtributoTemperamento[17];
+
+    console.log(habilidadePersonagem);
+    console.log(atributosPersonagem);
+    avisoAtributo.innerHTML =
+      "Atributos confirmados! Por favor, vá para a próxima sessão abaixo para continuar a criação.";
+    const botao = document.getElementById("botaoConfirmarAtributos");
+    botao.style.display = "none";
+    botao.disabled = true;
   }
-
-  habilidadePersonagem.habilidade1Mao +=
-    arrayAtributoForca[0] +
-    arrayAtributoDestreza[0] +
-    arrayAtributoInteligencia[0] +
-    arrayAtributoPercepcao[0] +
-    arrayAtributoCharme[0] +
-    arrayAtributoTemperamento[0];
-  habilidadePersonagem.habilidade2Mao +=
-    arrayAtributoForca[1] +
-    arrayAtributoDestreza[1] +
-    arrayAtributoInteligencia[1] +
-    arrayAtributoPercepcao[1] +
-    arrayAtributoCharme[1] +
-    arrayAtributoTemperamento[1];
-  habilidadePersonagem.habilidadePistolas +=
-    arrayAtributoForca[2] +
-    arrayAtributoDestreza[2] +
-    arrayAtributoInteligencia[2] +
-    arrayAtributoPercepcao[2] +
-    arrayAtributoCharme[2] +
-    arrayAtributoTemperamento[2];
-  habilidadePersonagem.habilidadeArmasLongas +=
-    arrayAtributoForca[3] +
-    arrayAtributoDestreza[3] +
-    arrayAtributoInteligencia[3] +
-    arrayAtributoPercepcao[3] +
-    arrayAtributoCharme[3] +
-    arrayAtributoTemperamento[3];
-  habilidadePersonagem.habilidadeArmasPesadas +=
-    arrayAtributoForca[4] +
-    arrayAtributoDestreza[4] +
-    arrayAtributoInteligencia[4] +
-    arrayAtributoPercepcao[4] +
-    arrayAtributoCharme[4] +
-    arrayAtributoTemperamento[4];
-  habilidadePersonagem.habilidadeEvasao +=
-    arrayAtributoForca[5] +
-    arrayAtributoDestreza[5] +
-    arrayAtributoInteligencia[5] +
-    arrayAtributoPercepcao[5] +
-    arrayAtributoCharme[5] +
-    arrayAtributoTemperamento[5];
-  habilidadePersonagem.habilidadeBloqueio +=
-    arrayAtributoForca[6] +
-    arrayAtributoDestreza[6] +
-    arrayAtributoInteligencia[6] +
-    arrayAtributoPercepcao[6] +
-    arrayAtributoCharme[6] +
-    arrayAtributoTemperamento[6];
-  habilidadePersonagem.habilidadePersuasao +=
-    arrayAtributoForca[7] +
-    arrayAtributoDestreza[7] +
-    arrayAtributoInteligencia[7] +
-    arrayAtributoPercepcao[7] +
-    arrayAtributoCharme[7] +
-    arrayAtributoTemperamento[7];
-  habilidadePersonagem.habilidadeMentira +=
-    arrayAtributoForca[8] +
-    arrayAtributoDestreza[8] +
-    arrayAtributoInteligencia[8] +
-    arrayAtributoPercepcao[8] +
-    arrayAtributoCharme[8] +
-    arrayAtributoTemperamento[8];
-  habilidadePersonagem.habilidadeIntimidacao +=
-    arrayAtributoForca[9] +
-    arrayAtributoDestreza[9] +
-    arrayAtributoInteligencia[9] +
-    arrayAtributoPercepcao[9] +
-    arrayAtributoCharme[9] +
-    arrayAtributoTemperamento[9];
-  habilidadePersonagem.habilidadeEsgueira +=
-    arrayAtributoForca[10] +
-    arrayAtributoDestreza[10] +
-    arrayAtributoInteligencia[10] +
-    arrayAtributoPercepcao[10] +
-    arrayAtributoCharme[10] +
-    arrayAtributoTemperamento[10];
-  habilidadePersonagem.habilidadeHacking +=
-    arrayAtributoForca[11] +
-    arrayAtributoDestreza[11] +
-    arrayAtributoInteligencia[11] +
-    arrayAtributoPercepcao[11] +
-    arrayAtributoCharme[11] +
-    arrayAtributoTemperamento[11];
-  habilidadePersonagem.habilidadeGazua +=
-    arrayAtributoForca[12] +
-    arrayAtributoDestreza[12] +
-    arrayAtributoInteligencia[12] +
-    arrayAtributoPercepcao[12] +
-    arrayAtributoCharme[12] +
-    arrayAtributoTemperamento[12];
-  habilidadePersonagem.habilidadeMedicina +=
-    arrayAtributoForca[13] +
-    arrayAtributoDestreza[13] +
-    arrayAtributoInteligencia[13] +
-    arrayAtributoPercepcao[13] +
-    arrayAtributoCharme[13] +
-    arrayAtributoTemperamento[13];
-  habilidadePersonagem.habilidadeCiencia +=
-    arrayAtributoForca[14] +
-    arrayAtributoDestreza[14] +
-    arrayAtributoInteligencia[14] +
-    arrayAtributoPercepcao[14] +
-    arrayAtributoCharme[14] +
-    arrayAtributoTemperamento[14];
-  habilidadePersonagem.habilidadeEngenharia +=
-    arrayAtributoForca[15] +
-    arrayAtributoDestreza[15] +
-    arrayAtributoInteligencia[15] +
-    arrayAtributoPercepcao[15] +
-    arrayAtributoCharme[15] +
-    arrayAtributoTemperamento[15];
-  habilidadePersonagem.habilidadeInspiracao +=
-    arrayAtributoForca[16] +
-    arrayAtributoDestreza[16] +
-    arrayAtributoInteligencia[16] +
-    arrayAtributoPercepcao[16] +
-    arrayAtributoCharme[16] +
-    arrayAtributoTemperamento[16];
-  habilidadePersonagem.habilidadeDeterminacao +=
-    arrayAtributoForca[17] +
-    arrayAtributoDestreza[17] +
-    arrayAtributoInteligencia[17] +
-    arrayAtributoPercepcao[17] +
-    arrayAtributoCharme[17] +
-    arrayAtributoTemperamento[17];
-
-  console.log(habilidadePersonagem);
-  console.log(atributosPersonagem);
 }

@@ -643,12 +643,12 @@ select {
 
 .botaoCriacaoPersonagem {
   background-color: #feac19;
-  padding: 15px;
+  padding: 20px;
   border-radius: 10px;
   border: none;
   font-family: "Josefin Sans", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
-  font-size: 20px;
+  font-size: 32px;
 }
 
 .botaoCriacaoPersonagem:hover {
@@ -661,8 +661,9 @@ select {
 
 #avisoAtributo {
   background-color: rgba(0, 0, 0, 0.35);
-  width: 50%;
+  width: 100%;
   margin: 1%;
   padding: 2.5%;
   border-radius: 15px;
+  text-align: center;
 }
