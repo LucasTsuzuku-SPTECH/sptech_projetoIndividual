@@ -578,4 +578,5 @@ function juntarAtributoHabilidade() {
     botao.style.display = "none";
     botao.disabled = true;
   }
+  atualizarValoresHabilidadesCards();
 }
