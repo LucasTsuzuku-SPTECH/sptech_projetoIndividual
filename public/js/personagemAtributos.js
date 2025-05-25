@@ -439,6 +439,11 @@ function alterarDescricao(number) {
 /* No final, juntar tudo no botao de confirmar e atualizar o objeto habilidadePersonagem*/
 
 function juntarAtributoHabilidade() {
+  if (pontosAtributosDisponiveis < 0) {
+    avisoAtributo.innerHTML = "Pontuação abaixo de 0, refaça as habilidades";
+    return;
+  }
+
   habilidadePersonagem.habilidade1Mao +=
     arrayAtributoForca[0] +
     arrayAtributoDestreza[0] +
