@@ -132,8 +132,18 @@
                     <h1>MENTE</h1>
                     <div class="informacao__registro">
                       <span>Inteligência</span>
-
-                      <span id="valorInteligencia"></span>
+                      <select
+                        id="sel_nivel_atributoInteligencia"
+                        onchange="atributoInteligencia()"
+                      >
+                        <option value="abaixo">Abaixo da Média</option>
+                        <option selected="selected" value="mediano">
+                          Mediano
+                        </option>
+                        <option value="acima">Acima da Média</option>
+                        <option value="alto">Alto</option>
+                        <option value="muitoAlto">Muito Alto</option>
+                      </select>
                     </div>
                     <div class="informacao__registro">
                       <span>Percepção</span>
@@ -188,6 +198,15 @@
     habilidadeDeterminacao: 6,
   };
 
+  let atributosPersonagem = {
+    forca: 0,
+    destreza: 0,
+    inteligencia: 0,
+    percepcao: 0,
+    charme: 0,
+    temperamento: 0,
+  };
+
   /* PARTE ATRIBUTOS */
 
   let pontosAtributosDisponiveis = 6;
@@ -205,20 +224,24 @@
       arrayAtributoForca = [
         -3, -3, 0, 0, -3, 0, -3, 0, 0, -3, 0, 0, 0, 0, 0, 0, -3, 0,
       ];
+      atributosPersonagem.forca = -1;
     } else if (medida == "mediano") {
       return;
     } else if (medida == "acima") {
       arrayAtributoForca = [
         3, 3, 0, 0, 3, 0, 3, 0, 0, 3, 0, 0, 0, 0, 0, 0, 3, 0,
       ];
+      atributosPersonagem.forca = 1;
     } else if (medida == "alto") {
       arrayAtributoForca = [
         4, 4, 0, 0, 4, 0, 4, 0, 0, 4, 0, 0, 0, 0, 0, 0, 4, 0,
       ];
+      atributosPersonagem.forca = 2;
     } else if (medida == "muitoAlto") {
       arrayAtributoForca = [
         5, 5, 0, 0, 5, 0, 5, 0, 0, 5, 0, 0, 0, 0, 0, 0, 5, 0,
       ];
+      atributosPersonagem.forca = 3;
     } else {
       console.log("Valor passado inválido");
       return;
@@ -239,20 +262,62 @@
       arrayAtributoDestreza = [
         -3, 0, -3, 0, 0, -3, -3, 0, 0, 0, -3, 0, -3, 0, 0, 0, 0, 0,
       ];
+      atributosPersonagem.destreza = -1;
     } else if (medida == "mediano") {
       return;
     } else if (medida == "acima") {
       arrayAtributoDestreza = [
         3, 0, 3, 0, 0, 3, 3, 0, 0, 0, 3, 0, 3, 0, 0, 0, 0, 0,
       ];
+      atributosPersonagem.destreza = 1;
     } else if (medida == "alto") {
       arrayAtributoDestreza = [
         4, 0, 4, 0, 0, 4, 4, 0, 0, 0, 4, 0, 4, 0, 0, 0, 0, 0,
       ];
+      atributosPersonagem.destreza = 2;
     } else if (medida == "muitoAlto") {
       arrayAtributoDestreza = [
         5, 0, 5, 0, 0, 5, 5, 0, 0, 0, 5, 0, 5, 0, 0, 0, 0, 0,
       ];
+      atributosPersonagem.destreza = 3;
+    } else {
+      console.log("Valor passado inválido");
+      return;
+    }
+  }
+
+  let arrayAtributoInteligencia = [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  ];
+
+  function atributoInteligencia() {
+    arrayAtributoInteligencia = [
+      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    ];
+    var medida = sel_nivel_atributoInteligencia.value;
+    console.log(medida);
+    if (medida == "abaixo") {
+      arrayAtributoInteligencia = [
+        0, 0, 0, -3, 0, 0, 0, -3, 0, 0, 0, -3, 0, -3, -3, 0, 0, -3,
+      ];
+      atributosPersonagem.inteligencia = -1;
+    } else if (medida == "mediano") {
+      return;
+    } else if (medida == "acima") {
+      arrayAtributoInteligencia = [
+        0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 3, 3, 0, 0, 3,
+      ];
+      atributosPersonagem.inteligencia = 1;
+    } else if (medida == "alto") {
+      arrayAtributoInteligencia = [
+        0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 4, 4, 0, 0, 4,
+      ];
+      atributosPersonagem.inteligencia = 2;
+    } else if (medida == "muitoAlto") {
+      arrayAtributoInteligencia = [
+        0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5, 5, 0, 0, 5,
+      ];
+      atributosPersonagem.inteligencia = 3;
     } else {
       console.log("Valor passado inválido");
       return;
@@ -263,41 +328,77 @@
 
   function juntarAtributoHabilidade() {
     habilidadePersonagem.habilidade1Mao +=
-      arrayAtributoForca[0] + arrayAtributoDestreza[0];
+      arrayAtributoForca[0] +
+      arrayAtributoDestreza[0] +
+      arrayAtributoInteligencia[0];
     habilidadePersonagem.habilidade2Mao +=
-      arrayAtributoForca[1] + arrayAtributoDestreza[1];
+      arrayAtributoForca[1] +
+      arrayAtributoDestreza[1] +
+      arrayAtributoInteligencia[1];
     habilidadePersonagem.habilidadePistolas +=
-      arrayAtributoForca[2] + arrayAtributoDestreza[2];
+      arrayAtributoForca[2] +
+      arrayAtributoDestreza[2] +
+      arrayAtributoInteligencia[2];
     habilidadePersonagem.habilidadeArmasLongas +=
-      arrayAtributoForca[3] + arrayAtributoDestreza[3];
+      arrayAtributoForca[3] +
+      arrayAtributoDestreza[3] +
+      arrayAtributoInteligencia[3];
     habilidadePersonagem.habilidadeArmasPesadas +=
-      arrayAtributoForca[4] + arrayAtributoDestreza[4];
+      arrayAtributoForca[4] +
+      arrayAtributoDestreza[4] +
+      arrayAtributoInteligencia[4];
     habilidadePersonagem.habilidadeEvasao +=
-      arrayAtributoForca[5] + arrayAtributoDestreza[5];
+      arrayAtributoForca[5] +
+      arrayAtributoDestreza[5] +
+      arrayAtributoInteligencia[5];
     habilidadePersonagem.habilidadeBloqueio +=
-      arrayAtributoForca[6] + arrayAtributoDestreza[6];
+      arrayAtributoForca[6] +
+      arrayAtributoDestreza[6] +
+      arrayAtributoInteligencia[6];
     habilidadePersonagem.habilidadePersuasao +=
-      arrayAtributoForca[7] + arrayAtributoDestreza[7];
+      arrayAtributoForca[7] +
+      arrayAtributoDestreza[7] +
+      arrayAtributoInteligencia[7];
     habilidadePersonagem.habilidadeMentira +=
-      arrayAtributoForca[8] + arrayAtributoDestreza[8];
+      arrayAtributoForca[8] +
+      arrayAtributoDestreza[8] +
+      arrayAtributoInteligencia[8];
     habilidadePersonagem.habilidadeIntimidacao +=
-      arrayAtributoForca[9] + arrayAtributoDestreza[9];
+      arrayAtributoForca[9] +
+      arrayAtributoDestreza[9] +
+      arrayAtributoInteligencia[9];
     habilidadePersonagem.habilidadeEsgueira +=
-      arrayAtributoForca[10] + arrayAtributoDestreza[10];
+      arrayAtributoForca[10] +
+      arrayAtributoDestreza[10] +
+      arrayAtributoInteligencia[10];
     habilidadePersonagem.habilidadeHacking +=
-      arrayAtributoForca[11] + arrayAtributoDestreza[11];
+      arrayAtributoForca[11] +
+      arrayAtributoDestreza[11] +
+      arrayAtributoInteligencia[11];
     habilidadePersonagem.habilidadeGazua +=
-      arrayAtributoForca[12] + arrayAtributoDestreza[12];
+      arrayAtributoForca[12] +
+      arrayAtributoDestreza[12] +
+      arrayAtributoInteligencia[12];
     habilidadePersonagem.habilidadeMedicina +=
-      arrayAtributoForca[13] + arrayAtributoDestreza[13];
+      arrayAtributoForca[13] +
+      arrayAtributoDestreza[13] +
+      arrayAtributoInteligencia[13];
     habilidadePersonagem.habilidadeCiencia +=
-      arrayAtributoForca[14] + arrayAtributoDestreza[14];
+      arrayAtributoForca[14] +
+      arrayAtributoDestreza[14] +
+      arrayAtributoInteligencia[14];
     habilidadePersonagem.habilidadeEngenharia +=
-      arrayAtributoForca[15] + arrayAtributoDestreza[15];
+      arrayAtributoForca[15] +
+      arrayAtributoDestreza[15] +
+      arrayAtributoInteligencia[15];
     habilidadePersonagem.habilidadeInspiracao +=
-      arrayAtributoForca[16] + arrayAtributoDestreza[16];
+      arrayAtributoForca[16] +
+      arrayAtributoDestreza[16] +
+      arrayAtributoInteligencia[16];
     habilidadePersonagem.habilidadeDeterminacao +=
-      arrayAtributoForca[17] + arrayAtributoDestreza[17];
+      arrayAtributoForca[17] +
+      arrayAtributoDestreza[17] +
+      arrayAtributoInteligencia[17];
 
     console.log(habilidadePersonagem);
   }
