@@ -567,7 +567,7 @@ canvas {
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  width: 40%;
+  width: 65%;
   border: #ffffff 1px solid;
   background-color: #ffffff;
 }
@@ -666,4 +666,11 @@ select {
   padding: 2.5%;
   border-radius: 15px;
   text-align: center;
+}
+
+/* FIM PARTE ATRIBUTOS */
+/* INICIO PARTE HABILIDADES */
+#dash__div_cards_informacoes__habilidadesEspecificas {
+  align-items: center;
+  justify-content: center;
 }
