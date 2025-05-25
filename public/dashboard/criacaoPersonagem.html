@@ -32,11 +32,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-
-  <!-- <body onload=" atualizarFeed()"> -->
-
-  <!-- <body onload="obterDados()"> -->
-  <body onload="obterDados()">
+  <body>
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -68,7 +64,7 @@
         </div>
       </div>
       <div class="dash">
-        <div class="container">
+        <div class="containerCriacaoPersonagem">
           <div class="dash__criacaoPersonagem">
             <h1>QUEREMOS SABER MAIS SOBRE VOCÊ!</h1>
             <div
@@ -84,6 +80,67 @@
               </p>
             </div>
             <h1>ATRIBUTOS</h1>
+            <div
+              class="dash__criacaoPersonagem__div"
+              id="dash__criacaoPersonagem__atributos"
+            >
+              <p>
+                Modifique os seus atributos para escolher em qual deseja se
+                especializar. Cuidado! Atributos ABAIXO DA MÉDIA vêm com uma
+                penalidade.
+              </p>
+              <p>Pontos disponíveis: 6</p>
+              <div class="dash__div_cards_informacoes">
+                <div class="dash__div_cards_informacoes__card">
+                  <div class="informacao">
+                    <div id="div_cards_titulo">
+                      <h1>ATRIBUTOS:</h1>
+                    </div>
+                    <h1>CORPO</h1>
+                    <div class="informacao__registro">
+                      <span>Força</span>
+                      <div id="triangulos"></div>
+                      <select id="sel_nivel_atributo">
+                        <option value="abaixo">Abaixo da Média</option>
+                        <option value="mediano">Mediano</option>
+                        <option value="acima">Acima da Média</option>
+                        <option value="alto">Alto</option>
+                        <option value="muitoAlto">Muito Alto</option>
+                      </select>
+                    </div>
+                    <br />
+                    <div class="informacao__registro">
+                      <span>Destreza</span>
+                      <div id="line"></div>
+                      <span id="valorDestreza"></span>
+                    </div>
+                    <h1>MENTE</h1>
+                    <div class="informacao__registro">
+                      <span>Inteligência</span>
+                      <div id="line"></div>
+                      <span id="valorInteligencia"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Percepção</span>
+                      <div id="line"></div>
+                      <span id="valorPercepcao"></span>
+                    </div>
+                    <h1>PERSONALIDADE</h1>
+                    <div class="informacao__registro">
+                      <span>Charme</span>
+                      <div id="line"></div>
+                      <span id="valorCharme"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Temperamento</span>
+                      <div id="line"></div>
+                      <span id="valorTemperamento"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="dash__div_cards_informacoes__card">teste</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -94,530 +151,21 @@
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
-  let proximaAtualizacao;
-
-  //window.onload = exibirAquariosDoUsuario();
-
-  /* SCRIPT DADOS GRAFICO ESTATICO */
-
-  function obterDados() {
-    obterDadosGraficoLinha();
-    obterDadosGraficoBarra();
-    obterDadosGraficoDonutAtributos();
-    obterDadosGraficoDonutFalhas();
-    obterDadosGraficoDonutAptidao();
-  }
-
-  /* OBTER dados gráfico de linha de todos os personagens */
-
-  function obterDadosGraficoLinha() {
-    if (proximaAtualizacao != undefined) {
-      clearTimeout(proximaAtualizacao);
-    }
-
-    fetch(`/medidas/todosPersonagensPorDataCriacao`, { cache: "no-store" })
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
-
-            plotarGraficoGraficoLinhaTodosPersonagens(resposta);
-          });
-        } else {
-          console.error("Nenhum dado encontrado ou erro na API");
-        }
-      })
-      .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
-        );
-      });
-  }
-
-  /* CRIACÃO dados gráfico de linha de todos os personagens*/
-
-  function plotarGraficoGraficoLinhaTodosPersonagens(resposta) {
-    console.log("iniciando plotagem do gráfico...");
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-      labels: labels,
-      datasets: [
-        {
-          label: "Quantidade",
-          data: [],
-          fill: false,
-          borderColor: "rgb(123, 44, 191)",
-          tension: 0.1,
-        },
-      ],
-    };
-
-    console.log("----------------------------------------------");
-    console.log(
-      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-    );
-    console.log(resposta);
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
-    for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      labels.push(registro.Data_Criacao);
-      dados.datasets[0].data.push(registro.Quantidade_Personagens);
-    }
-
-    console.log("----------------------------------------------");
-    console.log("O gráfico será plotado com os respectivos valores:");
-    console.log("Labels:");
-    console.log(labels);
-    console.log("Dados:");
-    console.log(dados.datasets);
-    console.log("----------------------------------------------");
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-      type: "line",
-      data: dados,
-      options: {
-        scales: {
-          x: {
-            reverse: true,
-          },
-        },
-      },
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(document.getElementById(`linha`), config);
-
-    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-  }
-
-  /* OBTER dados gráfico de barra de todos os atributos de cada personagem */
-
-  function obterDadosGraficoBarra() {
-    if (proximaAtualizacao != undefined) {
-      clearTimeout(proximaAtualizacao);
-    }
-
-    fetch(`/medidas/todasHabilidadesTodosPersonagens`, { cache: "no-store" })
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
-
-            plotarGraficoTodasHabilidadesTodosPersonagens(resposta);
-          });
-        } else {
-          console.error("Nenhum dado encontrado ou erro na API");
-        }
-      })
-      .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
-        );
-      });
-  }
-
-  function plotarGraficoTodasHabilidadesTodosPersonagens(resposta) {
-    console.log("iniciando plotagem do gráfico...");
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-      labels: labels,
-      datasets: [
-        {
-          label: "Habilidades",
-          data: [],
-          fill: false,
-          backgroundColor: [
-            "rgb(36, 0, 70)", // Cor de fundo das partes
-            "rgb(36, 0, 70)", // Cor de fundo das partes
-            "rgb(157, 78, 221)", // Cor de fundo das partes
-            "rgb(157, 78, 221)", // Cor de fundo das partes
-            "rgb(157, 78, 221)", // Cor de fundo das partes
-            "rgb(60, 9, 108)", // Cor de fundo das partes
-            "rgb(60, 9, 108)", // Cor de fundo das partes
-            "rgb(199, 125, 255)", // Cor de fundo das partes
-            "rgb(199, 125, 255)", // Cor de fundo das partes
-            "rgb(199, 125, 255)", // Cor de fundo das partes
-            "rgb(123, 44, 191)", // Cor de fundo das partes
-            "rgb(123, 44, 191)", // Cor de fundo das partes
-            "rgb(123, 44, 191)", // Cor de fundo das partes
-            "rgb(224, 170, 255)", // Cor de fundo das partes // Cor de fundo das barras
-            "rgb(224, 170, 255)", // Cor de fundo das partes // Cor de fundo das barras
-            "rgb(224, 170, 255)", // Cor de fundo das partes // Cor de fundo das barras
-            "rgb(36, 0, 70)", // Cor de fundo das partes
-            "rgb(36, 0, 70)", // Cor de fundo das partes
-          ],
-          borderColor: "#120a04",
-          tension: 0.1,
-        },
-      ],
-    };
-
-    console.log("----------------------------------------------");
-    console.log(
-      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-    );
-    console.log(resposta);
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
-    var registro = resposta[0];
-    labels.push(
-      "Soma_1mao",
-      "Soma_2mao",
-      "Soma_pistolas",
-      "Soma_armasLongas",
-      "Soma_armasPesadas",
-      "Soma_evasao",
-      "Soma_bloqueio",
-      "Soma_persuasao",
-      "Soma_mentira",
-      "Soma_intimidacao",
-      "Soma_esgueira",
-      "Soma_hacking",
-      "Soma_gazua",
-      "Soma_medicina",
-      "Soma_ciencia",
-      "Soma_engenharia",
-      "Soma_inspiracao",
-      "Soma_determinacao"
-    );
-
-    dados.datasets[0].data.push(
-      registro.Soma_1mao,
-      registro.Soma_2mao,
-      registro.Soma_pistolas,
-      registro.Soma_armasLongas,
-      registro.Soma_armasPesadas,
-      registro.Soma_evasao,
-      registro.Soma_bloqueio,
-      registro.Soma_persuasao,
-      registro.Soma_mentira,
-      registro.Soma_intimidacao,
-      registro.Soma_esgueira,
-      registro.Soma_hacking,
-      registro.Soma_gazua,
-      registro.Soma_medicina,
-      registro.Soma_ciencia,
-      registro.Soma_engenharia,
-      registro.Soma_inspiracao,
-      registro.Soma_determinacao
-    );
-
-    console.log("----------------------------------------------");
-    console.log("O gráfico será plotado com os respectivos valores:");
-    console.log("Labels:");
-    console.log(labels);
-    console.log("Dados:");
-    console.log(dados.datasets);
-    console.log("----------------------------------------------");
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-      type: "bar",
-      data: dados,
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(document.getElementById(`barra`), config);
-
-    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-  }
-
-  /* OBTER dados gráfico de Donut de atributos com mais pontos */
-
-  function obterDadosGraficoDonutAtributos() {
-    if (proximaAtualizacao != undefined) {
-      clearTimeout(proximaAtualizacao);
-    }
-
-    fetch(`/medidas/todosAtributosTodosPersonagens`, { cache: "no-store" })
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
-
-            plotarGraficoDonutTodosAtributos(resposta);
-          });
-        } else {
-          console.error("Nenhum dado encontrado ou erro na API");
-        }
-      })
-      .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
-        );
-      });
-  }
-
-  function plotarGraficoDonutTodosAtributos(resposta) {
-    console.log("iniciando plotagem do gráfico...");
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-      labels: labels,
-      datasets: [
-        {
-          label: "Atributos",
-          data: [],
-          fill: false,
-          backgroundColor: [
-            "rgb(36, 0, 70)", // Cor de fundo das partes
-            "rgb(60, 9, 108)", // Cor de fundo das partes
-            "rgb(123, 44, 191)", // Cor de fundo das partes
-            "rgb(157, 78, 221)", // Cor de fundo das partes
-            "rgb(199, 125, 255)", // Cor de fundo das partes
-            "rgb(224, 170, 255)", // Cor de fundo das partes
-          ],
-          borderColor: "#120a04",
-          borderWidth: 7,
-          cutout: 130,
-          borderRadius: 50,
-          tension: 0.1,
-        },
-      ],
-    };
-
-    console.log("----------------------------------------------");
-    console.log(
-      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-    );
-    console.log(resposta);
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
-    var registro = resposta[0];
-    labels.push(
-      "Soma_forca",
-      "Soma_destreza",
-      "Soma_inteligencia",
-      "Soma_percepcao",
-      "Soma_charme",
-      "Soma_temperamento"
-    );
-
-    dados.datasets[0].data.push(
-      registro.Soma_forca,
-      registro.Soma_destreza,
-      registro.Soma_inteligencia,
-      registro.Soma_percepcao,
-      registro.Soma_charme,
-      registro.Soma_temperamento
-    );
-
-    console.log("----------------------------------------------");
-    console.log("O gráfico será plotado com os respectivos valores:");
-    console.log("Labels:");
-    console.log(labels);
-    console.log("Dados:");
-    console.log(dados.datasets);
-    console.log("----------------------------------------------");
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-      type: "doughnut",
-      data: dados,
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(document.getElementById(`donut`), config);
-
-    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-  }
-
-  function obterDadosGraficoDonutFalhas() {
-    if (proximaAtualizacao != undefined) {
-      clearTimeout(proximaAtualizacao);
-    }
-
-    fetch(`/medidas/todasFalhasTodosPersonagens`, { cache: "no-store" })
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
-
-            plotarGraficoDonutFalhas(resposta);
-          });
-        } else {
-          console.error("Nenhum dado encontrado ou erro na API");
-        }
-      })
-      .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
-        );
-      });
-  }
-
-  function plotarGraficoDonutFalhas(resposta) {
-    console.log("iniciando plotagem do gráfico...");
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-      labels: labels,
-      datasets: [
-        {
-          label: "Falhas",
-          data: [],
-          fill: false,
-          backgroundColor: [
-            "rgb(36, 0, 70)", // Cor de fundo das partes
-            "rgb(60, 9, 108)", // Cor de fundo das partes
-            "rgb(123, 44, 191)", // Cor de fundo das partes
-            "rgb(157, 78, 221)", // Cor de fundo das partes
-            "rgb(199, 125, 255)", // Cor de fundo das partes
-            "rgb(224, 170, 255)", // Cor de fundo das partes
-          ],
-          borderColor: "#120a04",
-          borderWidth: 7,
-          cutout: 130,
-          borderRadius: 50,
-          tension: 0.1,
-        },
-      ],
-    };
-
-    console.log("----------------------------------------------");
-    console.log(
-      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-    );
-    console.log(resposta);
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
-    for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      labels.push(registro.falha);
-      dados.datasets[0].data.push(registro.Contagem_falhas);
-    }
-
-    console.log("----------------------------------------------");
-    console.log("O gráfico será plotado com os respectivos valores:");
-    console.log("Labels:");
-    console.log(labels);
-    console.log("Dados:");
-    console.log(dados.datasets);
-    console.log("----------------------------------------------");
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-      type: "doughnut",
-      data: dados,
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(document.getElementById(`donut2`), config);
-
-    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-  }
-
-  function obterDadosGraficoDonutAptidao() {
-    if (proximaAtualizacao != undefined) {
-      clearTimeout(proximaAtualizacao);
-    }
-
-    fetch(`/medidas/todasAptidaoTodosPersonagens`, { cache: "no-store" })
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (resposta) {
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
-
-            plotarGraficoDonutAptidao(resposta);
-          });
-        } else {
-          console.error("Nenhum dado encontrado ou erro na API");
-        }
-      })
-      .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
-        );
-      });
-  }
-
-  function plotarGraficoDonutAptidao(resposta) {
-    console.log("iniciando plotagem do gráfico...");
-
-    // Criando estrutura para plotar gráfico - labels
-    let labels = [];
-
-    // Criando estrutura para plotar gráfico - dados
-    let dados = {
-      labels: labels,
-      datasets: [
-        {
-          label: "Aptidão",
-          data: [],
-          fill: false,
-          backgroundColor: [
-            "rgb(36, 0, 70)", // Cor de fundo das partes
-            "rgb(60, 9, 108)", // Cor de fundo das partes
-            "rgb(123, 44, 191)", // Cor de fundo das partes
-            "rgb(157, 78, 221)", // Cor de fundo das partes
-            "rgb(199, 125, 255)", // Cor de fundo das partes
-            "rgb(224, 170, 255)", // Cor de fundo das partes
-          ],
-          borderColor: "#120a04",
-          borderWidth: 7,
-          cutout: 130,
-          borderRadius: 50,
-          tension: 0.1,
-        },
-      ],
-    };
-
-    console.log("----------------------------------------------");
-    console.log(
-      'Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":'
-    );
-    console.log(resposta);
-
-    // Inserindo valores recebidos em estrutura para plotar o gráfico
-    // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
-    for (i = 0; i < resposta.length; i++) {
-      var registro = resposta[i];
-      labels.push(registro.aptidao);
-      dados.datasets[0].data.push(registro.Contagem_aptidao);
-    }
-
-    console.log("----------------------------------------------");
-    console.log("O gráfico será plotado com os respectivos valores:");
-    console.log("Labels:");
-    console.log(labels);
-    console.log("Dados:");
-    console.log(dados.datasets);
-    console.log("----------------------------------------------");
-
-    // Criando estrutura para plotar gráfico - config
-    const config = {
-      type: "doughnut",
-      data: dados,
-    };
-
-    // Adicionando gráfico criado em div na tela
-    let myChart = new Chart(document.getElementById(`donut3`), config);
-
-    //setTimeout(() => atualizarGrafico(idAquario, dados, myChart), 2000);
-  }
+  let habilidade1Mao = 6;
+  let habilidadePistolas = 6;
+  let habilidadeArmasLongas = 6;
+  let habilidadeArmasPesadas = 6;
+  let habilidadeEvasao = 6;
+  let habilidadeBloqueio = 6;
+  let habilidadePersuasao = 6;
+  let habilidadeMentira = 6;
+  let habilidadeIntimidacao = 6;
+  let habilidadeEsgueira = 6;
+  let habilidadeHacking = 6;
+  let habilidadeGazua = 6;
+  let habilidadeMedicima = 6;
+  let habilidadeCiencia = 6;
+  let habilidadeEngenharia = 6;
+  let habilidadeInspiracao = 6;
+  let habilidadeDeterminacao = 6;
 </script>
