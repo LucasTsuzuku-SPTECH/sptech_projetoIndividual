@@ -316,7 +316,11 @@
                     </div>
                     <div class="div_cards_titulo_checkbox">
                       <h1>DIÁLOGO</h1>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        id="cheDialogo"
+                        onclick="adicionar10PontosDialogo()"
+                      />
                     </div>
                     <div class="informacao__registro">
                       <span>Persuasão</span>
@@ -335,7 +339,11 @@
                     </div>
                     <div class="div_cards_titulo_checkbox">
                       <h1>FURTIVIDADE</h1>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        id="cheFurtividade"
+                        onclick="adicionar10PontosFurtividade()"
+                      />
                     </div>
                     <div class="informacao__registro">
                       <span>Esgueira</span>
@@ -544,6 +552,68 @@
         Number(habilidadePersonagem.habilidadeEvasao) - 10;
       habilidadePersonagem.habilidadeBloqueio =
         Number(habilidadePersonagem.habilidadeBloqueio) - 10;
+      atualizarValoresHabilidadesCards();
+    }
+  }
+
+  function adicionar10PontosDialogo() {
+    const checkbox = document.getElementById("cheDialogo");
+    if (pontosHabilidadesDisponiveis <= 0 && checkbox.checked == true) {
+      alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
+      checkbox.checked = false;
+      return;
+    }
+    if (checkbox.checked) {
+      pontosHabilidadesDisponiveis -= 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadePersuasao =
+        Number(habilidadePersonagem.habilidadePersuasao) + 10;
+      habilidadePersonagem.habilidadeMentira =
+        Number(habilidadePersonagem.habilidadeMentira) + 10;
+      habilidadePersonagem.habilidadeIntimidacao =
+        Number(habilidadePersonagem.habilidadeIntimidacao) + 10;
+
+      atualizarValoresHabilidadesCards();
+    } else {
+      pontosHabilidadesDisponiveis += 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadePersuasao =
+        Number(habilidadePersonagem.habilidadePersuasao) - 10;
+      habilidadePersonagem.habilidadeMentira =
+        Number(habilidadePersonagem.habilidadeMentira) - 10;
+      habilidadePersonagem.habilidadeIntimidacao =
+        Number(habilidadePersonagem.habilidadeIntimidacao) - 10;
+      atualizarValoresHabilidadesCards();
+    }
+  }
+
+  function adicionar10PontosFurtividade() {
+    const checkbox = document.getElementById("cheFurtividade");
+    if (pontosHabilidadesDisponiveis <= 0 && checkbox.checked == true) {
+      alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
+      checkbox.checked = false;
+      return;
+    }
+    if (checkbox.checked) {
+      pontosHabilidadesDisponiveis -= 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadeEsgueira =
+        Number(habilidadePersonagem.habilidadeEsgueira) + 10;
+      habilidadePersonagem.habilidadeHacking =
+        Number(habilidadePersonagem.habilidadeHacking) + 10;
+      habilidadePersonagem.habilidadeGazua =
+        Number(habilidadePersonagem.habilidadeGazua) + 10;
+
+      atualizarValoresHabilidadesCards();
+    } else {
+      pontosHabilidadesDisponiveis += 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadeEsgueira =
+        Number(habilidadePersonagem.habilidadeEsgueira) - 10;
+      habilidadePersonagem.habilidadeHacking =
+        Number(habilidadePersonagem.habilidadeHacking) - 10;
+      habilidadePersonagem.habilidadeGazua =
+        Number(habilidadePersonagem.habilidadeGazua) - 10;
       atualizarValoresHabilidadesCards();
     }
   }
