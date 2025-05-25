@@ -298,7 +298,11 @@
                     </div>
                     <div class="div_cards_titulo_checkbox">
                       <h1>DEFESA</h1>
-                      <input type="checkbox" />
+                      <input
+                        type="checkbox"
+                        id="cheDefesa"
+                        onclick="adicionar10PontosDefesa()"
+                      />
                     </div>
                     <div class="informacao__registro">
                       <span>Evasão</span>
@@ -463,9 +467,9 @@
 
   function adicionar10PontosArmasBrancas() {
     const checkbox = document.getElementById("cheArmasBrancas");
-    if (pontosHabilidadesDisponiveis == 0 && checkbox.checked == "false") {
+    if (pontosHabilidadesDisponiveis <= 0 && checkbox.checked == true) {
       alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
-      checkbox.checked = "false";
+      checkbox.checked = false;
       return;
     }
     if (checkbox.checked) {
@@ -489,9 +493,9 @@
 
   function adicionar10PontosLongoAlcance() {
     const checkbox = document.getElementById("cheLongoAlcance");
-    if (pontosHabilidadesDisponiveis == 0 && checkbox.checked == "false") {
+    if (pontosHabilidadesDisponiveis <= 0 && checkbox.checked == true) {
       alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
-      checkbox.checked = "false";
+      checkbox.checked = false;
       return;
     }
     if (checkbox.checked) {
@@ -513,6 +517,33 @@
         Number(habilidadePersonagem.habilidadeArmasLongas) - 10;
       habilidadePersonagem.habilidadeArmasPesadas =
         Number(habilidadePersonagem.habilidadeArmasPesadas) - 10;
+      atualizarValoresHabilidadesCards();
+    }
+  }
+
+  function adicionar10PontosDefesa() {
+    const checkbox = document.getElementById("cheDefesa");
+    if (pontosHabilidadesDisponiveis <= 0 && checkbox.checked == true) {
+      alert("Você não tem pontos disponíveis para adicionar nas habilidades.");
+      checkbox.checked = false;
+      return;
+    }
+    if (checkbox.checked) {
+      pontosHabilidadesDisponiveis -= 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadeEvasao =
+        Number(habilidadePersonagem.habilidadeEvasao) + 10;
+      habilidadePersonagem.habilidadeBloqueio =
+        Number(habilidadePersonagem.habilidadeBloqueio) + 10;
+
+      atualizarValoresHabilidadesCards();
+    } else {
+      pontosHabilidadesDisponiveis += 1;
+      atualizarPontosDisponiveis();
+      habilidadePersonagem.habilidadeEvasao =
+        Number(habilidadePersonagem.habilidadeEvasao) - 10;
+      habilidadePersonagem.habilidadeBloqueio =
+        Number(habilidadePersonagem.habilidadeBloqueio) - 10;
       atualizarValoresHabilidadesCards();
     }
   }
