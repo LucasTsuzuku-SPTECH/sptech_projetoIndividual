@@ -580,7 +580,7 @@ canvas {
   margin: 0px;
 }
 
-/* Parter Criacao personagens  */
+/* Parte Criacao personagens  */
 
 select {
   font-size: 20px;
@@ -703,4 +703,13 @@ select {
   height: 40px;
   width: 40px;
   margin: 0px;
+}
+
+#avisoAptidao {
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 100%;
+  margin: 1%;
+  padding: 2.5%;
+  border-radius: 15px;
+  text-align: center;
 }

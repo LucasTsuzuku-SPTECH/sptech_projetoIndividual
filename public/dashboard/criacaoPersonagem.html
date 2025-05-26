@@ -240,7 +240,7 @@
               <p>
                 Ponto colocados em uma habilidade base (Exemplo: Armas Brancas)
                 aumentarão as habilidades especializadas (1 mão, 2 mãos) com
-                mais 10 pontos. Habilidades vão de 0 a 150
+                mais 10 pontos. Habilidades vão de 0 a 100
               </p>
               <p>
                 Pontos disponíveis:
@@ -590,7 +590,7 @@
               >
                 Confirmar
               </button>
-              <div id="avisoAtributo">Avisos aparecerão aqui</div>
+              <div id="avisoAptidao">Avisos aparecerão aqui</div>
             </div>
           </div>
         </div>
@@ -754,10 +754,23 @@
 `;
     }
   }
+  let atributoSelecionado;
 
   function confirmarAptidao() {
-    var aptidaoEscolhida = document.getElementsByName(radAptidao).values;
-    console.log(aptidaoEscolhida);
+    const radios = document.getElementsByName("radAptidao");
+    console.log(radios);
+    atributoSelecionado = null;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        atributoSelecionado = radios[i].value;
+        avisoAptidao.innerHTML = `
+        Aptidão selecionado: ${atributoSelecionado}
+        `;
+        break; // Para após encontrar o primeiro radio selecionado
+      }
+    }
+
+    console.log("Valor selecionado:", atributoSelecionado); // Imprime o valor no console
   }
 
   /* PARTE ATRIBUTOS */
