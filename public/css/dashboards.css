@@ -695,11 +695,11 @@ select {
 
 #informacao__registro__radio {
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 #informacao__registro__radio input {
-  height: 25px;
-  width: 25px;
+  height: 40px;
+  width: 40px;
   margin: 0px;
 }

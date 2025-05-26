@@ -417,10 +417,12 @@
                   <div class="informacao">
                     <div id="div_cards_titulo">
                       <h1>APTIDÃO:</h1>
+                      <br />
                     </div>
                     <div
                       class="informacao__registro"
                       id="informacao__registro__radio"
+                      onmouseenter="alterarDescricaoAptidao(1)"
                     >
                       <input
                         type="radio"
@@ -438,17 +440,17 @@
                   class="dash__div_cards_informacoes__card"
                   id="cardInfoAptidao"
                 >
-                  Passe por cima de um dos atributos para mais detalhes
+                  <h3>“Nenhuma Aptidão Discernível”</h3>
+                  <p>
+                    "Colono" parecia uma boa carreira, de nível iniciante, para
+                    alguém com as suas habilidades. Expandir o alcance da
+                    humanidade civilizando a fronteira cósmica já era ambicioso
+                    o suficiente sem a preocupação com o seu trabalho diário.
+                    Você tinha o resto da vida para decidir como ser útil em
+                    Bonança.
+                  </p>
                 </div>
               </div>
-              <button
-                onclick="juntarAtributoHabilidade()"
-                class="botaoCriacaoPersonagem"
-                id="botaoConfirmarAtributos"
-              >
-                Confirmar
-              </button>
-              <div id="avisoAtributo">Avisos aparecerão aqui</div>
             </div>
           </div>
         </div>
@@ -528,6 +530,20 @@
   }
 
   /* PARTE APTIDAO */
+
+  function alterarDescricaoAptidao(number) {
+    if (number == 1) {
+      cardInfoAptidao.innerHTML = `
+      <h3>“Nenhuma Aptidão Discernível”</h3>
+                  <p>
+                    "Colono" parecia uma boa carreira, de nível iniciante, para alguém com as suas habilidades. Expandir o alcance da humanidade civilizando a fronteira cósmica já era ambicioso o suficiente sem a preocupação com o seu trabalho diário. Você tinha o resto da vida para decidir como ser útil em Bonança.
+                  </p>
+                  
+      `;
+    } else if (number == 2) {
+    }
+  }
+
   /* PARTE ATRIBUTOS */
   /* PARTE ATRIBUTOS */
   /* PARTE ATRIBUTOS */
