@@ -695,7 +695,8 @@ select {
 
 #informacao__registro__radio {
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  font-size: 24px;
 }
 
 #informacao__registro__radio input {
