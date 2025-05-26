@@ -405,6 +405,159 @@
                 </div>
               </div>
             </div>
+            <h1>APTIDÃO</h1>
+            <div
+              class="dash__criacaoPersonagem__div"
+              id="dash__criacaoPersonagem__atributos"
+            >
+              <p>
+                APTIDAO Modifique os seus atributos para escolher em qual deseja
+                se especializar. Cuidado! Atributos ABAIXO DA MÉDIA vêm com uma
+                penalidade.
+              </p>
+              <p>
+                Pontos disponíveis:
+                <span id="quantidadeAtributosDisponiveis">6</span>
+              </p>
+              <div class="dash__div_cards_informacoes">
+                <div class="dash__div_cards_informacoes__card">
+                  <div class="informacao">
+                    <div id="div_cards_titulo">
+                      <h1>ATRIBUTOS:</h1>
+                    </div>
+                    <h1>CORPO</h1>
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(1)"
+                    >
+                      <span>Força</span>
+
+                      <select
+                        id="sel_nivel_atributoForca"
+                        onchange="atributoForca()"
+                      >
+                        <option value="abaixo">Abaixo da Média</option>
+                        <option selected="selected" value="mediano">
+                          Mediano
+                        </option>
+                        <option value="acima">Acima da Média</option>
+                        <option value="alto">Alto</option>
+                        <option value="muitoAlto">Muito Alto</option>
+                      </select>
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(2)"
+                    >
+                      <span>Destreza</span>
+                      <select
+                        id="sel_nivel_atributoDestreza"
+                        onchange="atributoDestreza()"
+                      >
+                        <option value="abaixo">Abaixo da Média</option>
+                        <option selected="selected" value="mediano">
+                          Mediano
+                        </option>
+                        <option value="acima">Acima da Média</option>
+                        <option value="alto">Alto</option>
+                        <option value="muitoAlto">Muito Alto</option>
+                      </select>
+                    </div>
+                    <h1>MENTE</h1>
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(3)"
+                    >
+                      <span>Inteligência</span>
+                      <select
+                        id="sel_nivel_atributoInteligencia"
+                        onchange="atributoInteligencia()"
+                      >
+                        <option value="abaixo">Abaixo da Média</option>
+                        <option selected="selected" value="mediano">
+                          Mediano
+                        </option>
+                        <option value="acima">Acima da Média</option>
+                        <option value="alto">Alto</option>
+                        <option value="muitoAlto">Muito Alto</option>
+                      </select>
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(4)"
+                    >
+                      <span>Percepção</span>
+                      <select
+                        id="sel_nivel_atributoPercepcao"
+                        onchange="atributoPercepcao()"
+                      >
+                        <option value="abaixo">Abaixo da Média</option>
+                        <option selected="selected" value="mediano">
+                          Mediano
+                        </option>
+                        <option value="acima">Acima da Média</option>
+                        <option value="alto">Alto</option>
+                        <option value="muitoAlto">Muito Alto</option>
+                      </select>
+                    </div>
+                    <h1>PERSONALIDADE</h1>
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(5)"
+                    >
+                      <span>Charme</span>
+                      <select
+                        id="sel_nivel_atributoCharme"
+                        onchange="atributoCharme()"
+                      >
+                        <option value="abaixo">Abaixo da Média</option>
+                        <option selected="selected" value="mediano">
+                          Mediano
+                        </option>
+                        <option value="acima">Acima da Média</option>
+                        <option value="alto">Alto</option>
+                        <option value="muitoAlto">Muito Alto</option>
+                      </select>
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      onmouseenter="alterarDescricao(6)"
+                    >
+                      <span>Temperamento</span>
+                      <select
+                        id="sel_nivel_atributoTemperamento"
+                        onchange="atributoTemperamento()"
+                      >
+                        <option value="abaixo">Abaixo da Média</option>
+                        <option selected="selected" value="mediano">
+                          Mediano
+                        </option>
+                        <option value="acima">Acima da Média</option>
+                        <option value="alto">Alto</option>
+                        <option value="muitoAlto">Muito Alto</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="dash__div_cards_informacoes__card"
+                  id="cardInfoAtributo"
+                >
+                  Passe por cima de um dos atributos para mais detalhes
+                </div>
+              </div>
+              <button
+                onclick="juntarAtributoHabilidade()"
+                class="botaoCriacaoPersonagem"
+                id="botaoConfirmarAtributos"
+              >
+                Confirmar
+              </button>
+              <div id="avisoAtributo">Avisos aparecerão aqui</div>
+            </div>
           </div>
         </div>
       </div>
@@ -482,7 +635,7 @@
     console.log(habilidadePersonagem);
   }
 
-  /* PARTE ATRIBUTOS */
+  /* PARTE APTIDAO */
   /* PARTE ATRIBUTOS */
   /* PARTE ATRIBUTOS */
   /* PARTE ATRIBUTOS */
