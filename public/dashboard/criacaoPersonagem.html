@@ -583,6 +583,14 @@
                   </p>
                 </div>
               </div>
+              <button
+                onclick="confirmarAptidao()"
+                class="botaoCriacaoPersonagem"
+                id="botaoConfirmarAptidoes"
+              >
+                Confirmar
+              </button>
+              <div id="avisoAtributo">Avisos aparecerão aqui</div>
             </div>
           </div>
         </div>
@@ -745,6 +753,11 @@
             
 `;
     }
+  }
+
+  function confirmarAptidao() {
+    var aptidaoEscolhida = document.getElementsByName(radAptidao).values;
+    console.log(aptidaoEscolhida);
   }
 
   /* PARTE ATRIBUTOS */
