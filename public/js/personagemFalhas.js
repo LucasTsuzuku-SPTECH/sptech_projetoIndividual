@@ -59,21 +59,24 @@ function alterarDescricaoFalha(number) {
 }
 
 function confirmarFalha() {
+  quantidadeTokensDisponiveis = 1;
   const radios = document.getElementsByName("radFalha");
   console.log(radios);
   falhaSelecionado = null;
   for (let i = 0; i < radios.length; i++) {
     if (radios[i].checked) {
       falhaSelecionado = radios[i].value;
-      avisoAptidao.innerHTML = `
-        Falha selecionado: ${falhaSelecionado}
-        `;
+      quantidadeTokensDisponiveis += 1;
+
       break; // Para após encontrar o primeiro radio selecionado
     }
   }
   if (falhaSelecionado == "") {
     falhaSelecionado = null;
+    quantidadeTokensDisponiveis = 1;
   }
+
+  spanQuantidadeTokensDisponiveis.innerHTML = quantidadeTokensDisponiveis;
 
   console.log("Valor selecionado:", falhaSelecionado); // Imprime o valor no console
 }
