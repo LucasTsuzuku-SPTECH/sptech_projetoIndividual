@@ -620,7 +620,12 @@
                     id="informacao__registro__radio"
                   >
                     <label for="radSexo">HOMEM</label>
-                    <input type="radio" name="radSexo" value="1" />
+                    <input
+                      type="radio"
+                      name="radSexo"
+                      value="1"
+                      onclick="confirmarAparencia()"
+                    />
                   </div>
                 </div>
                 <div class="criacaoPersonagem__aparencia__sexo__card">
@@ -634,7 +639,12 @@
                     id="informacao__registro__radio"
                   >
                     <label for="radSexo">MULHER</label>
-                    <input type="radio" name="radSexo" value="1" />
+                    <input
+                      type="radio"
+                      name="radSexo"
+                      value="0"
+                      onclick="confirmarAparencia()"
+                    />
                   </div>
                 </div>
               </div>
@@ -723,7 +733,24 @@
 
   /* PARTE APARENCIA */
 
-  let nomePersonagemSelecionado = ipt_nomePersonagem.value;
+  let nomePersonagemSelecionado;
+  let sexoPersonagemSelecionado;
+
+  function confirmarAparencia() {
+    const radios = document.getElementsByName("radSexo");
+    console.log(radios);
+    atributoSelecionado = null;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        nomePersonagemSelecionado = ipt_nomePersonagem.value;
+        sexoPersonagemSelecionado = radios[i].value;
+        break; // Para após encontrar o primeiro radio selecionado
+      }
+    }
+
+    console.log("Valor selecionado:", nomePersonagemSelecionado); // Imprime o valor no console
+    console.log("Valor selecionado:", sexoPersonagemSelecionado); // Imprime o valor no console
+  }
 
   /* PARTE ATRIBUTOS */
   /* PARTE ATRIBUTOS */
