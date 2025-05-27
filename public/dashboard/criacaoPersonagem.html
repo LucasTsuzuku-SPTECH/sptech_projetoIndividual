@@ -670,13 +670,109 @@
                     <div
                       class="informacao__registro"
                       id="informacao__registro__radio"
-                      onmouseenter="alterarDescricaoAptidao(1)"
+                      onmouseenter="alterarDescricaoFalha(1)"
                     >
-                      <label for="radAptidao">Acrofobia</label>
+                      <label for="radFalha" id="labelFalhas">Acrofobia</label>
+
                       <input
                         type="radio"
-                        name="radAptidao"
-                        value="Nenhuma Aptidão Discernível"
+                        name="radFalha"
+                        value="Acrofobia"
+                        onclick="confirmarFalha()"
+                      />
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      id="informacao__registro__radio"
+                      onmouseenter="alterarDescricaoFalha(2)"
+                    >
+                      <label for="radFalha" id="labelFalhas">Cinofobia</label>
+
+                      <input
+                        type="radio"
+                        name="radFalha"
+                        value="Cinofobia"
+                        onclick="confirmarFalha()"
+                      />
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      id="informacao__registro__radio"
+                      onmouseenter="alterarDescricaoFalha(3)"
+                    >
+                      <label for="radFalha" id="labelFalhas"
+                        >Dependência de Drogas</label
+                      >
+
+                      <input
+                        type="radio"
+                        name="radFalha"
+                        value="Dependência de Drogas"
+                        onclick="confirmarFalha()"
+                      />
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      id="informacao__registro__radio"
+                      onmouseenter="alterarDescricaoFalha(4)"
+                    >
+                      <label for="radFalha" id="labelFalhas">Paranóico</label>
+
+                      <input
+                        type="radio"
+                        name="radFalha"
+                        value="Paranóico"
+                        onclick="confirmarFalha()"
+                      />
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      id="informacao__registro__radio"
+                      onmouseenter="alterarDescricaoFalha(5)"
+                    >
+                      <label for="radFalha" id="labelFalhas">Robofobia</label>
+
+                      <input
+                        type="radio"
+                        name="radFalha"
+                        value="Robofobia"
+                        onclick="confirmarFalha()"
+                      />
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      id="informacao__registro__radio"
+                      onmouseenter="alterarDescricaoFalha(6)"
+                    >
+                      <label for="radFalha" id="labelFalhas"
+                        >Fraqueza por Dano Físico</label
+                      >
+
+                      <input
+                        type="radio"
+                        name="radFalha"
+                        value="Fraqueza por Dano Físico"
+                        onclick="confirmarFalha()"
+                      />
+                    </div>
+                    <br />
+                    <div
+                      class="informacao__registro"
+                      id="informacao__registro__radio"
+                      onmouseenter="alterarDescricaoFalha(7)"
+                    >
+                      <label for="radFalha" id="labelFalhas">Nenhuma</label>
+
+                      <input
+                        type="radio"
+                        name="radFalha"
+                        value=""
+                        onclick="confirmarFalha()"
                       />
                     </div>
                     <br />
@@ -703,6 +799,7 @@
 <script src="../js/personagemAtributos.js"></script>
 <script src="../js/personagemHabilidades.js"></script>
 <script src="../js/personagemAptidao.js"></script>
+<script src="../js/personagemFalhas.js"></script>
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
@@ -797,6 +894,9 @@
     console.log("Valor selecionado:", sexoPersonagemSelecionado); // Imprime o valor no console
   }
 
-  /* PARTE ATRIBUTOS */
+  /* PARTE FALHAS */
+
+  let falhaSelecionado;
+
   /* PARTE ATRIBUTOS */
 </script>
