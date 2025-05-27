@@ -573,7 +573,11 @@ canvas {
 }
 
 #div_cards_titulo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  width: 80%;
 }
 
 #div_cards_titulo h1 {
@@ -713,3 +717,27 @@ select {
   border-radius: 15px;
   text-align: center;
 }
+
+/* PARTE APARÊNCIA */
+
+#ipt_nomePersonagem {
+  border: none;
+  outline: none;
+  font-style: normal; /* Remove itálico por padrão */
+  text-decoration: none; /* Remove sublinhado por padrão */
+  -webkit-appearance: none; /* Remove estilos de navegador padrão */
+  -moz-appearance: none;
+  appearance: none;
+  color: #ecdcba;
+  background-color: #120a04;
+  border-bottom: 5px solid #ecdcba;
+  border-radius: 0px;
+  font-size: 42px;
+  padding: 10px;
+  width: 70%;
+  font-family: "Josefin Sans", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+}
+
+/* PARTE APARÊNCIA */
+/* PARTE APARÊNCIA */

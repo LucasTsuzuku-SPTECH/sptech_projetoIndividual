@@ -592,6 +592,26 @@
               </button>
               <div id="avisoAptidao">Avisos aparecerão aqui</div>
             </div>
+            <h1>APARÊNCIA</h1>
+            <div
+              class="dash__criacaoPersonagem__div"
+              id="dash__criacaoPersonagem__aparencia"
+            >
+              <p>
+                No jogo, você poderá customizar rosto, cabelo e até outras
+                características como maquiagem ou cicatrizes. Por enquanto,
+                escolha somente o seu gênero e nome.
+              </p>
+              <div id="div_cards_titulo">
+                <h1>NOME:</h1>
+                <br />
+                <input
+                  type="text"
+                  id="ipt_nomePersonagem"
+                  oninput="definirValorNoInput()"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -674,7 +694,10 @@
 
   let atributoSelecionado;
 
-  /* PARTE ATRIBUTOS */
+  /* PARTE APARENCIA */
+
+  let nomePersonagemSelecionado = ipt_nomePersonagem.value;
+
   /* PARTE ATRIBUTOS */
   /* PARTE ATRIBUTOS */
 </script>
