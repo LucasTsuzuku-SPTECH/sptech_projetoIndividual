@@ -809,7 +809,10 @@
                 id="dash__div_cards_informacoes__card__tokens"
               >
                 <div class="informacao" id="cardTokens">
-                  <img src="../assets/imgs/tokenLobo.png" alt="Token Solíquo" />
+                  <img
+                    src="../assets/imgs/tokenLobo.png"
+                    alt="Token Lobo Solitário"
+                  />
                   <div id="div_cards_titulo">
                     <h1>Lobo Solitário</h1>
                   </div>
@@ -910,6 +913,122 @@
               >
                 Resetar Tokens
               </button>
+            </div>
+            <h1>COMPANHEIROS</h1>
+            <div
+              class="dash__criacaoPersonagem__div"
+              id="dash__criacaoPersonagem__companheiros"
+            >
+              <p>
+                Companheiros não servem apenas como uma mão extra no serviço,
+                cada um deles tem diferentes especialidades! Lembre-se: A força
+                da união torna sua equipe imbatível para superar qualquer
+                dificuldade.
+              </p>
+              <p>
+                Pontos disponíveis:
+                <span id="quantidadeCompanheirosDisponiveis">2</span>
+              </p>
+              <div
+                class="dash__div_cards_informacoes__card"
+                id="dash__div_cards_informacoes__card__companheiros"
+              >
+                <div class="informacao" id="cardCompanheiros">
+                  <img src="../assets/imgs/Parvati.png" alt="Parvati" />
+                  <div id="div_cards_titulo">
+                    <h1>Parvati</h1>
+                  </div>
+                  <h3>Engenheira</h3>
+                  <span>+19 Persuasão</span>
+                  <span>+21 Gazua</span>
+                  <span>+22 Engenharia</span>
+                  <br />
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheLobo"
+                    onclick="adicionarTokens('cheLobo')"
+                    value="Lobo Solitário"
+                  />
+                </div>
+                <div class="informacao" id="cardCompanheiros">
+                  <img
+                    src="../assets/imgs/tokenAssassino.png"
+                    alt="Assassino"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Assassino</h1>
+                  </div>
+                  <p>
+                    +25% de dano de armas silenciosas (armas com alcance de
+                    barulho menor ou igual a 2,5m)
+                  </p>
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheAssassino"
+                    onclick="adicionarTokens('cheAssassino')"
+                    value="Assassino"
+                  />
+                </div>
+                <div class="informacao" id="cardCompanheiros">
+                  <img
+                    src="../assets/imgs/tokenVinganca.png"
+                    alt="Token Vingança"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Vingança</h1>
+                  </div>
+                  <p>+20% de dano ao sofrer qualquer efeito nocivo</p>
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheVinganca"
+                    onclick="adicionarTokens('cheVinganca')"
+                    value="Vingança"
+                  />
+                </div>
+                <div class="informacao" id="cardCompanheiros">
+                  <img
+                    src="../assets/imgs/tokenLabia.png"
+                    alt="Token Lábias de vendedor"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Lábias de vendedor</h1>
+                  </div>
+                  <p>
+                    Você tem um jeito de convencer os vendedores de pagar 20% a
+                    mais de Bits por suas vendas
+                  </p>
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheLabia"
+                    onclick="adicionarTokens('cheLabia')"
+                    value="Lábias de vendedor"
+                  />
+                </div>
+                <div class="informacao" id="cardCompanheiros">
+                  <img
+                    src="../assets/imgs/tokenDemonstracao.png"
+                    alt="Token Demonstração Fatal"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Demonstração Fatal</h1>
+                  </div>
+                  <p>
+                    Os seus companheiros tem muito a te ensinar ao conceder 50%
+                    de XP por abatimentos por companheiros
+                  </p>
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheDemonstracao"
+                    onclick="adicionarTokens('cheDemonstracao')"
+                    value="Demonstração Fatal"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1029,4 +1148,9 @@
   let token2Selecionado = null;
 
   /* Companheiro  */
+
+  let quantidadeCompanheirosDisponiveis = 2;
+  let arrayCompanheirosSelecionados = [];
+  let companheiro1Selecionado = null;
+  let companheiro2Selecionado = null;
 </script>
