@@ -825,6 +825,83 @@
                     value="Lobo Solitário"
                   />
                 </div>
+                <div class="informacao" id="cardTokens">
+                  <img
+                    src="../assets/imgs/tokenAssassino.png"
+                    alt="Assassino"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Assassino</h1>
+                  </div>
+                  <p>
+                    +25% de dano de armas silenciosas (armas com alcance de
+                    barulho menor ou igual a 2,5m)
+                  </p>
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheAssassino"
+                    onclick="adicionarTokens()"
+                    value="Assassino"
+                  />
+                </div>
+                <div class="informacao" id="cardTokens">
+                  <img
+                    src="../assets/imgs/tokenVinganca.png"
+                    alt="Token Vingança"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Vingança</h1>
+                  </div>
+                  <p>+20% de dano ao sofrer qualquer efeito nocivo</p>
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheVinganca"
+                    onclick="adicionarTokens()"
+                    value="Vingança"
+                  />
+                </div>
+                <div class="informacao" id="cardTokens">
+                  <img
+                    src="../assets/imgs/tokenLabia.png"
+                    alt="Token Lábias de vendedor"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Lábias de vendedor</h1>
+                  </div>
+                  <p>
+                    Você tem um jeito de convencer os vendedores de pagar 20% a
+                    mais de Bits por suas vendas
+                  </p>
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheLabia"
+                    onclick="adicionarTokens()"
+                    value="Lábias de vendedor"
+                  />
+                </div>
+                <div class="informacao" id="cardTokens">
+                  <img
+                    src="../assets/imgs/tokenDemonstracao.png"
+                    alt="Token Demonstração Fatal"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Demonstração Fatal</h1>
+                  </div>
+                  <p>
+                    Os seus companheiros tem muito a te ensinar ao conceder 50%
+                    de XP por abatimentos por companheiros
+                  </p>
+                  <input
+                    type="checkbox"
+                    name="cheToken"
+                    id="cheDemonstracao"
+                    onclick="adicionarTokens()"
+                    value="Demonstração Fatal"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -939,25 +1016,34 @@
   /* PARTE TOKENS */
 
   let quantidadeTokensDisponiveis = 1;
+  let arrayTokensSelecionados = [];
   let token1Selecionado = null;
   let token2Selecionado = null;
 
   function adicionarTokens() {
+    console.log(arrayTokensSelecionados);
     const checkbox = document.getElementsByName("cheToken");
     console.log(checkbox);
-    if (quantidadeTokensDisponiveis <= 0 && checkbox[0].checked == true) {
-      alert("Você não tem pontos disponíveis para adicionar tokens");
-      checkbox[0].checked = false;
-      return;
+    for (var i = 0; i < checkbox.length; i++) {
+      if (quantidadeTokensDisponiveis <= 0 && checkbox[i].checked == true) {
+        alert("Você não tem pontos disponíveis para adicionar tokens");
+        checkbox[i].checked = false;
+        return;
+      } else {
+        if (
+          checkbox[i].checked == true &&
+          !arrayTokensSelecionados.includes(checkbox[i].value)
+        ) {
+          quantidadeTokensDisponiveis = quantidadeTokensDisponiveis - 1;
+          console.log(quantidadeTokensDisponiveis);
+          arrayTokensSelecionados.push(checkbox[i].value);
+          console.log(arrayTokensSelecionados);
+        } else if (checkbox[i].checked == false) {
+          console.log(quantidadeTokensDisponiveis);
+        }
+        atualizarPontosDisponiveis();
+      }
     }
-    if (checkbox[0].checked == true) {
-      quantidadeTokensDisponiveis = quantidadeTokensDisponiveis - 1;
-      console.log(quantidadeTokensDisponiveis);
-    } else {
-      quantidadeTokensDisponiveis = quantidadeTokensDisponiveis + 1;
-      console.log(quantidadeTokensDisponiveis);
-    }
-    atualizarPontosDisponiveis();
   }
 
   /* Companheiro  */
