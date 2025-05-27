@@ -781,5 +781,28 @@ select {
   text-align: center;
 }
 
-/* PARTE APARÊNCIA */
+/* PARTE TOKEN */
+
+#dash__div_cards_informacoes__card__tokens {
+  width: 30%;
+}
+
+#cardTokens {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+#cardTokens img {
+  width: 150px;
+}
+
+#cardTokens input {
+  height: 40px;
+  width: 40px;
+  margin: 0px;
+}
+
 /* PARTE APARÊNCIA */

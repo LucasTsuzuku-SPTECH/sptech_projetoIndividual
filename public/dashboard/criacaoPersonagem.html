@@ -793,7 +793,7 @@
             <h1>TOKENS</h1>
             <div
               class="dash__criacaoPersonagem__div"
-              id="dash__criacaoPersonagem__falhas"
+              id="dash__criacaoPersonagem__tokens"
             >
               <p>
                 Tokens são buffs permanentes para você e seus companheiros e
@@ -804,6 +804,29 @@
                 Pontos disponíveis:
                 <span id="spanQuantidadeTokensDisponiveis">1</span>
               </p>
+              <div
+                class="dash__div_cards_informacoes__card"
+                id="dash__div_cards_informacoes__card__tokens"
+              >
+                <div class="informacao" id="cardTokens">
+                  <img
+                    src="../assets/imgs/tokenSoliquo.png"
+                    alt="Token Solíquo"
+                  />
+                  <div id="div_cards_titulo">
+                    <h1>Lobo Solitário</h1>
+                  </div>
+                  <p>
+                    Às vezes, você é a única pessoa em quem pode confiar, e tudo
+                    bem. Você causa 25% mais dano ao se aventurar sozinho.
+                  </p>
+                  <input
+                    type="checkbox"
+                    id="cheLobo"
+                    onclick="adicionarTokens()"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
