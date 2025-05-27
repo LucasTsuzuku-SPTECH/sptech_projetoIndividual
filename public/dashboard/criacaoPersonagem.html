@@ -32,7 +32,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body onload="atualizarPontosDisponiveis()">
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -809,10 +809,7 @@
                 id="dash__div_cards_informacoes__card__tokens"
               >
                 <div class="informacao" id="cardTokens">
-                  <img
-                    src="../assets/imgs/tokenSoliquo.png"
-                    alt="Token Solíquo"
-                  />
+                  <img src="../assets/imgs/tokenLobo.png" alt="Token Solíquo" />
                   <div id="div_cards_titulo">
                     <h1>Lobo Solitário</h1>
                   </div>
@@ -822,8 +819,10 @@
                   </p>
                   <input
                     type="checkbox"
+                    name="cheToken"
                     id="cheLobo"
                     onclick="adicionarTokens()"
+                    value="Lobo Solitário"
                   />
                 </div>
               </div>
@@ -877,6 +876,7 @@
   function atualizarPontosDisponiveis() {
     quantidadeAtributosDisponiveis.innerHTML = pontosAtributosDisponiveis;
     quantidadeHabilidadesDisponiveis.innerHTML = pontosHabilidadesDisponiveis;
+    spanQuantidadeTokensDisponiveis.innerHTML = quantidadeTokensDisponiveis;
   }
 
   // script personagemAtributos.js
@@ -939,6 +939,26 @@
   /* PARTE TOKENS */
 
   let quantidadeTokensDisponiveis = 1;
+  let token1Selecionado = null;
+  let token2Selecionado = null;
+
+  function adicionarTokens() {
+    const checkbox = document.getElementsByName("cheToken");
+    console.log(checkbox);
+    if (quantidadeTokensDisponiveis <= 0 && checkbox[0].checked == true) {
+      alert("Você não tem pontos disponíveis para adicionar tokens");
+      checkbox[0].checked = false;
+      return;
+    }
+    if (checkbox[0].checked == true) {
+      quantidadeTokensDisponiveis = quantidadeTokensDisponiveis - 1;
+      console.log(quantidadeTokensDisponiveis);
+    } else {
+      quantidadeTokensDisponiveis = quantidadeTokensDisponiveis + 1;
+      console.log(quantidadeTokensDisponiveis);
+    }
+    atualizarPontosDisponiveis();
+  }
 
   /* Companheiro  */
 </script>
