@@ -66,7 +66,7 @@ function confirmarFalha() {
   for (let i = 0; i < radios.length; i++) {
     if (radios[i].checked) {
       falhaSelecionado = radios[i].value;
-      quantidadeTokensDisponiveis += 1;
+      quantidadeTokensDisponiveis = quantidadeTokensDisponiveis + 1;
 
       break; // Para após encontrar o primeiro radio selecionado
     }

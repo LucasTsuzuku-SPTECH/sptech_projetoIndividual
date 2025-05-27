@@ -821,7 +821,7 @@
                     type="checkbox"
                     name="cheToken"
                     id="cheLobo"
-                    onclick="adicionarTokens()"
+                    onclick="adicionarTokens('cheLobo')"
                     value="Lobo Solitário"
                   />
                 </div>
@@ -841,7 +841,7 @@
                     type="checkbox"
                     name="cheToken"
                     id="cheAssassino"
-                    onclick="adicionarTokens()"
+                    onclick="adicionarTokens('cheAssassino')"
                     value="Assassino"
                   />
                 </div>
@@ -858,7 +858,7 @@
                     type="checkbox"
                     name="cheToken"
                     id="cheVinganca"
-                    onclick="adicionarTokens()"
+                    onclick="adicionarTokens('cheVinganca')"
                     value="Vingança"
                   />
                 </div>
@@ -878,7 +878,7 @@
                     type="checkbox"
                     name="cheToken"
                     id="cheLabia"
-                    onclick="adicionarTokens()"
+                    onclick="adicionarTokens('cheLabia')"
                     value="Lábias de vendedor"
                   />
                 </div>
@@ -898,11 +898,18 @@
                     type="checkbox"
                     name="cheToken"
                     id="cheDemonstracao"
-                    onclick="adicionarTokens()"
+                    onclick="adicionarTokens('cheDemonstracao')"
                     value="Demonstração Fatal"
                   />
                 </div>
               </div>
+              <button
+                onclick="resetarTokens()"
+                class="botaoCriacaoPersonagem"
+                id="botaoResetarToken"
+              >
+                Resetar Tokens
+              </button>
             </div>
           </div>
         </div>
@@ -1020,30 +1027,41 @@
   let token1Selecionado = null;
   let token2Selecionado = null;
 
-  function adicionarTokens() {
+  function adicionarTokens(idCheckbox) {
     console.log(arrayTokensSelecionados);
     const checkbox = document.getElementsByName("cheToken");
+    const checkboxClicado = document.getElementById(idCheckbox);
+    if (quantidadeTokensDisponiveis <= 0 && checkboxClicado.checked == true) {
+      alert("Você não tem pontos disponíveis para adicionar tokens");
+      checkboxClicado.checked = false;
+      return;
+    }
     console.log(checkbox);
     for (var i = 0; i < checkbox.length; i++) {
-      if (quantidadeTokensDisponiveis <= 0 && checkbox[i].checked == true) {
-        alert("Você não tem pontos disponíveis para adicionar tokens");
-        checkbox[i].checked = false;
-        return;
-      } else {
-        if (
-          checkbox[i].checked == true &&
-          !arrayTokensSelecionados.includes(checkbox[i].value)
-        ) {
-          quantidadeTokensDisponiveis = quantidadeTokensDisponiveis - 1;
-          console.log(quantidadeTokensDisponiveis);
-          arrayTokensSelecionados.push(checkbox[i].value);
-          console.log(arrayTokensSelecionados);
-        } else if (checkbox[i].checked == false) {
-          console.log(quantidadeTokensDisponiveis);
-        }
-        atualizarPontosDisponiveis();
+      if (
+        checkbox[i].checked == true &&
+        !arrayTokensSelecionados.includes(checkbox[i].value)
+      ) {
+        quantidadeTokensDisponiveis = quantidadeTokensDisponiveis - 1;
+        console.log(quantidadeTokensDisponiveis);
+        arrayTokensSelecionados.push(checkbox[i].value);
+        console.log(arrayTokensSelecionados);
+      } else if (checkbox[i].checked == false) {
+        console.log(quantidadeTokensDisponiveis);
       }
+      atualizarPontosDisponiveis();
     }
+  }
+
+  function resetarTokens() {
+    const checkbox = document.getElementsByName("cheToken");
+    for (var i = 0; i < checkbox.length; i++) {
+      checkbox[i].checked = false;
+    }
+    quantidadeTokensDisponiveis = 1;
+    arrayTokensSelecionados = [];
+    atualizarPontosDisponiveis();
+    console.log(arrayTokensSelecionados);
   }
 
   /* Companheiro  */
