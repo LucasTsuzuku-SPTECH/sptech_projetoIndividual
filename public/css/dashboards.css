@@ -698,6 +698,7 @@ select {
 /* PARTE APTIDAO */
 
 #informacao__registro__radio {
+  display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 24px;
@@ -737,6 +738,34 @@ select {
   width: 70%;
   font-family: "Josefin Sans", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
+}
+
+#criacaoPersonagem__aparencia__sexo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.criacaoPersonagem__aparencia__sexo__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+
+.criacaoPersonagem__aparencia__sexo__card img {
+  width: 50%;
+}
+
+.criacaoPersonagem__aparencia__sexo__card #informacao__registro__radio {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 30%;
+  font-size: 38px;
+  color: #feac19;
 }
 
 /* PARTE APARÊNCIA */
