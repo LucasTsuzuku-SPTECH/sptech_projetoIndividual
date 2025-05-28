@@ -1189,7 +1189,7 @@
                   class="dash__div_cards_informacoes__card"
                   id="cardInfoResumo"
                 >
-                  <h3>Resumo</h3>
+                  <h3>RESUMO</h3>
                   <span id="spanValorResumo0">Lucas Hideaki Tsuzuku</span>
                   <span id="spanValorResumo1">Homem</span>
                   <br />
@@ -1381,7 +1381,7 @@
     for (let i = 0; i < radios.length; i++) {
       if (radios[i].checked) {
         nomePersonagemSelecionado = ipt_nomePersonagem.value;
-        sexoPersonagemSelecionado = radios[i].value;
+        sexoPersonagemSelecionado = parseInt(radios[i].value);
         break; // Para após encontrar o primeiro radio selecionado
       }
     }
@@ -1463,4 +1463,7 @@
                   />`;
     }
   }
+
+  /* PARTE TESTES */
+  /* PARTE ENVIAR DADOS PARA BD */
 </script>
