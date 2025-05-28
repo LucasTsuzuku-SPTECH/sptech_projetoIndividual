@@ -124,10 +124,10 @@
         console.log("ESTOU NO THEN DO entrar()!");
 
         if (resposta.ok) {
-          console.log(resposta);
+          console.log("Respostas capturadas (lucas):" + resposta);
 
           resposta.json().then((json) => {
-            console.log(json);
+            console.log("Respostas capturadas JSON (lucas):" + json);
             console.log(JSON.stringify(json));
             sessionStorage.EMAIL_USUARIO = json.email;
             sessionStorage.NOME_USUARIO = json.nome;
