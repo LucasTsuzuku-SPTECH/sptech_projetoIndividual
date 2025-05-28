@@ -858,3 +858,30 @@ select {
 #dash__div_cards_informacoes__habilidadesResumo {
   display: flex;
 }
+
+#cardHabilidadeResumo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+#cardInfoResumo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+
+#informacao__registro__resumo {
+  justify-content: space-between;
+  width: 100%;
+}
+
+#informacao__registro__resumo #line {
+  width: 60%;
+}
+
+#cardHabilidadeResumo #line {
+  width: 40%;
+}
