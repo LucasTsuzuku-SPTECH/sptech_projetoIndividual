@@ -85,16 +85,16 @@ function alterarDescricaoAptidao(number) {
 function confirmarAptidao() {
   const radios = document.getElementsByName("radAptidao");
   console.log(radios);
-  atributoSelecionado = null;
+  aptidaoSelecionado = null;
   for (let i = 0; i < radios.length; i++) {
     if (radios[i].checked) {
-      atributoSelecionado = radios[i].value;
+      aptidaoSelecionado = radios[i].value;
       avisoAptidao.innerHTML = `
-        Aptidão selecionado: ${atributoSelecionado}
+        Aptidão selecionado: ${aptidaoSelecionado}
         `;
       break; // Para após encontrar o primeiro radio selecionado
     }
   }
 
-  console.log("Valor selecionado:", atributoSelecionado); // Imprime o valor no console
+  console.log("Valor selecionado:", aptidaoSelecionado); // Imprime o valor no console
 }

@@ -1051,6 +1051,13 @@
               </button>
             </div>
             <h1>RESUMO</h1>
+            <button
+              onclick="atualizarResumo()"
+              class="botaoCriacaoPersonagem"
+              id="botaoResetaResumo"
+            >
+              Atualizar Resumo
+            </button>
             <div
               class="dash__criacaoPersonagem__div"
               id="dash__criacaoPersonagem__resumo"
@@ -1183,12 +1190,10 @@
                   id="cardInfoResumo"
                 >
                   <h3>Resumo</h3>
-                  <span>Lucas Hideaki Tsuzuku</span>
-                  <span>Homem</span>
-                  <img
-                    src="../assets/imgs/maleProfile.png"
-                    alt="perfilPersonagem"
-                  />
+                  <span id="spanValorResumo0">Lucas Hideaki Tsuzuku</span>
+                  <span id="spanValorResumo1">Homem</span>
+                  <br />
+                  <div id="imagemResumo"></div>
                   <h3>ATRIBUTO</h3>
                   <div
                     class="informacao__registro"
@@ -1196,7 +1201,7 @@
                   >
                     <span>Força</span>
                     <div id="line"></div>
-                    <span>1</span>
+                    <span id="spanValorResumo2">1</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1204,7 +1209,7 @@
                   >
                     <span>Destreza</span>
                     <div id="line"></div>
-                    <span>3</span>
+                    <span id="spanValorResumo3">3</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1212,7 +1217,7 @@
                   >
                     <span>Inteligência</span>
                     <div id="line"></div>
-                    <span>5</span>
+                    <span id="spanValorResumo4">5</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1220,7 +1225,7 @@
                   >
                     <span>Percepção</span>
                     <div id="line"></div>
-                    <span>2</span>
+                    <span id="spanValorResumo5">2</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1228,7 +1233,7 @@
                   >
                     <span>Charme</span>
                     <div id="line"></div>
-                    <span>1</span>
+                    <span id="spanValorResumo6">1</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1236,18 +1241,20 @@
                   >
                     <span>Temperamento</span>
                     <div id="line"></div>
-                    <span>2</span>
+                    <span id="spanValorResumo7">2</span>
                   </div>
                   <h3>APTIDÃO</h3>
-                  <span>“Nenhuma Aptidão Discernível”</span>
+                  <span id="spanValorResumo8"
+                    >“Nenhuma Aptidão Discernível”</span
+                  >
                   <h3>FALHAS</h3>
-                  <span>Acrofobia</span>
+                  <span id="spanValorResumo9">Acrofobia</span>
                   <h3>TOKENS</h3>
-                  <span>Assassino</span>
-                  <span>Vingança</span>
+                  <span id="spanValorResumo10">Assassino</span>
+                  <span id="spanValorResumo11">Vingança</span>
                   <h3>COMPANHEIROS</h3>
-                  <span>Ellie</span>
-                  <span>Nyoka</span>
+                  <span id="spanValorResumo12">Ellie</span>
+                  <span id="spanValorResumo13">Nyoka</span>
                 </div>
               </div>
             </div>
@@ -1360,7 +1367,7 @@
 
   /* PARTE APTIDAO */
 
-  let atributoSelecionado;
+  let aptidaoSelecionado;
 
   /* PARTE APARENCIA */
 
@@ -1400,4 +1407,60 @@
   let arrayCompanheirosSelecionados = [];
   let companheiro1Selecionado = null;
   let companheiro2Selecionado = null;
+
+  /* Resumo */
+
+  let arrayValoresResumo = [];
+
+  function atualizarResumo() {
+    atualizarValoresHabilidadesCards();
+
+    arrayValoresResumo = [
+      nomePersonagemSelecionado,
+      sexoPersonagemSelecionado,
+      atributosPersonagem.forca,
+      atributosPersonagem.destreza,
+      atributosPersonagem.inteligencia,
+      atributosPersonagem.percepcao,
+      atributosPersonagem.charme,
+      atributosPersonagem.temperamento,
+      aptidaoSelecionado,
+      falhaSelecionado,
+      arrayTokensSelecionados[0],
+      arrayTokensSelecionados[1],
+      arrayCompanheirosSelecionados[0],
+      arrayCompanheirosSelecionados[1],
+    ];
+    console.log(arrayValoresResumo);
+    spanValorResumo0.innerHTML = arrayValoresResumo[0];
+    spanValorResumo1.innerHTML = Number(arrayValoresResumo[1]);
+    spanValorResumo2.innerHTML = arrayValoresResumo[2];
+    spanValorResumo3.innerHTML = arrayValoresResumo[3];
+    spanValorResumo4.innerHTML = arrayValoresResumo[4];
+    spanValorResumo5.innerHTML = arrayValoresResumo[5];
+    spanValorResumo6.innerHTML = arrayValoresResumo[6];
+    spanValorResumo7.innerHTML = arrayValoresResumo[7];
+    spanValorResumo8.innerHTML = arrayValoresResumo[8];
+    spanValorResumo9.innerHTML = arrayValoresResumo[9];
+    spanValorResumo10.innerHTML = arrayValoresResumo[10];
+    spanValorResumo11.innerHTML = arrayValoresResumo[11];
+    spanValorResumo12.innerHTML = arrayValoresResumo[12];
+    spanValorResumo13.innerHTML = arrayValoresResumo[13];
+
+    if (sexoPersonagemSelecionado == 1) {
+      spanValorResumo1.innerHTML = "HOMEM";
+      imagemResumo.innerHTML = `<img
+      src="../assets/imgs/maleProfile.png"
+                    alt="perfilPersonagem"
+                    id="cardImagemResumo"
+                    />`;
+    } else if (sexoPersonagemSelecionado == 0) {
+      spanValorResumo1.innerHTML = "Mulher";
+      imagemResumo.innerHTML = `<img
+                    src="../assets/imgs/femaleProfile.png"
+                    alt="perfilPersonagem"
+                    id="cardImagemResumo"
+                  />`;
+    }
+  }
 </script>

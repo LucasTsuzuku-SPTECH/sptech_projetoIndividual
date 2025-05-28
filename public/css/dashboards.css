@@ -879,9 +879,13 @@ select {
 }
 
 #informacao__registro__resumo #line {
-  width: 60%;
+  width: 50%;
 }
 
 #cardHabilidadeResumo #line {
   width: 40%;
+}
+
+#cardImagemResumo {
+  width: 200px;
 }
