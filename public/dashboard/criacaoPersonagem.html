@@ -995,7 +995,7 @@
                   <h3>Caçadora</h3>
                   <span>+18 Mentira</span>
                   <span>+19 Medicina</span>
-                  <span>+21 Furtividade</span>
+                  <span>+21 Esgueira</span>
                   <br />
                   <input
                     type="checkbox"
@@ -1013,7 +1013,7 @@
                   <h3>Rebelde</h3>
                   <span>+20 Persuasão</span>
                   <span>+20 Gazua</span>
-                  <span>+19 Furtividade</span>
+                  <span>+19 Esgueira</span>
                   <br />
                   <input
                     type="checkbox"
@@ -1049,6 +1049,144 @@
               >
                 Resetar Companheiros
               </button>
+            </div>
+            <h1>RESUMO</h1>
+            <div
+              class="dash__criacaoPersonagem__div"
+              id="dash__criacaoPersonagem__resumo"
+            >
+              <div class="dash__div_cards_informacoes">
+                <div class="dash__div_cards_informacoes__card">
+                  <div class="informacao">
+                    <div id="div_cards_titulo">
+                      <h1>Habilidades:</h1>
+                    </div>
+                    <div class="div_cards_titulo_checkbox">
+                      <h1>ARMAS BRANCAS</h1>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>1 Mão</span>
+                      <div id="line"></div>
+                      <span id="valor1MaoFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>2 Mãos</span>
+                      <div id="line"></div>
+                      <span id="valor2MaoFinal"></span>
+                    </div>
+                    <div class="div_cards_titulo_checkbox">
+                      <h1>LONGO ALCANCE</h1>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Pistolas</span>
+                      <div id="line"></div>
+                      <span id="valorPistolasFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Armas Longas</span>
+                      <div id="line"></div>
+                      <span id="valorArmasLongasFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Armas Pesadas</span>
+                      <div id="line"></div>
+                      <span id="valorArmasPesadasFinal"></span>
+                    </div>
+                    <div class="div_cards_titulo_checkbox">
+                      <h1>DEFESA</h1>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Evasão</span>
+                      <div id="line"></div>
+                      <span id="valorEvasaoFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Bloqueio</span>
+                      <div id="line"></div>
+                      <span id="valorBloqueioFinal"></span>
+                    </div>
+                    <div class="div_cards_titulo_checkbox">
+                      <h1>DIÁLOGO</h1>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Persuasão</span>
+                      <div id="line"></div>
+                      <span id="valorPersuasaoFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Mentira</span>
+                      <div id="line"></div>
+                      <span id="valorMentiraFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Intimidação</span>
+                      <div id="line"></div>
+                      <span id="valorIntimidacaoFinal"></span>
+                    </div>
+                    <div class="div_cards_titulo_checkbox">
+                      <h1>FURTIVIDADE</h1>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Esgueira</span>
+                      <div id="line"></div>
+                      <span id="valorEsgueiraFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Hacking</span>
+                      <div id="line"></div>
+                      <span id="valorHackingFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Gazua</span>
+                      <div id="line"></div>
+                      <span id="valorGazuaFinal"></span>
+                    </div>
+                    <div class="div_cards_titulo_checkbox">
+                      <h1>TECNOLOGIA</h1>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Medicina</span>
+                      <div id="line"></div>
+                      <span id="valorMedicinaFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Ciência</span>
+                      <div id="line"></div>
+                      <span id="valorCienciaFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Engenharia</span>
+                      <div id="line"></div>
+                      <span id="valorEngenhariaFinal"></span>
+                    </div>
+                    <div class="div_cards_titulo_checkbox">
+                      <h1>LIDERANÇA</h1>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Inspiração</span>
+                      <div id="line"></div>
+                      <span id="valorInspiracaoFinal"></span>
+                    </div>
+                    <div class="informacao__registro">
+                      <span>Determinação</span>
+                      <div id="line"></div>
+                      <span id="valorDeterminacaoFinal"></span>
+                    </div>
+
+                    <br />
+                  </div>
+                </div>
+                <div
+                  class="dash__div_cards_informacoes__card"
+                  id="cardInfoFalhas"
+                >
+                  <h3>Acrofobia</h3>
+                  <p>
+                    Depois de cair repetidamente de grandes alturas, você não
+                    funciona mais bem quando o chão está muito abaixo de você.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1133,6 +1271,28 @@
     valorInspiracao.innerHTML = habilidadePersonagem.habilidadeInspiracao;
     valorDeterminacao.innerHTML = habilidadePersonagem.habilidadeDeterminacao;
     console.log(habilidadePersonagem);
+    valor1MaoFinal.innerHTML = habilidadePersonagem.habilidade1Mao;
+    valor2MaoFinal.innerHTML = habilidadePersonagem.habilidade2Mao;
+    valorPistolasFinal.innerHTML = habilidadePersonagem.habilidadePistolas;
+    valorArmasLongasFinal.innerHTML =
+      habilidadePersonagem.habilidadeArmasLongas;
+    valorArmasPesadasFinal.innerHTML =
+      habilidadePersonagem.habilidadeArmasPesadas;
+    valorEvasaoFinal.innerHTML = habilidadePersonagem.habilidadeEvasao;
+    valorBloqueioFinal.innerHTML = habilidadePersonagem.habilidadeBloqueio;
+    valorPersuasaoFinal.innerHTML = habilidadePersonagem.habilidadePersuasao;
+    valorMentiraFinal.innerHTML = habilidadePersonagem.habilidadeMentira;
+    valorIntimidacaoFinal.innerHTML =
+      habilidadePersonagem.habilidadeIntimidacao;
+    valorEsgueiraFinal.innerHTML = habilidadePersonagem.habilidadeEsgueira;
+    valorHackingFinal.innerHTML = habilidadePersonagem.habilidadeHacking;
+    valorGazuaFinal.innerHTML = habilidadePersonagem.habilidadeGazua;
+    valorMedicinaFinal.innerHTML = habilidadePersonagem.habilidadeMedicina;
+    valorCienciaFinal.innerHTML = habilidadePersonagem.habilidadeCiencia;
+    valorEngenhariaFinal.innerHTML = habilidadePersonagem.habilidadeEngenharia;
+    valorInspiracaoFinal.innerHTML = habilidadePersonagem.habilidadeInspiracao;
+    valorDeterminacaoFinal.innerHTML =
+      habilidadePersonagem.habilidadeDeterminacao;
   }
 
   /* PARTE APTIDAO */

@@ -35,13 +35,13 @@ function adicionarCompanheiro(idCompanheiro) {
         console.log(habilidadePersonagem);
       } else if (checkbox[i].value == "Nyoka") {
         habilidadePersonagem.habilidadeMentira += 18;
-        habilidadePersonagem.abilidadeMedicina += 19;
-        habilidadePersonagem.habilidadeFurtividade += 21;
+        habilidadePersonagem.habilidadeMedicina += 19;
+        habilidadePersonagem.habilidadeEsgueira += 21;
         console.log(habilidadePersonagem);
       } else if (checkbox[i].value == "Felix") {
         habilidadePersonagem.habilidadePersuasao += 20;
         habilidadePersonagem.habilidadeGazua += 20;
-        habilidadePersonagem.habilidadeFurtividade += 19;
+        habilidadePersonagem.habilidadeEsgueira += 19;
         console.log(habilidadePersonagem);
       } else if (checkbox[i].value == "SAM") {
         habilidadePersonagem.habilidadeEngenharia += 19;

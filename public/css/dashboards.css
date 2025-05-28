@@ -847,3 +847,14 @@ select {
   width: 40px;
   margin: 0px;
 }
+
+/* PARTE RESUMO */
+
+#dash__criacaoPersonagem__resumo {
+  width: 100%;
+  display: flex;
+}
+
+#dash__div_cards_informacoes__habilidadesResumo {
+  display: flex;
+}
