@@ -1260,7 +1260,7 @@
             </div>
             <br />
             <button
-              onclick="enviarValoresBancoPersonagem()"
+              onclick="buscarIdPersonagemCriado()"
               class="botaoCriacaoPersonagem"
               id="botaoEnviaDadosBD"
             >
@@ -1516,6 +1516,7 @@
           limparFormulario();
           finalizarAguardar(); */
           console.log("Personagem Cadastrado");
+          //buscarIdPersonagemCriado();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
@@ -1523,6 +1524,28 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         /* finalizarAguardar(); */
+      });
+  }
+
+  let idPersonagemCriado;
+
+  function buscarIdPersonagemCriado() {
+    fetch(`/medidas/buscarIdPersonagemCriado`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            idPersonagemCriado = resposta[0].idPersonagemCriado;
+            console.log(idPersonagemCriado);
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
       });
   }
 

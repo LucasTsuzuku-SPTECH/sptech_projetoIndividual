@@ -158,6 +158,15 @@ engenharia,
 inspiracao,
 determinacao FROM habilidade WHERE idHabilidade = (SELECT personagem_has_habilidade.fkHabilidade FROM personagem_has_habilidade WHERE fkPersonagem = 100);
 
+-- teste criacao personagem com a função now
+
+INSERT INTO personagem (nome,sexo,aptidao,falha,dataCriacao,fkUsuario,token1,token2, acertosTeste, companheiro1, companheiro2) VALUES 
+('dfdf Ken', 1, 'Sub Sous Chef','robôfobia', NOW(), 5, 'assassino', 'labias de vendedor', 2, 'ellie', 'max');
+SELECT * FROM personagem;
+
+-- pegar o id do último personagem criado
+SELECT MAX(idPersonagem) FROM personagem;
+
 /*
 INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 
 ('armasBrancas', 1),

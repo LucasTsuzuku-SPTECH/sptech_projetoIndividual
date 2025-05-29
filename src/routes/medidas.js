@@ -39,4 +39,8 @@ router.get("/todasHabilidadesPersonagem/:idPersonagem", function (req, res) {
   medidaController.buscarTodasHabilidadesPersonagem(req, res);
 });
 
+router.get("/buscarIdPersonagemCriado", function (req, res) {
+  medidaController.buscarIdPersonagemCriado(req, res);
+});
+
 module.exports = router;

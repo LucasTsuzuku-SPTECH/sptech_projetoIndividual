@@ -133,6 +133,13 @@ function buscarTodasHabilidadesPersonagem(idPersonagem) {
   return database.executar(instrucaoSql);
 }
 
+function buscarIdPersonagemCriado() {
+  var instrucaoSql = `SELECT MAX(idPersonagem) AS idPersonagemCriado FROM personagem`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
@@ -143,4 +150,5 @@ module.exports = {
   buscarTodasAptidaoTodosPersonagens,
   buscarTodosAtributosPersonagem,
   buscarTodasHabilidadesPersonagem,
+  buscarIdPersonagemCriado,
 };

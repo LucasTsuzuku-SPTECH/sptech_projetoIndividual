@@ -151,7 +151,7 @@ function cadastrarAtributoPersonagem(req, res) {
     res.status(400).send("forca está undefined!");
   } else {
     aquarioModel
-      .cadastrarPersonagem(
+      .cadastrarAtributoPersonagem(
         forca,
         destreza,
         inteligencia,

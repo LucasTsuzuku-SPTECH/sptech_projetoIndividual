@@ -124,8 +124,6 @@
         console.log("ESTOU NO THEN DO entrar()!");
 
         if (resposta.ok) {
-          console.log("Respostas capturadas (lucas):" + resposta);
-
           resposta.json().then((json) => {
             console.log("Respostas capturadas JSON (lucas):" + json);
             console.log(JSON.stringify(json));
