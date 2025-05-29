@@ -45,6 +45,87 @@ function cadastrar(req, res) {
 }
 
 function cadastrarPersonagem(req, res) {
+  var nome = req.body.nome.toString();
+  var sexo = req.body.sexo;
+  var aptidao = req.body.aptidao.toString();
+  var falha = req.body.falha.toString();
+  var token1 = req.body.token1.toString();
+  var token2 = req.body.token2.toString();
+  var companheiro1 = req.body.companheiro1.toString();
+  var companheiro2 = req.body.companheiro2.toString();
+  var acertosTeste = req.body.acertosTeste;
+  var fkUsuario = req.body.fkUsuario;
+
+  /*
+  sexo: Number(sexoPersonagemSelecionado),
+        aptidao: aptidaoSelecionado,
+        falha: falhaSelecionado,
+        token1: arrayTokensSelecionados[0],
+        token2: arrayTokensSelecionados[1],
+        companheiro1: arrayCompanheirosSelecionados[0],
+        companheiro2: arrayCompanheirosSelecionados[1],
+        acertosTeste: acertosPersonagemSelecionado,
+        fkUsuario: sessionStorage.ID_USUARIO 
+   */
+
+  if (nome == undefined) {
+    res.status(400).send("nome está undefined!");
+  } else if (aptidao == undefined) {
+    res.status(400).send("aptidao está undefined!");
+  } else if (sexo == undefined) {
+    res.status(400).send("sexo está undefined!");
+  } else if (falha == undefined) {
+    falha = "";
+    // res.status(400).send("falha está undefined!");
+  } else if (token1 == undefined) {
+    token1 = "";
+    // res.status(400).send("falha está undefined!");
+  } else if (token2 == undefined) {
+    token2 = "";
+    // res.status(400).send("falha está undefined!");
+  } else if (companheiro1 == undefined) {
+    companheiro1 = "";
+    // res.status(400).send("falha está undefined!");
+  } else if (companheiro2 == undefined) {
+    companheiro2 = "";
+    // res.status(400).send("falha está undefined!");
+  } else if (acertosTeste == undefined) {
+    res.status(400).send("acertosTeste está undefined!");
+  } else if (fkUsuario == undefined) {
+    res.status(400).send("fkUsuario está undefined!");
+  }
+  if (companheiro2 == undefined) {
+    companheiro2 = "";
+    // res.status(400).send("falha está undefined!");
+  } else {
+    aquarioModel
+      .cadastrarPersonagem(
+        nome,
+        sexo,
+        aptidao,
+        falha,
+        token1,
+        token2,
+        companheiro1,
+        companheiro2,
+        acertosTeste,
+        fkUsuario
+      )
+      .then((resultado) => {
+        res.status(201).json(resultado);
+      })
+      .catch((erro) => {
+        console.log(erro);
+        console.log(
+          "\nHouve um erro ao realizar o cadastro! Erro: ",
+          erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+}
+
+function cadastrarAtributoPersonagem(req, res) {
   var fkPersonagem = req.body.idPersonagem;
   var forca = req.body.atributoForca;
   var destreza = req.body.atributoDestreza;

@@ -1260,7 +1260,7 @@
             </div>
             <br />
             <button
-              onclick="enviarValoresBanco()"
+              onclick="enviarValoresBancoPersonagem()"
               class="botaoCriacaoPersonagem"
               id="botaoEnviaDadosBD"
             >
@@ -1475,11 +1475,58 @@
 
   /* PARTE TESTES */
 
-  let acertosPersonagemSelecionado = 2;
+  let acertosPersonagemSelecionado = 3;
 
   /* PARTE ENVIAR DADOS PARA BD */
 
-  function enviarValoresBanco() {
+  function enviarValoresBancoPersonagem() {
+    console.log("Enviando dados....");
+
+    fetch("/aquarios/cadastrarPersonagem", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        nome: nomePersonagemSelecionado,
+        sexo: Number(sexoPersonagemSelecionado),
+        aptidao: aptidaoSelecionado,
+        falha: falhaSelecionado,
+        token1: arrayTokensSelecionados[0],
+        token2: arrayTokensSelecionados[1],
+        companheiro1: arrayCompanheirosSelecionados[0],
+        companheiro2: arrayCompanheirosSelecionados[1],
+        acertosTeste: acertosPersonagemSelecionado,
+        fkUsuario: sessionStorage.ID_USUARIO,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          /* cardErro.style.display = "block"; */
+
+          /* mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login..."; */
+
+          /* setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar(); */
+          console.log("Personagem Cadastrado");
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        /* finalizarAguardar(); */
+      });
+  }
+
+  function enviarValoresBancoAtributo() {
     console.log("Enviando dados....");
 
     fetch("/aquarios/cadastrarPersonagem", {

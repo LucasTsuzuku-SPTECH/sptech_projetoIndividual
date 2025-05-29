@@ -63,6 +63,7 @@ INNER JOIN personagem ON fkUsuario = idUsuario WHERE usuario.nome = 'Lucas Hidea
 
 -- ver personagem e sua aptidao
 
+
 SELECT * FROM personagem 
 INNER JOIN atributo ON fkPersonagem = idPersonagem;
 

@@ -12,7 +12,12 @@ router.post("/cadastrar", function (req, res) {
 });
 
 router.post("/cadastrarPersonagem", function (req, res) {
-  console.log("Passei por aqui");
+  console.log("Passei por aqu no cadastrarPersonagem");
+  aquarioController.cadastrarPersonagem(req, res);
+});
+
+router.post("/cadastrarAtributoPersonagem", function (req, res) {
+  console.log("Passei por aqu no cadastrarAtributoPersonagem");
   aquarioController.cadastrarPersonagem(req, res);
 });
 
