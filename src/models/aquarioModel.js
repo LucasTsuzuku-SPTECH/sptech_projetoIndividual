@@ -14,7 +14,23 @@ function cadastrar(empresaId, descricao) {
   return database.executar(instrucaoSql);
 }
 
+function cadastrarPersonagem(
+  forca,
+  destreza,
+  inteligencia,
+  percepcao,
+  charme,
+  temperamento,
+  fkPersonagem
+) {
+  var instrucaoSql = `INSERT INTO atributo (forca, destreza, inteligencia, percepcao, charme, temperamento,fkPersonagem) VALUES (${forca}, ${destreza}, ${inteligencia}, ${percepcao}, ${charme}, ${temperamento}, ${fkPersonagem})`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarAquariosPorEmpresa,
   cadastrar,
+  cadastrarPersonagem,
 };

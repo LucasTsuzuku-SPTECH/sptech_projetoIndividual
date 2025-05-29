@@ -9,6 +9,11 @@ router.get("/:empresaId", function (req, res) {
 
 router.post("/cadastrar", function (req, res) {
   aquarioController.cadastrar(req, res);
-})
+});
+
+router.post("/cadastrarPersonagem", function (req, res) {
+  console.log("Passei por aqui");
+  aquarioController.cadastrarPersonagem(req, res);
+});
 
 module.exports = router;
