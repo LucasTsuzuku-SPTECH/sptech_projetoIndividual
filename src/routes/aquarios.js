@@ -26,4 +26,9 @@ router.post("/cadastrarHabilidadePersonagem", function (req, res) {
   aquarioController.cadastrarHabilidadePersonagem(req, res);
 });
 
+router.post("/cadastrarPersonagemHasHabilidade", function (req, res) {
+  console.log("Passei por aqu no cadastrarHabilidadePersonagem");
+  aquarioController.cadastrarPersonagemHasHabilidade(req, res);
+});
+
 module.exports = router;

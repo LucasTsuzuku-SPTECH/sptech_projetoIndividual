@@ -48,7 +48,6 @@ function adicionarCompanheiro(idCompanheiro) {
         habilidadePersonagem.habilidadeHacking += 20;
         habilidadePersonagem.habilidadeCiencia += 20;
         console.log(habilidadePersonagem);
-        break;
       }
       arrayCompanheirosSelecionados.push(checkbox[i].value);
       console.log(arrayCompanheirosSelecionados);

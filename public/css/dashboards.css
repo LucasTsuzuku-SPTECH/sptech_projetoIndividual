@@ -889,3 +889,12 @@ select {
 #cardImagemResumo {
   width: 200px;
 }
+
+#avisoCriacaoPersonagem {
+  background-color: rgba(0, 0, 0, 0.35);
+  width: 100%;
+  margin: 1%;
+  padding: 2.5%;
+  border-radius: 15px;
+  text-align: center;
+}

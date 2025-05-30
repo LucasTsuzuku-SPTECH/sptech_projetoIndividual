@@ -266,10 +266,37 @@ function cadastrarHabilidadePersonagem(req, res) {
   }
 }
 
+function cadastrarPersonagemHasHabilidade(req, res) {
+  var idPersonagem = req.body.idPersonagemCriado;
+  var idHabilidade = req.body.idHabilidadeCriada;
+
+  if (idPersonagem == undefined) {
+    res.status(400).send("idPersonagem está undefined!");
+  }
+  if (idHabilidade == undefined) {
+    res.status(400).send("idHabilidade está undefined!");
+  } else {
+    aquarioModel
+      .cadastrarPersonagemHasHabilidade(idPersonagem, idHabilidade)
+      .then((resultado) => {
+        res.status(201).json(resultado);
+      })
+      .catch((erro) => {
+        console.log(erro);
+        console.log(
+          "\nHouve um erro ao realizar o cadastro! Erro: ",
+          erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+}
+
 module.exports = {
   buscarAquariosPorEmpresa,
   cadastrar,
   cadastrarPersonagem,
   cadastrarAtributoPersonagem,
   cadastrarHabilidadePersonagem,
+  cadastrarPersonagemHasHabilidade,
 };

@@ -73,10 +73,18 @@ function cadastrarHabilidadePersonagem(
   return database.executar(instrucaoSql);
 }
 
+function cadastrarPersonagemHasHabilidade(idPersonagem, idHabilidade) {
+  var instrucaoSql = `INSERT INTO personagem_has_habilidade (fkPersonagem, fkHabilidade) VALUES (${idPersonagem}, ${idHabilidade})`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarAquariosPorEmpresa,
   cadastrar,
   cadastrarPersonagem,
   cadastrarAtributoPersonagem,
   cadastrarHabilidadePersonagem,
+  cadastrarPersonagemHasHabilidade,
 };

@@ -1267,6 +1267,8 @@
               Criar Personagem
             </button>
             <br />
+            <div id="avisoCriacaoPersonagem">Avisos aparecerão aqui</div>
+            <br />
           </div>
         </div>
       </div>
@@ -1644,7 +1646,7 @@
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             idHabilidadeCriada = resposta[0].idHabilidadeCriada;
             console.log(idHabilidadeCriada);
-            //enviarValoresBancoPersonagemHasHabilidade();
+            enviarValoresBancoPersonagemHasHabilidade();
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na API");
@@ -1654,6 +1656,47 @@
         console.error(
           `Erro na obtenção dos dados p/ gráfico: ${error.message}`
         );
+      });
+  }
+
+  function enviarValoresBancoPersonagemHasHabilidade() {
+    console.log("Enviando dados....");
+
+    fetch("/aquarios/cadastrarPersonagemHasHabilidade", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        idPersonagemCriado: idPersonagemCriado,
+        idHabilidadeCriada: idHabilidadeCriada,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+          /* cardErro.style.display = "block"; */
+
+          /* mensagem_erro.innerHTML =
+            "Cadastro realizado com sucesso! Redirecionando para tela de Login..."; */
+
+          /* setTimeout(() => {
+            window.location = "login.html";
+          }, "2000");
+
+          limparFormulario();
+          finalizarAguardar(); */
+          console.log("Habilidades e Personagens relacionados");
+          avisoCriacaoPersonagem.innerHTML =
+            "Personagem criado com sucesso ! É só ir na página de Personagens e ver o seu personagem criado";
+        } else {
+          throw "Houve um erro ao tentar realizar o cadastro!";
+        }
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        /* finalizarAguardar(); */
       });
   }
 </script>
