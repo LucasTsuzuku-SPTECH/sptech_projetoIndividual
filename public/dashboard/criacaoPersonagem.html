@@ -1260,7 +1260,7 @@
             </div>
             <br />
             <button
-              onclick="buscarIdPersonagemCriado()"
+              onclick="enviarValoresBancoPersonagem()"
               class="botaoCriacaoPersonagem"
               id="botaoEnviaDadosBD"
             >
@@ -1516,7 +1516,7 @@
           limparFormulario();
           finalizarAguardar(); */
           console.log("Personagem Cadastrado");
-          //buscarIdPersonagemCriado();
+          buscarIdPersonagemCriado();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
@@ -1537,6 +1537,7 @@
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             idPersonagemCriado = resposta[0].idPersonagemCriado;
             console.log(idPersonagemCriado);
+            enviarValoresBancoAtributo();
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na API");
@@ -1552,13 +1553,13 @@
   function enviarValoresBancoAtributo() {
     console.log("Enviando dados....");
 
-    fetch("/aquarios/cadastrarPersonagem", {
+    fetch("/aquarios/cadastrarAtributoPersonagem", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        idPersonagem: 107,
+        idPersonagem: idPersonagemCriado,
         atributoForca: atributosPersonagem.forca,
         atributoDestreza: atributosPersonagem.destreza,
         atributoInteligencia: atributosPersonagem.inteligencia,
@@ -1582,7 +1583,7 @@
 
           limparFormulario();
           finalizarAguardar(); */
-          console.log("Personagem Cadastrado");
+          console.log("Atributos Cadastrado");
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }

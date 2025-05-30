@@ -18,7 +18,7 @@ router.post("/cadastrarPersonagem", function (req, res) {
 
 router.post("/cadastrarAtributoPersonagem", function (req, res) {
   console.log("Passei por aqu no cadastrarAtributoPersonagem");
-  aquarioController.cadastrarPersonagem(req, res);
+  aquarioController.cadastrarAtributoPersonagem(req, res);
 });
 
 module.exports = router;

@@ -139,16 +139,16 @@ function cadastrarAtributoPersonagem(req, res) {
   } else if (forca == undefined) {
     res.status(400).send("forca está undefined!");
   } else if (destreza == undefined) {
-    res.status(400).send("forca está undefined!");
+    res.status(400).send("destreza está undefined!");
   } else if (inteligencia == undefined) {
-    res.status(400).send("forca está undefined!");
+    res.status(400).send("inteligencia está undefined!");
   } else if (percepcao == undefined) {
-    res.status(400).send("forca está undefined!");
+    res.status(400).send("percepcao está undefined!");
   } else if (charme == undefined) {
-    res.status(400).send("forca está undefined!");
+    res.status(400).send("charme está undefined!");
   }
   if (temperamento == undefined) {
-    res.status(400).send("forca está undefined!");
+    res.status(400).send("temperamento está undefined!");
   } else {
     aquarioModel
       .cadastrarAtributoPersonagem(
@@ -178,4 +178,5 @@ module.exports = {
   buscarAquariosPorEmpresa,
   cadastrar,
   cadastrarPersonagem,
+  cadastrarAtributoPersonagem,
 };
