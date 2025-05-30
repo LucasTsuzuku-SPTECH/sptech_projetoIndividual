@@ -174,9 +174,102 @@ function cadastrarAtributoPersonagem(req, res) {
   }
 }
 
+function cadastrarHabilidadePersonagem(req, res) {
+  var habilidade1Mao = req.body.habilidade1Mao;
+  var habilidade2Mao = req.body.habilidade2Mao;
+  var habilidadePistolas = req.body.habilidadePistolas;
+  var habilidadeArmasLongas = req.body.habilidadeArmasLongas;
+  var habilidadeArmasPesadas = req.body.habilidadeArmasPesadas;
+  var habilidadeEvasao = req.body.habilidadeEvasao;
+  var habilidadeBloqueio = req.body.habilidadeBloqueio;
+  var habilidadePersuasao = req.body.habilidadePersuasao;
+  var habilidadeMentira = req.body.habilidadeMentira;
+  var habilidadeIntimidacao = req.body.habilidadeIntimidacao;
+  var habilidadeEsgueira = req.body.habilidadeEsgueira;
+  var habilidadeHacking = req.body.habilidadeHacking;
+  var habilidadeGazua = req.body.habilidadeGazua;
+  var habilidadeMedicina = req.body.habilidadeMedicina;
+  var habilidadeCiencia = req.body.habilidadeCiencia;
+  var habilidadeEngenharia = req.body.habilidadeEngenharia;
+  var habilidadeInspiracao = req.body.habilidadeInspiracao;
+  var habilidadeDeterminacao = req.body.habilidadeDeterminacao;
+
+  if (habilidade1Mao == undefined) {
+    res.status(400).send("habilidade1Mao está undefined!");
+  } else if (habilidade2Mao == undefined) {
+    res.status(400).send("habilidade1Mao está undefined!");
+  } else if (habilidadePistolas == undefined) {
+    res.status(400).send("habilidadePistolas está undefined!");
+  } else if (habilidadeArmasLongas == undefined) {
+    res.status(400).send("habilidadeArmasLongas está undefined!");
+  } else if (habilidadeArmasPesadas == undefined) {
+    res.status(400).send("habilidadeArmasPesadas está undefined!");
+  } else if (habilidadeEvasao == undefined) {
+    res.status(400).send("habilidadeEvasao está undefined!");
+  } else if (habilidadeBloqueio == undefined) {
+    res.status(400).send("habilidadeBloqueio está undefined!");
+  } else if (habilidadePersuasao == undefined) {
+    res.status(400).send("habilidadePersuasao está undefined!");
+  } else if (habilidadeMentira == undefined) {
+    res.status(400).send("habilidadeMentira está undefined!");
+  } else if (habilidadeIntimidacao == undefined) {
+    res.status(400).send("habilidadeIntimidacao está undefined!");
+  } else if (habilidadeEsgueira == undefined) {
+    res.status(400).send("habilidadeEsgueira está undefined!");
+  } else if (habilidadeHacking == undefined) {
+    res.status(400).send("habilidadeHacking está undefined!");
+  } else if (habilidadeGazua == undefined) {
+    res.status(400).send("habilidadeGazua está undefined!");
+  } else if (habilidadeMedicina == undefined) {
+    res.status(400).send("habilidadeMedicina está undefined!");
+  } else if (habilidadeCiencia == undefined) {
+    res.status(400).send("habilidadeCiencia está undefined!");
+  } else if (habilidadeEngenharia == undefined) {
+    res.status(400).send("habilidadeEngenharia está undefined!");
+  } else if (habilidadeInspiracao == undefined) {
+    res.status(400).send("habilidadeInspiracao está undefined!");
+  } else if (habilidadeDeterminacao == undefined) {
+    res.status(400).send("habilidadeDeterminacao está undefined!");
+  } else {
+    aquarioModel
+      .cadastrarHabilidadePersonagem(
+        habilidade1Mao,
+        habilidade2Mao,
+        habilidadePistolas,
+        habilidadeArmasLongas,
+        habilidadeArmasPesadas,
+        habilidadeEvasao,
+        habilidadeBloqueio,
+        habilidadePersuasao,
+        habilidadeMentira,
+        habilidadeIntimidacao,
+        habilidadeEsgueira,
+        habilidadeHacking,
+        habilidadeGazua,
+        habilidadeMedicina,
+        habilidadeCiencia,
+        habilidadeEngenharia,
+        habilidadeInspiracao,
+        habilidadeDeterminacao
+      )
+      .then((resultado) => {
+        res.status(201).json(resultado);
+      })
+      .catch((erro) => {
+        console.log(erro);
+        console.log(
+          "\nHouve um erro ao realizar o cadastro! Erro: ",
+          erro.sqlMessage
+        );
+        res.status(500).json(erro.sqlMessage);
+      });
+  }
+}
+
 module.exports = {
   buscarAquariosPorEmpresa,
   cadastrar,
   cadastrarPersonagem,
   cadastrarAtributoPersonagem,
+  cadastrarHabilidadePersonagem,
 };

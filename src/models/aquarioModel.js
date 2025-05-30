@@ -47,9 +47,36 @@ function cadastrarAtributoPersonagem(
   return database.executar(instrucaoSql);
 }
 
+function cadastrarHabilidadePersonagem(
+  habilidade1Mao,
+  habilidade2Mao,
+  habilidadePistolas,
+  habilidadeArmasLongas,
+  habilidadeArmasPesadas,
+  habilidadeEvasao,
+  habilidadeBloqueio,
+  habilidadePersuasao,
+  habilidadeMentira,
+  habilidadeIntimidacao,
+  habilidadeEsgueira,
+  habilidadeHacking,
+  habilidadeGazua,
+  habilidadeMedicina,
+  habilidadeCiencia,
+  habilidadeEngenharia,
+  habilidadeInspiracao,
+  habilidadeDeterminacao
+) {
+  var instrucaoSql = `INSERT INTO habilidade (1mao, 2mao, pistolas, armasLongas, armasPesadas, evasao, bloqueio, persuasao, mentira, intimidacao, esgueira, hacking, gazua, medicina, ciencia, engenharia, inspiracao, determinacao) VALUES (${habilidade1Mao}, ${habilidade2Mao}, ${habilidadePistolas}, ${habilidadeArmasLongas}, ${habilidadeArmasPesadas}, ${habilidadeEvasao}, ${habilidadeBloqueio}, ${habilidadePersuasao}, ${habilidadeMentira}, ${habilidadeIntimidacao}, ${habilidadeEsgueira}, ${habilidadeHacking}, ${habilidadeGazua}, ${habilidadeMedicina}, ${habilidadeCiencia}, ${habilidadeEngenharia}, ${habilidadeInspiracao}, ${habilidadeDeterminacao})`;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarAquariosPorEmpresa,
   cadastrar,
   cadastrarPersonagem,
   cadastrarAtributoPersonagem,
+  cadastrarHabilidadePersonagem,
 };

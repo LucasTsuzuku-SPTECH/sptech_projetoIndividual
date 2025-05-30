@@ -19,8 +19,7 @@ INSERT INTO personagem (nome,sexo,aptidao,falha,dataCriacao,fkUsuario,token1,tok
 ('Jake Hony', 1, 'Técnico de Serviço de Bebidas','gastador compulsivo','2025-05-09 09:10:59', 2, 'soliquo', 'vingança', 1, 'felix', 'sam'),
 ('Ana Back', 0, 'Caixa, Sub-Nível, Não Supervisionador','hipermetropia','2025-05-10 08:10:59', 3, 'labias de vendedor', 'soliquo', 3, 'felix', 'nyoka'),
 ('Maria Rubio', 0, 'Eletricista, parte de cabeamento','cinofobia','2025-05-10 07:10:59', 4, 'demonstracao fatal', 'vingança', 0, 'sam', 'parvati'),
-('Jeremias Carros', 1, 'Fazendeiro','gastador compulsivo','2025-05-10 06:10:59', 5, 'soliquo', 'vingança', 1, 'ellie', 'parvati'),
-('John Ken', 1, 'Sub Sous Chef','robôfobia','2025-05-11 11:10:59', 5, 'assassino', 'labias de vendedor', 2, 'ellie', 'max');
+('Jeremias Carros', 1, 'Fazendeiro','gastador compulsivo','2025-05-10 06:10:59', 5, 'soliquo', 'vingança', 1, 'ellie', 'parvati');
 
 INSERT INTO atributo (forca, destreza, inteligencia, percepcao, charme, temperamento, fkPersonagem) VALUES 
 (-1,3,3,3,3,1,100),
@@ -28,8 +27,7 @@ INSERT INTO atributo (forca, destreza, inteligencia, percepcao, charme, temperam
 (1,2,3,3,2,1,102),
 (1,2,3,1,2,3,103),
 (1,2,3,3,2,1,104),
-(1,2,3,3,2,1,105),
-(2,1,3,2,3,1,106);
+(1,2,3,3,2,1,105);
 
 INSERT INTO habilidade (1mao, 2mao, pistolas, armasLongas, armasPesadas, evasao, bloqueio, persuasao, mentira, intimidacao, esgueira, hacking, gazua, medicina, ciencia, engenharia, inspiracao, determinacao) 
 VALUES 
@@ -38,12 +36,15 @@ VALUES
 (20,20,01,47,20,47,20,20,65,20,20,20,56,20,98,20,45,20),
 (20,47,45,20,12,20,20,20,32,20,56,20,1,20,20,25,20,20),
 (20,10,20,56,20,47,20,20,20,20,20,25,20,65,20,54,20,65),
-(20,20,20,1,20,20,20,25,20,58,10,20,20,36,20,47,20,20),
-(20,20,20,20,58,20,20,85,58,20,74,20,58,20,47,69,20,20);
+(20,20,20,1,20,20,20,25,20,58,10,20,20,36,20,47,20,20);
 
 INSERT INTO personagem_has_habilidade (fkPersonagem, fkHabilidade) VALUES 
 (100,600),
-(101,601);
+(101,601),
+(102,602),
+(103,603),
+(104,604),
+(105,605);
 
 -- testes
 
