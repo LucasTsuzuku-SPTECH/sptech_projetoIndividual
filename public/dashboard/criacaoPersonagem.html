@@ -1623,6 +1623,7 @@
           limparFormulario();
           finalizarAguardar(); */
           console.log("Habilidades Cadastradas");
+          buscarIdHabilidadeCriado();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
@@ -1630,6 +1631,29 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         /* finalizarAguardar(); */
+      });
+  }
+
+  let idHabilidadeCriada;
+
+  function buscarIdHabilidadeCriado() {
+    fetch(`/medidas/buscarIdHabilidadeCriada`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            idHabilidadeCriada = resposta[0].idHabilidadeCriada;
+            console.log(idHabilidadeCriada);
+            //enviarValoresBancoPersonagemHasHabilidade();
+          });
+        } else {
+          console.error("Nenhum dado encontrado ou erro na API");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados p/ gráfico: ${error.message}`
+        );
       });
   }
 </script>
