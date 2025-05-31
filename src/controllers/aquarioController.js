@@ -1,7 +1,7 @@
 var aquarioModel = require("../models/aquarioModel");
 
 function buscarAquariosPorEmpresa(req, res) {
-  var idUsuario = req.params.idUsuario;
+  var idUsuario = req.params.idUsuarioCapturado;
 
   aquarioModel
     .buscarAquariosPorEmpresa(idUsuario)

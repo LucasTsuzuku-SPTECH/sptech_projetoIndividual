@@ -16,6 +16,7 @@ senha VARCHAR(45) NOT NULL
 
 CREATE TABLE personagem (
 idPersonagem INT PRIMARY KEY AUTO_INCREMENT,
+fkUsuario INT NOT NULL,
 nome VARCHAR(45) NOT NULL,
 sexo TINYINT NOT NULL,
 aptidao VARCHAR(90) NOT NULL,
@@ -23,7 +24,6 @@ falha VARCHAR(45) ,
 dataCriacao VARCHAR(45) NOT NULL,
 token1 VARCHAR(45) ,
 token2 VARCHAR(45) ,
-fkUsuario INT NOT NULL,
 acertosTeste TINYINT NOT NULL,
 companheiro1 VARCHAR (45),
 companheiro2 VARCHAR (45)

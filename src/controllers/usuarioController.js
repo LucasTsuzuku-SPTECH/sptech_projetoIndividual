@@ -23,6 +23,7 @@ function autenticar(req, res) {
             .buscarAquariosPorEmpresa(resultadoAutenticar[0].idUsuario)
             .then((resultadoPersonagens) => {
               if (resultadoPersonagens.length > 0) {
+                console.log(resultadoPersonagens);
                 res.json({
                   idUsuario: resultadoAutenticar[0].idUsuario,
                   email: resultadoAutenticar[0].email,
@@ -32,7 +33,15 @@ function autenticar(req, res) {
                   personagens: resultadoPersonagens,
                 });
               } else {
-                res.status(204).json({ aquarios: [] });
+                console.log(resultadoPersonagens.length);
+                res.json({
+                  idUsuario: resultadoAutenticar[0].idUsuario,
+                  email: resultadoAutenticar[0].email,
+                  nome: resultadoAutenticar[0].nome,
+                  telefone: resultadoAutenticar[0].telefone,
+                  pais: resultadoAutenticar[0].pais,
+                  personagens: resultadoPersonagens,
+                });
               }
             });
         } else if (resultadoAutenticar.length == 0) {

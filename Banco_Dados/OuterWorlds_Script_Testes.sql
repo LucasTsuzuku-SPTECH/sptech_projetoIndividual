@@ -20,6 +20,8 @@ INSERT INTO personagem (nome,sexo,aptidao,falha,dataCriacao,fkUsuario,token1,tok
 ('Ana Back', 0, 'Caixa, Sub-Nível, Não Supervisionador','hipermetropia','2025-05-10 08:10:59', 3, 'labias de vendedor', 'soliquo', 3, 'felix', 'nyoka'),
 ('Maria Rubio', 0, 'Eletricista, parte de cabeamento','cinofobia','2025-05-10 07:10:59', 4, 'demonstracao fatal', 'vingança', 0, 'sam', 'parvati'),
 ('Jeremias Carros', 1, 'Fazendeiro','gastador compulsivo','2025-05-10 06:10:59', 5, 'soliquo', 'vingança', 1, 'ellie', 'parvati');
+-- Error Code: 1452. Cannot add or update a child row: a foreign key constraint fails (`outerworlds`.`personagem`, CONSTRAINT `fkPersonagemUsuario` FOREIGN KEY (`fkUsuario`) REFERENCES `usuario` (`idUsuario`))
+
 
 INSERT INTO atributo (forca, destreza, inteligencia, percepcao, charme, temperamento, fkPersonagem) VALUES 
 (-1,3,3,3,3,1,100),
@@ -167,6 +169,9 @@ SELECT * FROM personagem;
 
 -- pegar o id do último personagem criado
 SELECT MAX(idPersonagem) FROM personagem;
+
+-- teste erro de login sem personagem
+SELECT * FROM personagem WHERE fkUsuario = 1
 
 /*
 INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 

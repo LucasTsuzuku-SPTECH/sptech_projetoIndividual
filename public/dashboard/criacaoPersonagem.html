@@ -1690,6 +1690,7 @@
           console.log("Habilidades e Personagens relacionados");
           avisoCriacaoPersonagem.innerHTML =
             "Personagem criado com sucesso ! É só ir na página de Personagens e ver o seu personagem criado";
+          atualizarPersonagensUsuario();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }
@@ -1697,6 +1698,27 @@
       .catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         /* finalizarAguardar(); */
+      });
+  }
+
+  var idUsuarioCapturado = Number(sessionStorage.ID_USUARIO);
+
+  function atualizarPersonagensUsuario() {
+    fetch(`/aquarios/${idUsuarioCapturado}`, { cache: "no-store" })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            sessionStorage.PERSONAGENS = JSON.stringify(resposta);
+          });
+        } else {
+          console.error("Nenhum personagem capturado");
+        }
+      })
+      .catch(function (error) {
+        console.error(
+          `Erro na obtenção dos dados personagem: ${error.message}`
+        );
       });
   }
 </script>
