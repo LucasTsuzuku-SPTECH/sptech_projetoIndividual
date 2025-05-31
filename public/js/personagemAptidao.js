@@ -67,7 +67,7 @@ function alterarDescricaoAptidao(number) {
     cardInfoAptidao.innerHTML = `
 <h3>“Testador de aditivos alimentares”</h3>
             <p>
-              Às vezes, o controle de qualidade significa experimentar um delicioso smoothie de javali, mas na maioria das vezes significa engolir toxinas até encontrar uma que não te desperdice. Você adora uma boa surpresa. Agora que o revestimento do seu estômago está com a consistência de uma sela amaciada, é fácil explorar seus limites culinários.
+              Às vezes, o controle de qualidade significa experimentar um delicioso smoothie de javali, mas na maioria das vezes significa engolir toxinas até encontrar uma que não te faça mal. Você adora uma boa surpresa. Agora que o revestimento do seu estômago está com a consistência de uma sela amaciada, é fácil explorar seus limites culinários.
             </p>
             
 `;

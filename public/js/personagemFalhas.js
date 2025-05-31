@@ -55,6 +55,14 @@ function alterarDescricaoFalha(number) {
             </p>
             
     `;
+  } else if (number == 8) {
+    cardInfoFalhas.innerHTML = `
+      <h3>Nenhuma Falha</h3>
+            <p>
+              Depois de gastar tantos Bits, é provável que você ofereça mais Bits ao fazer uma compra.
+            </p>
+            
+    `;
   }
 }
 
