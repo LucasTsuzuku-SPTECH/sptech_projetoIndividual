@@ -251,6 +251,7 @@ body {
 
 .carrossel img {
   border-radius: 15px;
+  width: 45%;
 }
 
 .carrossel button {
@@ -272,14 +273,14 @@ body {
   background-color: #000000;
   color: #feac19;
   cursor: pointer;
-  transition: 0.3s;
+
   border: 1px solid #feac19;
 }
 
 /* Aliados e Arsenal*/
 
 .arsenal {
-  height: 810px;
+  height: 100%;
   color: #feac19;
   background-size: cover;
   display: flex;
@@ -300,6 +301,24 @@ body {
   margin-top: 10%;
   font-size: 64px;
   text-shadow: 3px 3px 3px #000000;
+}
+
+.boxVideo {
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 50%;
+  margin: 1%;
+}
+.boxVideo p {
+  width: 50%;
+  margin: 5%;
+}
+
+.observacoes {
+  font-size: 5px;
 }
 
 /* Destino*/

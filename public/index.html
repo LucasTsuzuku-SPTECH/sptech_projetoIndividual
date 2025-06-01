@@ -126,10 +126,29 @@
       <div class="arsenal">
         <div class="container">
           <span>Aliados e Arsenal</span>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id molestiae
-          magnam officia illum, est, mollitia explicabo animi quae facere
-          impedit harum? Dignissimos eos, fugit suscipit dolorum consequuntur
-          inventore et corrupti!
+          <br>
+          <div class="boxVideo">
+            <iframe width="720" height="406" src="https://www.youtube.com/embed/z2ceWZ4xReg?si=ULJoDKsu560z9vCF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>
+              Por que vagar sozinho pelo espaço se você pode unir uma equipe e se tornarem imbatíveis para superar qualquer dificuldade ?
+              <br>
+              <br>Tenha ao seu lado os mais carismáticos aliados como uma destemida médica ou um robô de limpeza para exterminar até as maiores sujeira dos ermos!
+            </p>
+          </div>
+          <br>
+          <div class="boxVideo">
+            <p>
+              Além disso, nós do Conselho de Bonança nos preocupamos com a segurança dos nossos colaboradores, por isso disponibilizamos um arsenal de vários tipos armas para todos, desde pistolas leves, fuzis de plasma, até armas de controle mental! 
+              <br>
+              <br>Experimente!
+              <br>
+              <br>
+              * O Conselho não se responsabiliza por qualquer tipo de defeito durante o uso; todas as armas passaram por rigorosos testes de controle de quaidade e estão dentro da margem aceitável estabelecida de 50% de chance de dar defeito.
+            </p>
+            <iframe width="720" height="406" src="https://www.youtube.com/embed/UlppfISpTrc?si=32uJbkUA3KWMi1ss" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <br>
+          <br>
         </div>
       </div>
       <div class="destino">
@@ -195,7 +214,7 @@
     if (processo == "avancar") {
       posicaoAtual++;
       if (posicaoAtual > 2) {
-        posicaoAtual = 2;
+        posicaoAtual = 0;
       }
       carossel__faccoes.innerHTML = `
       <button onclick="proximoSlide('retroceder')">&#8249</button>
@@ -205,7 +224,7 @@
     } else {
       posicaoAtual--;
       if (posicaoAtual < 0) {
-        posicaoAtual = 0;
+        posicaoAtual = 2;
       }
       carossel__faccoes.innerHTML = `
       <button onclick="proximoSlide('retroceder')">&#8249</button>
