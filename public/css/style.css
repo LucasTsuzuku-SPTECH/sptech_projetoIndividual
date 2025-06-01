@@ -14,7 +14,7 @@ body {
   --tamanho-banner: calc(
     100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px
   );
-  --tamanho-footer: 192px;
+  --tamanho-footer: 300px;
 }
 
 .container {
@@ -315,6 +315,7 @@ body {
 .boxVideo p {
   width: 50%;
   margin: 5%;
+  color: #ffffff;
 }
 
 .observacoes {
@@ -324,7 +325,7 @@ body {
 /* Destino*/
 
 .destino {
-  height: 810px;
+  height: 1000px;
   color: #feac19;
   background-image: url("../assets/imgs/destinoBKG.jpg");
   background-size: cover;
@@ -348,10 +349,14 @@ body {
   text-shadow: 3px 3px 3px #000000;
 }
 
+#caixaDescricao__destino {
+  margin-top: 20%;
+}
+
 /* Destino Detalhes*/
 
 .destino_detalhes {
-  height: 810px;
+  height: 100%;
   color: #feac19;
   background-size: cover;
   display: flex;
@@ -372,6 +377,7 @@ body {
   margin-top: 10%;
   font-size: 64px;
   text-shadow: 3px 3px 3px #000000;
+  text-align: center;
 }
 
 .destino_detalhes a {
@@ -397,6 +403,12 @@ body {
 .destino_detalhes img {
   height: 250px;
   width: auto;
+}
+
+.destino_detalhes p {
+  text-align: center;
+  color: #ffffff;
+  font-size: 32px;
 }
 
 /* Footer */
@@ -437,7 +449,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .footer_outerWorlds_social {
