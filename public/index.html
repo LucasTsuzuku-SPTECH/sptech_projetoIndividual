@@ -110,6 +110,17 @@
       <div class="faccoes">
         <div class="container">
           <span>Facções e Inimigos</span>
+          <div class="caixaDescricao">
+            <div class="carrossel" id="carossel__faccoes">
+              <button onclick="proximoSlide('retroceder')">&#8249</button>
+              <img src="./assets/imgs/guarda.png" alt="" />
+              <button onclick="proximoSlide('avancar')">&#8250</button>
+            </div>
+            <p>
+              Você pode se deparar com criaturas e empregados não tão doces
+              quanto as maravilhosas balas de Roxamora...
+            </p>
+          </div>
         </div>
       </div>
       <div class="arsenal">
@@ -176,3 +187,31 @@
     </div>
   </body>
 </html>
+<script>
+  const arrayImagensFaccoes = ["raptidon.png", "guarda.png", "robo.png"];
+
+  let posicaoAtual = 1;
+  function proximoSlide(processo) {
+    if (processo == "avancar") {
+      posicaoAtual++;
+      if (posicaoAtual > 2) {
+        posicaoAtual = 2;
+      }
+      carossel__faccoes.innerHTML = `
+      <button onclick="proximoSlide('retroceder')">&#8249</button>
+      <img src="./assets/imgs/${arrayImagensFaccoes[posicaoAtual]}" alt="" />
+      <button onclick="proximoSlide('avancar')">&#8250</button>
+      `;
+    } else {
+      posicaoAtual--;
+      if (posicaoAtual < 0) {
+        posicaoAtual = 0;
+      }
+      carossel__faccoes.innerHTML = `
+      <button onclick="proximoSlide('retroceder')">&#8249</button>
+      <img src="./assets/imgs/${arrayImagensFaccoes[posicaoAtual]}" alt="" />
+      <button onclick="proximoSlide('avancar')">&#8250</button>
+      `;
+    }
+  }
+</script>

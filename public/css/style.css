@@ -220,7 +220,7 @@ body {
 /* Facções*/
 
 .faccoes {
-  height: 810px;
+  height: 1024px;
   color: #feac19;
   background-image: url("../assets/imgs/faccoesBKG.jpg");
   background-size: cover;
@@ -242,6 +242,38 @@ body {
   margin-top: 10%;
   font-size: 64px;
   text-shadow: 3px 3px 3px #000000;
+}
+.carrossel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrossel img {
+  border-radius: 15px;
+}
+
+.carrossel button {
+  cursor: pointer;
+  font-family: "Barlow", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  border: 0;
+  border-radius: 15px;
+  height: 369px;
+  font-weight: 600;
+  font-size: 72px;
+  color: #000000;
+  background-color: #feac19;
+  padding: 1%;
+  margin: 3%;
+}
+
+.carrossel button:hover {
+  background-color: #000000;
+  color: #feac19;
+  cursor: pointer;
+  transition: 0.3s;
+  border: 1px solid #feac19;
 }
 
 /* Aliados e Arsenal*/
