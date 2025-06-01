@@ -75,7 +75,7 @@ body {
 /* BANNER 1*/
 
 .banner {
-  height: 810px;
+  height: 100%;
   color: #feac19;
   background-image: url("../assets/imgs/outerWorldsWallpaper.jpg");
   background-size: cover;
@@ -85,7 +85,7 @@ body {
 }
 
 .banner .container {
-  height: 100%;
+  height: 1024px;
   flex-direction: column;
   align-items: center;
   justify-content: baseline;
@@ -421,7 +421,7 @@ body {
 }
 
 .footer .container {
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
 }
