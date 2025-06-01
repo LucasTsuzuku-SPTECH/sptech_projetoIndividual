@@ -30,6 +30,9 @@ body {
   color: #feac19;
   height: var(--tamanho-header);
   border-bottom: 2px solid #feac19;
+  position: fixed;
+  width: 100%;
+  z-index: 50;
 }
 
 .header .container {
