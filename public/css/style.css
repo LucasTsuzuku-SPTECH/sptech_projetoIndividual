@@ -604,6 +604,20 @@ body {
   display: none;
 }
 
+/* PARTE CADASTRO */
+
+.cadastro {
+  height: 1192px;
+  background-image: url("../assets/imgs/loginfundo3.jpg");
+  background-size: cover;
+}
+
+.cadastro .container {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 /* ALERTA */
 
 #alerta {

@@ -62,7 +62,10 @@
         
           <div id="alerta"></div>
           <div class="area-parametros-alerta"></div>
-          <div class="cards" id="cardPersonagens"></div>
+          <div class="cards" id="cardPersonagens">
+            
+              
+          </div>
         
       </div>
     </div>
@@ -74,15 +77,23 @@
     function exibirPersonagens() {
       console.log("Executando...")
       JSON.parse(sessionStorage.PERSONAGENS).forEach((item) => {
+        var imagemSexoPersonagem;
+        if(item.sexo == 1) {
+          imagemSexoPersonagem = "maleProfile"
+        } else if(item.sexo == 0) {
+          imagemSexoPersonagem = "femaleProfile"
+
+        }
         document.getElementById("cardPersonagens").innerHTML += `
-                    <div class="card-aquario" onclick="paginaPersonagem(${item.idPersonagem})">
-                    <div class="title-aquario">
-                        <h1>${item.nome}</h1>
-                    </div>
-                    <li>
-                      <ul>Data de Criação: ${item.dataCriacao}</ul>
-                      <ul>Acertos teste: ${item.acertosTeste}</ul>
-                    </li>
+              <div class="card-aquario" onclick="paginaPersonagem(${item.idPersonagem})">
+                <div id="card-aquario__detalhesCard">
+                <img src="../assets/imgs/${imagemSexoPersonagem}.png" alt="Perfil Masculino">
+                <li>
+                  <ul>${item.nome}</ul>
+                  <ul>Data de Criação: ${item.dataCriacao}</ul>
+                  <ul>Acertos teste: ${item.acertosTeste}</ul>
+                </li>
+              </div>
                     `;
       });
     }

@@ -213,14 +213,26 @@ body {
   display: flex;
   flex-direction: row;
   text-align: center;
-  height: 180px;
+  height: 250px;
   justify-content: center;
   background-color: #000000;
   font-size: 20px;
 }
 
+#card-aquario__detalhesCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#card-aquario__detalhesCard img {
+  width: 15%;
+  height: auto;
+}
+
 .card-aquario h1 {
   width: fit-content;
+  margin: 0;
 }
 
 .card-aquario p {
