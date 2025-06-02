@@ -112,14 +112,17 @@
             <!-- Elemento canvas onde o gráfico de barra será desenhado -->
             <div class="donuts_individuais">
               <!-- 5 Aptidões mais escolhidas -->
+              <h3>Atributo mais valorizada</h3>
               <canvas id="donut"></canvas>
             </div>
             <div class="donuts_individuais">
               <!-- 5 Falhas mais escolhidas -->
+              <h3>Falha mais valorizada</h3>
               <canvas id="donut2"></canvas>
             </div>
             <div class="donuts_individuais">
               <!-- Atributos com mais pontos -->
+              <h3>Aptidão mais valorizada</h3>
               <canvas id="donut3"></canvas>
             </div>
           </div>
@@ -427,10 +430,9 @@
             "rgb(224, 170, 255)", // Cor de fundo das partes
           ],
           borderColor: "#120a04",
-          borderWidth: 7,
-          cutout: 130,
-          borderRadius: 50,
-          tension: 0.1,
+          cutout: 150,
+          borderRadius: 15,
+          spacing: 10,
         },
       ],
     };
@@ -445,12 +447,12 @@
     // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
     var registro = resposta[0];
     labels.push(
-      "Soma_forca",
-      "Soma_destreza",
-      "Soma_inteligencia",
-      "Soma_percepcao",
-      "Soma_charme",
-      "Soma_temperamento"
+      "Força",
+      "Destreza",
+      "Inteligência",
+      "Percepção",
+      "Charme",
+      "Temperamento"
     );
 
     dados.datasets[0].data.push(
@@ -530,10 +532,9 @@
             "rgb(224, 170, 255)", // Cor de fundo das partes
           ],
           borderColor: "#120a04",
-          borderWidth: 7,
-          cutout: 130,
-          borderRadius: 50,
-          tension: 0.1,
+          cutout: 150,
+          borderRadius: 15,
+          spacing: 10,
         },
       ],
     };
@@ -620,10 +621,9 @@
             "rgb(224, 170, 255)", // Cor de fundo das partes
           ],
           borderColor: "#120a04",
-          borderWidth: 7,
-          cutout: 130,
-          borderRadius: 50,
-          tension: 0.1,
+          cutout: 150,
+          borderRadius: 15,
+          spacing: 10,
         },
       ],
     };
