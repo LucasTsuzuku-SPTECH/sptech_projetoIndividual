@@ -223,6 +223,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  font-family: "Josefin Sans", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
+    sans-serif;
+  font-weight: 700;
 }
 
 #card-aquario__detalhesCard img {
@@ -607,7 +610,7 @@ canvas {
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 45%;
   border: #ffffff 1px solid;
   background-color: #ffffff;
 }
@@ -628,7 +631,7 @@ canvas {
 
 .containerCriacaoPersonagem h3 {
   color: #feac19;
-  font-size: 42px;
+  font-size: 38px;
   text-align: center;
 }
 
@@ -665,6 +668,7 @@ select {
 
 .dash__criacaoPersonagem h1 {
   color: #feac19;
+  font-size: 42px;
 }
 
 .dash__criacaoPersonagem__div {
@@ -699,6 +703,7 @@ select {
   font-family: "Josefin Sans", "Segoe UI", "Segoe UI", Tahoma, Geneva, Verdana,
     sans-serif;
   font-size: 32px;
+  margin: 15px;
 }
 
 .botaoCriacaoPersonagem:hover {
@@ -718,6 +723,10 @@ select {
   text-align: center;
 }
 
+.input__radio {
+  width: 20px;
+  height: 20px;
+}
 /* FIM PARTE ATRIBUTOS */
 /* INICIO PARTE HABILIDADES */
 
@@ -748,6 +757,7 @@ select {
   align-items: center;
   justify-content: space-between;
   font-size: 24px;
+  width: 100%;
 }
 
 #informacao__registro__radio input {
@@ -791,6 +801,11 @@ select {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+}
+
+#radio__sexo {
+  height: 40px;
+  width: 40px;
 }
 
 .criacaoPersonagem__aparencia__sexo__card {
@@ -919,7 +934,7 @@ select {
 }
 
 #informacao__registro__resumo #line {
-  width: 50%;
+  width: 40%;
 }
 
 #cardHabilidadeResumo #line {

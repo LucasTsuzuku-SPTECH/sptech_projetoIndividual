@@ -12,7 +12,6 @@
     <title>AquaTech | Dashboards</title>
 
     <link rel="stylesheet" href="./../css/dashboards.css" />
-    <link rel="stylesheet" href="./../css/estiloAquatech.css" />
 
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
@@ -54,7 +53,7 @@
         </div>
 
         <div class="btn-nav-white">
-          <a href="../criacaoPersonagem.html">
+          <a href="./criacaoPersonagem.html">
             <h3>Criar um personagem</h3>
           </a>
         </div>
@@ -614,19 +613,22 @@
                     src="../assets/imgs/maleProfile.png"
                     alt="Imagem Homem"
                   />
-                  <br />
+
                   <div
                     class="informacao__registro"
                     id="informacao__registro__radio"
                   >
                     <label for="radSexo">HOMEM</label>
-                    <input
-                      type="radio"
-                      name="radSexo"
-                      value="1"
-                      onclick="confirmarAparencia()"
-                    />
+                    <br />
+                    <br />
                   </div>
+                  <input
+                    type="radio"
+                    name="radSexo"
+                    value="1"
+                    onclick="confirmarAparencia()"
+                    id="radio__sexo"
+                  />
                 </div>
                 <div class="criacaoPersonagem__aparencia__sexo__card">
                   <img
@@ -639,13 +641,15 @@
                     id="informacao__registro__radio"
                   >
                     <label for="radSexo">MULHER</label>
-                    <input
-                      type="radio"
-                      name="radSexo"
-                      value="0"
-                      onclick="confirmarAparencia()"
-                    />
+                    <br />
                   </div>
+                  <input
+                    type="radio"
+                    name="radSexo"
+                    value="0"
+                    onclick="confirmarAparencia()"
+                    id="radio__sexo"
+                  />
                 </div>
               </div>
             </div>
@@ -953,6 +957,7 @@
                 <div class="informacao" id="cardCompanheiros">
                   <img src="../assets/imgs/Parvati.png" alt="Parvati" />
                   <div id="div_cards_titulo">
+                    <br />
                     <h1>Parvati</h1>
                   </div>
                   <h3>Engenheira</h3>
@@ -971,6 +976,7 @@
                 <div class="informacao" id="cardCompanheiros">
                   <img src="../assets/imgs/Max.png" alt="Max" />
                   <div id="div_cards_titulo">
+                    <br />
                     <h1>Maximillian</h1>
                   </div>
                   <h3>Vigário</h3>
@@ -989,6 +995,7 @@
                 <div class="informacao" id="cardCompanheiros">
                   <img src="../assets/imgs/Ellie.png" alt="Ellie" />
                   <div id="div_cards_titulo">
+                    <br />
                     <h1>Ellie</h1>
                   </div>
                   <h3>Médica</h3>
@@ -1007,6 +1014,7 @@
                 <div class="informacao" id="cardCompanheiros">
                   <img src="../assets/imgs/Nyoka.png" alt="Nyoka" />
                   <div id="div_cards_titulo">
+                    <br />
                     <h1>Nyoka</h1>
                   </div>
                   <h3>Caçadora</h3>
@@ -1025,6 +1033,7 @@
                 <div class="informacao" id="cardCompanheiros">
                   <img src="../assets/imgs/Felix.png" alt="Felix" />
                   <div id="div_cards_titulo">
+                    <br />
                     <h1>Felix</h1>
                   </div>
                   <h3>Rebelde</h3>
@@ -1043,6 +1052,7 @@
                 <div class="informacao" id="cardCompanheiros">
                   <img src="../assets/imgs/SAM.png" alt="SAM" />
                   <div id="div_cards_titulo">
+                    <br />
                     <h1>SAM</h1>
                   </div>
                   <h3>Robô</h3>
@@ -1207,8 +1217,8 @@
                   id="cardInfoResumo"
                 >
                   <h3>RESUMO</h3>
-                  <span id="spanValorResumo0">Lucas Hideaki Tsuzuku</span>
-                  <span id="spanValorResumo1">Homem</span>
+                  <span id="spanValorResumo0"></span>
+                  <span id="spanValorResumo1"></span>
                   <br />
                   <div id="imagemResumo"></div>
                   <h3>ATRIBUTO</h3>
@@ -1218,7 +1228,7 @@
                   >
                     <span>Força</span>
                     <div id="line"></div>
-                    <span id="spanValorResumo2">1</span>
+                    <span id="spanValorResumo2">0</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1226,7 +1236,7 @@
                   >
                     <span>Destreza</span>
                     <div id="line"></div>
-                    <span id="spanValorResumo3">3</span>
+                    <span id="spanValorResumo3">0</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1234,7 +1244,7 @@
                   >
                     <span>Inteligência</span>
                     <div id="line"></div>
-                    <span id="spanValorResumo4">5</span>
+                    <span id="spanValorResumo4">0</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1242,7 +1252,7 @@
                   >
                     <span>Percepção</span>
                     <div id="line"></div>
-                    <span id="spanValorResumo5">2</span>
+                    <span id="spanValorResumo5">0</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1250,7 +1260,7 @@
                   >
                     <span>Charme</span>
                     <div id="line"></div>
-                    <span id="spanValorResumo6">1</span>
+                    <span id="spanValorResumo6">0</span>
                   </div>
                   <div
                     class="informacao__registro"
@@ -1258,20 +1268,18 @@
                   >
                     <span>Temperamento</span>
                     <div id="line"></div>
-                    <span id="spanValorResumo7">2</span>
+                    <span id="spanValorResumo7">0</span>
                   </div>
                   <h3>APTIDÃO</h3>
-                  <span id="spanValorResumo8"
-                    >“Nenhuma Aptidão Discernível”</span
-                  >
+                  <span id="spanValorResumo8"></span>
                   <h3>FALHAS</h3>
-                  <span id="spanValorResumo9">Acrofobia</span>
+                  <span id="spanValorResumo9"></span>
                   <h3>TOKENS</h3>
-                  <span id="spanValorResumo10">Assassino</span>
-                  <span id="spanValorResumo11">Vingança</span>
+                  <span id="spanValorResumo10"></span>
+                  <span id="spanValorResumo11"></span>
                   <h3>COMPANHEIROS</h3>
-                  <span id="spanValorResumo12">Ellie</span>
-                  <span id="spanValorResumo13">Nyoka</span>
+                  <span id="spanValorResumo12"></span>
+                  <span id="spanValorResumo13"></span>
                 </div>
               </div>
             </div>
@@ -1510,6 +1518,8 @@
     } else if (arrayCompanheirosSelecionados[1] == undefined) {
       arrayCompanheirosSelecionados[1] = "";
     }
+
+    console.log(arrayCompanheirosSelecionados[1]);
 
     fetch("/aquarios/cadastrarPersonagem", {
       method: "POST",
