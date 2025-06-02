@@ -12,7 +12,7 @@
     <title>AquaTech | Dashboards</title>
 
     <link rel="stylesheet" href="./../css/dashboards.css" />
-    <link rel="stylesheet" href="./../css/estiloAquatech.css" />
+
     <script src="../js/sessao.js"></script>
     <script src="./../js/alerta.js"></script>
 
@@ -75,16 +75,22 @@
         <!-- </div> -->
         <div id="graficos">
           <div id="graficos_linha">
-            <!-- Elemento canvas onde o gráfico de linha será desenhado -->
-            <canvas id="linha"></canvas>
+            <div class="container">
+              <h3>Personagens Criados na Semana</h3>
+              <!-- Elemento canvas onde o gráfico de linha será desenhado -->
+              <canvas id="linha"></canvas>
+            </div>
           </div>
-          <div id="graficos_colunas_blocos">
-            <!-- Elemento canvas onde o gráfico de barra será desenhado -->
-            <div id="graficos_barra">
+
+          <!-- Elemento canvas onde o gráfico de barra será desenhado -->
+          <div id="graficos_barra">
+            <div class="container">
+              <h3>Habilidades mais escolhidas</h3>
               <canvas id="barra"></canvas>
             </div>
           </div>
-          <div class="conjuntoBlocos">
+
+          <!-- <div class="conjuntoBlocos">
             <div class="bloco">
               <span>Dias monitorados</span>
               <span>15</span>
@@ -101,7 +107,7 @@
               <span>Companheiro mais escolhido</span>
               <span>Parvati (Engenharia)</span>
             </div>
-          </div>
+          </div> -->
           <div class="graficos_donut">
             <!-- Elemento canvas onde o gráfico de barra será desenhado -->
             <div class="donuts_individuais">
@@ -220,6 +226,9 @@
           x: {
             reverse: true,
           },
+          y: {
+            beginAtZero: true,
+          },
         },
       },
     };
@@ -307,24 +316,24 @@
     // NOTA: Ajustar para que as Labels sejam em dias e acumular caso seja o mesmo dia
     var registro = resposta[0];
     labels.push(
-      "Soma_1mao",
-      "Soma_2mao",
-      "Soma_pistolas",
-      "Soma_armasLongas",
-      "Soma_armasPesadas",
-      "Soma_evasao",
-      "Soma_bloqueio",
-      "Soma_persuasao",
-      "Soma_mentira",
-      "Soma_intimidacao",
-      "Soma_esgueira",
-      "Soma_hacking",
-      "Soma_gazua",
-      "Soma_medicina",
-      "Soma_ciencia",
-      "Soma_engenharia",
-      "Soma_inspiracao",
-      "Soma_determinacao"
+      "1_Mão",
+      "2_Mãos",
+      "Pistolas",
+      "Armas_Longas",
+      "Armas_Pesadas",
+      "Evasão",
+      "Bloqueio",
+      "Persuasão",
+      "Mentira",
+      "Intimidação",
+      "Esgueira",
+      "Hacking",
+      "Gazua",
+      "Medicina",
+      "Ciência",
+      "Engenharia",
+      "Inspiração",
+      "Determinação"
     );
 
     dados.datasets[0].data.push(

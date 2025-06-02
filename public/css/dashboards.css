@@ -467,12 +467,38 @@ canvas {
 
 /* Parte dashboard */
 
+.graficos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
 #graficos_linha {
   width: 100%;
+  color: #feac19;
+  margin-left: 10%;
+  margin-bottom: 5%;
 }
 
 #graficos_barra {
   width: 100%;
+  color: #feac19;
+  margin-left: 10%;
+  margin-bottom: 5%;
+}
+
+#graficos_colunas_blocos {
+  width: 100%;
+  color: #feac19;
+  margin-left: 20%;
+  margin-bottom: 10%;
 }
 
 .conjuntoBlocos {
