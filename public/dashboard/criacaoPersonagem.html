@@ -1501,6 +1501,16 @@
   function enviarValoresBancoPersonagem() {
     console.log("Enviando dados....");
 
+    if (arrayTokensSelecionados[0] == undefined) {
+      arrayTokensSelecionados[0] = "";
+    } else if (arrayTokensSelecionados[1] == undefined) {
+      arrayTokensSelecionados[1] = "";
+    } else if (arrayCompanheirosSelecionados[0] == undefined) {
+      arrayCompanheirosSelecionados[0] = "";
+    } else if (arrayCompanheirosSelecionados[1] == undefined) {
+      arrayCompanheirosSelecionados[1] = "";
+    }
+
     fetch("/aquarios/cadastrarPersonagem", {
       method: "POST",
       headers: {
