@@ -743,3 +743,8 @@ body {
   border-bottom: 3px solid #ffffff;
   margin: 3%;
 }
+
+#fraseEfeito {
+  text-align: center;
+  font-size: 38px;
+}
