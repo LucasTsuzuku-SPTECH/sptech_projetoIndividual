@@ -33,7 +33,7 @@ function alterarDescricaoAptidao(number) {
         `;
   } else if (number == 5) {
     cardInfoAptidao.innerHTML = `
-      <h3>“Construção, Aula de Eletricista, Bobinador de Fios”</h3>
+      <h3>“Eletricista responsável pelo cabeamento ”</h3>
             <p>
               Ao contrário da crença popular, a gestão de cabos é uma forma de arte. Há algo sobre esconder a fiação elétrica atrás de painéis para maximizar o fluxo de ar que faz você suspirar de alívio. Os colonos não precisam se preocupar com desvios e soluções alternativas que mantêm a energia fluindo. Essa é sua responsabilidade.
             </p>
