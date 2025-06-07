@@ -7,6 +7,23 @@ function validarEscolhaTeste1(idRadioSelecionado) {
     console.log("Escolha selecionado: ", escolhaTeste1); // Imprime o valor no console
     return;
   }
+  if (radios[1].checked && habilidadePersonagem.habilidadeEsgueira < 35) {
+    alert("Você não tem pontos o suficiente, escolha outra opção");
+    radioClicado.checked = false;
+    console.log("Escolha selecionado: ", escolhaTeste1); // Imprime o valor no console
+    return;
+  }
+  if (
+    radios[2].checked &&
+    (habilidadePersonagem.habilidadeArmasLongas < 20 ||
+      habilidadePersonagem.habilidadeEvasao < 20)
+  ) {
+    alert("Você não tem pontos o suficiente, escolha outra opção");
+    radioClicado.checked = false;
+    console.log("Escolha selecionado: ", escolhaTeste1); // Imprime o valor no console
+    return;
+  }
+
   console.log(radios);
   for (let i = 0; i < radios.length; i++) {
     if (radios[i].checked) {
