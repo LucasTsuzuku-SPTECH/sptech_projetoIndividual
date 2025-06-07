@@ -1378,9 +1378,178 @@
                 </div>
 
                 <br />
+                <h1>Teste 02: Monarca</h1>
+                <img
+                  src="../assets/imgs/teste2.jpg"
+                  alt="Imagem de Monarca com lavossauros no caminho"
+                />
+                <p>
+                  Você precisa atravessar uma sala cheia de Louvassauros
+                  famintos e encontra um terminal que controla a climatização da
+                  sala, o que você faz ?
+                </p>
+                <div
+                  class="dash__div_cards_informacoes__card"
+                  id="dash__div_cards_informacoes__card__testes"
+                >
+                  <br />
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <label for="teste2" id="labelTestes"
+                      >[Ellie ou Nyoka] A médica ou a Caçadora podem acessar o
+                      terminar e reduzir a quantidade de oxigênio na sala,
+                      inofensivo para humanos, letal para os animais</label
+                    >
+                    <input
+                      type="radio"
+                      name="radTeste2"
+                      value="1"
+                      onclick="validarEscolhaTeste2('teste2A')"
+                      id="teste2A"
+                    />
+                  </div>
+                  <br />
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <label for="teste2" id="labelTestes"
+                      >[Armas Pesadas 30] [Intimidação 20] Pegar seu lança
+                      mísseis e entrar com tudo na sala.</label
+                    >
+                    <input
+                      type="radio"
+                      name="radTeste2"
+                      value="1"
+                      onclick="validarEscolhaTeste2('teste2B')"
+                      id="teste2B"
+                    />
+                  </div>
+                  <br />
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <label for="teste2" id="labelTestes"
+                      >[Medicina 30] Você mesmo fazer os ajustes da sala de
+                      oxigênio e matar todos os animais da sala.</label
+                    >
+                    <input
+                      type="radio"
+                      name="radTeste2"
+                      value="1"
+                      onclick="validarEscolhaTeste2('teste2C')"
+                      id="teste2C"
+                    />
+                  </div>
+                  <br />
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <label for="teste2" id="labelTestes"
+                      >Tentar usar seu Charme e convencer os Louvassauros a
+                      seguir uma nova dieta a base de plantas e deixá-lo passar
+                    </label>
+                    <input
+                      type="radio"
+                      name="radTeste2"
+                      value="0"
+                      onclick="validarEscolhaTeste2('teste2D')"
+                      id="teste2D"
+                    />
+                  </div>
+                </div>
+
+                <br />
+                <h1>Teste 01: Vanguarda</h1>
+                <img
+                  src="../assets/imgs/teste1.jpg"
+                  alt="Imagem da Vanguarda com capangas no caminho"
+                />
+                <p>
+                  Você se encontra no convés da vanguarda e precisa recuperar as
+                  peças para regular a temperatura da nave, mas tem uma gangue
+                  de capangas no meio do caminho, o que você faz?
+                </p>
+                <div
+                  class="dash__div_cards_informacoes__card"
+                  id="dash__div_cards_informacoes__card__testes"
+                >
+                  <br />
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <label for="teste1" id="labelTestes"
+                      >[Persuasão 35] Convencer eles a deixar você passar
+                      falando com o líder</label
+                    >
+                    <input
+                      type="radio"
+                      name="radTeste1"
+                      value="1"
+                      onclick="validarEscolhaTeste1('teste1A')"
+                      id="teste1A"
+                    />
+                  </div>
+                  <br />
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <label for="teste1" id="labelTestes"
+                      >[Esgueira 35] Entrar de fininho pelas tubulações para
+                      chegar na peça</label
+                    >
+                    <input
+                      type="radio"
+                      name="radTeste1"
+                      value="1"
+                      onclick="validarEscolhaTeste1('teste1B')"
+                      id="teste1B"
+                    />
+                  </div>
+                  <br />
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <label for="teste1" id="labelTestes"
+                      >[Armas Longas 20] [Evasão 20] Ir preparado para o
+                      combate</label
+                    >
+                    <input
+                      type="radio"
+                      name="radTeste1"
+                      value="1"
+                      onclick="validarEscolhaTeste1('teste1C')"
+                      id="teste1C"
+                    />
+                  </div>
+                  <br />
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <label for="teste1" id="labelTestes"
+                      >Correr direto e rezar para sofrer somente alguns tiros de
+                      raspão
+                    </label>
+                    <input
+                      type="radio"
+                      name="radTeste1"
+                      value="0"
+                      onclick="validarEscolhaTeste1('teste1D')"
+                      id="teste1D"
+                    />
+                  </div>
+                </div>
+
+                <br />
               </div>
-              <h1>Teste 01: Monarca</h1>
-              <h1>Teste 01: Fábrica Rizzo</h1>
             </div>
             <br />
             <button
@@ -1604,6 +1773,8 @@
 
   let acertosPersonagemSelecionado = 3;
   let escolhaTeste1 = 0;
+  let escolhaTeste2 = 0;
+  let escolhaTeste3 = 0;
 
   /* PARTE ENVIAR DADOS PARA BD */
 
