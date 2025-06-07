@@ -1282,6 +1282,70 @@
                 </div>
               </div>
             </div>
+            <h1>HORA DOS TESTES!</h1>
+            <div
+              class="dash__criacaoPersonagem__div"
+              id="dash__criacaoPersonagem__teste"
+            >
+              <p>
+                Lançar um produto sem testes também é outra loucura! Vamos
+                apresentar alguns cenários e ver como o seu personagem se sairá
+                em Bonança !
+              </p>
+              <div class="informacao" id="informacao_teste">
+                <h1>Teste 01: Vanguarda</h1>
+                <img
+                  src="../assets/imgs/teste1.jpg"
+                  alt="Imagem da Vanguarda com capangas no caminho"
+                />
+                <p>
+                  Você se encontra no convés da vanguarda e precisa recuperar as
+                  peças para regular a temperatura da nave, mas tem uma gangue
+                  de capangas no meio do caminho, o que você faz?
+                </p>
+                <div
+                  class="dash__div_cards_informacoes__card"
+                  id="dash__div_cards_informacoes__card__testes"
+                >
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <input
+                      type="radio"
+                      name="radTeste1"
+                      value="1"
+                      onclick="validarEscolhaTeste1('teste1A')"
+                      id="teste1A"
+                    />
+                    <label for="teste1" id="labelTestes"
+                      >[Persuasão 35] Convencer eles a deixar você passar
+                      falando com o líder</label
+                    >
+                  </div>
+                  <div
+                    class="informacao__registro"
+                    id="informacao__registro__radio"
+                  >
+                    <input
+                      type="radio"
+                      name="radTeste1"
+                      value="1"
+                      onclick="validarEscolhaTeste1('teste1A')"
+                      id="teste1A"
+                    />
+                    <label for="teste1" id="labelTestes"
+                      >[Persuasão 35] Convencer eles a deixar você passar
+                      falando com o líder</label
+                    >
+                  </div>
+                </div>
+
+                <br />
+              </div>
+              <h1>Teste 01: Monarca</h1>
+              <h1>Teste 01: Fábrica Rizzo</h1>
+            </div>
             <br />
             <button
               onclick="enviarValoresBancoPersonagem()"
@@ -1305,6 +1369,7 @@
 <script src="../js/personagemFalhas.js"></script>
 <script src="../js/personagemToken.js"></script>
 <script src="../js/personagemCompanheiros.js"></script>
+<script src="../js/testes.js"></script>
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
@@ -1502,6 +1567,7 @@
   /* PARTE TESTES */
 
   let acertosPersonagemSelecionado = 3;
+  let escolhaTeste1 = 0;
 
   /* PARTE ENVIAR DADOS PARA BD */
 

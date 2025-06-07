@@ -954,3 +954,20 @@ select {
   border-radius: 15px;
   text-align: center;
 }
+
+/* PARTES TESTES */
+
+#informacao_teste {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#dash__div_cards_informacoes__card__testes {
+  width: 90%;
+}
+
+#labelTestes {
+  font-size: 28px;
+}
