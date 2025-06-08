@@ -112,3 +112,44 @@ function validarEscolhaTeste3(idRadioSelecionado) {
 
   console.log("Escolha selecionado: ", escolhaTeste3); // Imprime o valor no console
 }
+
+function mostrarResultadoTeste1() {
+  if (escolhaTeste1 == 0) {
+    tituloResultadoTeste_valorResultadoTeste1.innerHTML = "REPROVADO";
+    dash__div_cards_informacoes__resultadoTeste1.innerHTML = `
+    <div
+              class="dash__div_cards_informacoes__card"
+              id="dash__div_cards_informacoes__card__resultado"
+            >
+              <img src="../assets/imgs/resultado2Teste1.jpg" alt="" />
+            </div>
+            <div
+              class="dash__div_cards_informacoes__card"
+              id="dash__div_cards_informacoes__card__resultadoDescricao"
+            >
+              <p>
+                Bem, pelo menos podemos dizer que você morreu lutando de forma
+                heróica (ou estúpida, dependendo do caso)
+              </p>
+            </div>
+    `;
+  } else if (escolhaTeste1 == 1) {
+    tituloResultadoTeste_valorResultadoTeste1.innerHTML = "APROVADO";
+    dash__div_cards_informacoes__resultadoTeste1.innerHTML = `
+    <div
+              class="dash__div_cards_informacoes__card"
+              id="dash__div_cards_informacoes__card__resultado"
+            >
+              <img src="../assets/imgs/resultadoTeste1.jpg" alt="" />
+            </div>
+            <div
+              class="dash__div_cards_informacoes__card"
+              id="dash__div_cards_informacoes__card__resultadoDescricao"
+            >
+              <p>
+                Parabéns ! A peça foi recuperada e você ainda pode aproveitar a Vanguarda a medida que a temperatura diminui e a tripulação te saúda como grande salvador!
+              </p>
+            </div>
+    `;
+  }
+}

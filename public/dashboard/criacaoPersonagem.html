@@ -1548,8 +1548,6 @@
                     />
                   </div>
                 </div>
-
-                <br />
               </div>
             </div>
             <br />
@@ -1563,7 +1561,18 @@
             <br />
             <div id="avisoCriacaoPersonagem">Avisos aparecerão aqui</div>
             <br />
+            <h1>RESULTADOS TESTES</h1>
           </div>
+          <h1 class="tituloResultadoTeste">
+            TESTE 1:
+            <span id="tituloResultadoTeste_valorResultadoTeste1"></span>
+          </h1>
+          <div
+            class="dash__div_cards_informacoes"
+            id="dash__div_cards_informacoes__resultadoTeste1"
+          ></div>
+          <h1 class="tituloResultadoTeste">TESTE 2: REPROVADO</h1>
+          <h1 class="tituloResultadoTeste">TESTE 3: REPROVADO</h1>
         </div>
       </div>
     </div>
@@ -1771,8 +1780,7 @@
   }
 
   /* PARTE TESTES */
-
-  let acertosPersonagemSelecionado = 3;
+  let acertosPersonagemSelecionado = 0;
   let escolhaTeste1 = 0;
   let escolhaTeste2 = 0;
   let escolhaTeste3 = 0;
@@ -1781,6 +1789,13 @@
 
   function enviarValoresBancoPersonagem() {
     console.log("Enviando dados....");
+
+    acertosPersonagemSelecionado =
+      Number(escolhaTeste1) + Number(escolhaTeste2) + Number(escolhaTeste3);
+
+    console.log("Quantidade de acertos: " + acertosPersonagemSelecionado);
+
+    mostrarResultadoTeste1();
 
     if (arrayTokensSelecionados[0] == undefined) {
       arrayTokensSelecionados[0] = "";
@@ -1999,7 +2014,7 @@
           finalizarAguardar(); */
           console.log("Habilidades e Personagens relacionados");
           avisoCriacaoPersonagem.innerHTML =
-            "Personagem criado com sucesso ! É só ir na página de Personagens e ver o seu personagem criado";
+            "Personagem criado com sucesso ! É só ir na página de Personagens e ver o seu personagem criado. Aproveita e veja abaixo o resultado dos testes :D";
           atualizarPersonagensUsuario();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";

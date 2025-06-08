@@ -972,3 +972,19 @@ select {
   font-size: 28px;
   text-align: left;
 }
+
+#dash__div_cards_informacoes__card__resultado img {
+  width: 100%;
+}
+
+#dash__div_cards_informacoes__card__resultadoDescricao {
+  display: flex;
+  align-items: center;
+  font-size: 28px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.tituloResultadoTeste {
+  color: #feac19;
+}
