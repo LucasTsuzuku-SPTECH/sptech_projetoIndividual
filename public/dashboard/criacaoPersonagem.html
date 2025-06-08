@@ -1571,8 +1571,22 @@
             class="dash__div_cards_informacoes"
             id="dash__div_cards_informacoes__resultadoTeste1"
           ></div>
-          <h1 class="tituloResultadoTeste">TESTE 2: REPROVADO</h1>
-          <h1 class="tituloResultadoTeste">TESTE 3: REPROVADO</h1>
+          <h1 class="tituloResultadoTeste">
+            TESTE 2:
+            <span id="tituloResultadoTeste_valorResultadoTeste2"></span>
+          </h1>
+          <div
+            class="dash__div_cards_informacoes"
+            id="dash__div_cards_informacoes__resultadoTeste2"
+          ></div>
+          <h1 class="tituloResultadoTeste">
+            TESTE 3:
+            <span id="tituloResultadoTeste_valorResultadoTeste3"></span>
+          </h1>
+          <div
+            class="dash__div_cards_informacoes"
+            id="dash__div_cards_informacoes__resultadoTeste3"
+          ></div>
         </div>
       </div>
     </div>
@@ -1796,6 +1810,8 @@
     console.log("Quantidade de acertos: " + acertosPersonagemSelecionado);
 
     mostrarResultadoTeste1();
+    mostrarResultadoTeste2();
+    mostrarResultadoTeste3();
 
     if (arrayTokensSelecionados[0] == undefined) {
       arrayTokensSelecionados[0] = "";
