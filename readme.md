@@ -14,7 +14,7 @@ Desenvolvimento de um website com formulário de cadastro
 
 - Foco no aprendizado individual e aplicação das disciplinas técnicas do semestre.
 
-![Alt text](public\assets\imgs\fluxogramaAplicacao.png)
+![Alt text](public/assets/imgs/fluxogramaAplicacao.png)
 
 <p align="center">Figura 1: Esquema do projeto individual</p>
 
@@ -54,19 +54,19 @@ Desenvolvimento de um website com formulário de cadastro
 
 ## Resultados 🎁
 
-![Alt text](public\assets\imgs\modelagemBD.png)
+![Alt text](public/assets/imgs/modelagemBD.png)
 
 <p align="center">Figura 2: Modelagem BDurubu100</p>
 
-![Alt text](public\assets\imgs\indexOuterWorlds.png)
+![Alt text](public/assets/imgs/indexOuterWorlds.png)
 
 <p align="center">Figura 3: Página inicial Outer Worlds</p>
 
-![Alt text](public\assets\imgs\paginaCriacaoPersonagensOuterWorlds.png)
+![Alt text](public/assets/imgs/paginaCriacaoPersonagensOuterWorlds.png)
 
 <p align="center">Figura 4: Página personagens criados</p>
 
-![Alt text](public\assets\imgs\paginaDashboardOuterWorlds.png)
+![Alt text](public/assets/imgs/paginaDashboardOuterWorlds.png)
 
 <p align="center">Figura 5: Página dashboard</p>
 
