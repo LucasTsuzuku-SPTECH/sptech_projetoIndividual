@@ -139,8 +139,8 @@ body {
   flex-direction: column;
   width: 70%;
   margin: auto;
-  margin-top: 10px;
-  background-color: #212124;
+  margin-top: 5%;
+  color: #feac19;
 }
 
 .area-parametros-alerta .titulo-legenda {
@@ -148,6 +148,17 @@ body {
   font-weight: 600;
   width: fit-content;
   margin: 10px 20px;
+}
+
+.area-parametros-mensagem {
+  /* border: 2px solid pink; */
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: auto;
+  margin-top: 5%;
+  color: #feac19;
+  text-align: center;
 }
 
 .parametros-alerta {

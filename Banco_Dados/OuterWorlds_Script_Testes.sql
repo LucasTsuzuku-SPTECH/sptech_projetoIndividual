@@ -6,12 +6,18 @@ TRUNCATE atributo;
 TRUNCATE habilidade;
 TRUNCATE personagem_has_habilidade;
 
+SELECT * FROM usuario;
+SELECT * FROM personagem;
+SELECT * FROM atributo;
+SELECT * FROM habilidade;
+SELECT * FROM personagem_has_habilidade;
+
 INSERT INTO usuario (nome,email,telefone,pais,senha) VALUES 
-('Lucas Hideaki', 'lucas.tsuzuku@sptech.com', '11123456789','Brasil', '123456'),
-('Amanda Nunes', 'amanda.nunes@sptech.com', '78945612312','Brasil', '123456'),
-('Carlos Armando', 'carlos.armando@sptech.com', '45612378945','Brasil', '123456'),
-('Manny Mark', 'manny.mark@sptech.com', '45645612378','Estados Unidos', '123456'),
-('Jon Mayor', 'jon.mayor@sptech.com', '23564561245','Londres', '123456');
+('Lucas Hideaki', 'lucas.tsuzuku@sptech.school', '11123456789','Brasil', '123456'),
+('Amanda Nunes', 'amanda.nunes@sptech.school', '78945612312','Brasil', '123456'),
+('Carlos Armando', 'carlos.armando@sptech.school', '45612378945','Brasil', '123456'),
+('Manny Mark', 'manny.mark@sptech.school', '45645612378','Estados Unidos', '123456'),
+('Jon Mayor', 'jon.mayor@sptech.school', '23564561245','Londres', '123456');
 
 INSERT INTO personagem (nome,sexo,aptidao,falha,dataCriacao,fkUsuario,token1,token2, acertosTeste, companheiro1, companheiro2) VALUES 
 ('Mark Anthony', 1, 'nenhuma aptidao discernivel','acrofobia','2025-05-07 11:10:59', 1, 'assassino', 'labias de vendedor', 3, 'ellie', 'nyoka'),
