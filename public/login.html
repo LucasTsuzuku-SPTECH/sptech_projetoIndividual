@@ -39,7 +39,7 @@
         </ul>
       </div>
     </div>
-
+    <!-- CORPO -->
     <div class="login">
       <div class="alerta_erro">
         <div class="card_erro" id="cardErro">
@@ -60,6 +60,7 @@
                 value="lucas.tsuzuku@sptech.school"
               />
             </div>
+
             <div class="campo">
               <span>Senha:</span>
               <input
@@ -71,14 +72,13 @@
             </div>
 
             <button class="botao" onclick="entrar()">Entrar</button>
+            <div id="div_erros_login"></div>
             <p>Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></p>
           </div>
 
           <div id="div_aguardar" class="loading-div">
             <img src="./assets/circle-loading.gif" id="loading-gif" />
           </div>
-
-          <div id="div_erros_login"></div>
         </div>
       </div>
     </div>
@@ -126,10 +126,12 @@
     var senhaVar = senha_input.value;
 
     if (emailVar == "" || senhaVar == "") {
-      cardErro.style.display = "block";
+      /* cardErro.style.display = "block";
       mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+        "(Mensagem de erro para todos os campos em branco)"; */
       finalizarAguardar();
+      div_erros_login.style.display = "flex";
+      div_erros_login.innerHTML = "Não pode ter campos vazios";
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
