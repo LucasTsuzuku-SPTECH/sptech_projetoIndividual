@@ -528,6 +528,12 @@ body {
   border-radius: 15px;
 }
 
+.card a:hover {
+  color: rgb(60, 9, 108);
+  background-color: #feac19;
+  transition: transform 1.2s;
+}
+
 .formulario {
   display: flex;
   height: 90%;
