@@ -169,6 +169,10 @@ body {
   border-radius: 15px;
 }
 
+.boxCards .cards {
+  text-align: center;
+}
+
 /* BONANÇA DETALHES*/
 
 .bonanca_detalhes {
@@ -220,6 +224,9 @@ body {
   color: #feac19;
 }
 
+.cards img {
+  width: 250px;
+}
 /* Facções*/
 
 .faccoes {
@@ -751,6 +758,10 @@ body {
 
 #sobreMim h1 {
   color: #feac19;
+}
+
+#sobreMim p {
+  text-align: justify;
 }
 
 .informacao__registro {
