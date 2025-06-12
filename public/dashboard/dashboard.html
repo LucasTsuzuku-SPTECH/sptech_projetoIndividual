@@ -35,7 +35,7 @@
   <!-- <body onload=" atualizarFeed()"> -->
 
   <!-- <body onload="obterDados()"> -->
-  <body onload="obterDados()">
+  <body onload="obterDados(), obterQUantidadePersonagensCriados()">
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -70,9 +70,24 @@
         <h3 style="color: #feac19">Estatística geral</h3>
         <div id="alerta"></div>
 
-        <!-- <div class="btns-dash" id="btnAquario"> -->
-        <!-- O gráfico é chamado de acordo com o id (fk_aquario) do banco  -->
-        <!-- </div> -->
+        <div class="conjuntoBlocos">
+          <div class="bloco">
+            <span>Quantidade Personagens criados</span>
+            <br />
+            <span id="kpi_QuantidadeTotalPersonagens">15</span>
+          </div>
+          <div class="bloco">
+            <span>Quantidade de dias monitorados</span>
+            <br />
+            <span>14</span>
+          </div>
+          <div class="bloco">
+            <span>Dia com maior quantidade de personagens criados</span>
+            <br />
+            <span>10-10-2025</span>
+          </div>
+        </div>
+
         <div id="graficos">
           <div id="graficos_linha">
             <div class="container">
@@ -89,25 +104,6 @@
               <canvas id="barra"></canvas>
             </div>
           </div>
-
-          <!-- <div class="conjuntoBlocos">
-            <div class="bloco">
-              <span>Dias monitorados</span>
-              <span>15</span>
-            </div>
-            <div class="bloco">
-              <span>Quantidade Personagens</span>
-              <span>15</span>
-            </div>
-            <div class="bloco">
-              <span>Token mais escolhido</span>
-              <span>Demonstração fatal</span>
-            </div>
-            <div class="bloco">
-              <span>Companheiro mais escolhido</span>
-              <span>Parvati (Engenharia)</span>
-            </div>
-          </div> -->
 
           <div class="graficos_donut">
             <!-- Elemento canvas onde o gráfico de barra será desenhado -->
@@ -132,7 +128,7 @@
     </div>
   </body>
 </html>
-
+<script src="../js/kpis.js"></script>
 <script>
   b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 

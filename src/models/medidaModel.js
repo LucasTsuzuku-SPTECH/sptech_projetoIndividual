@@ -146,6 +146,12 @@ function buscarIdHabilidadeCriada() {
   return database.executar(instrucaoSql);
 }
 
+function contagemPersonagensCriados() {
+  var instrucaoSql = `SELECT COUNT(*) AS totalPersonagens FROM personagem;`;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
 module.exports = {
   buscarUltimasMedidas,
   buscarMedidasEmTempoReal,
@@ -158,4 +164,5 @@ module.exports = {
   buscarTodasHabilidadesPersonagem,
   buscarIdPersonagemCriado,
   buscarIdHabilidadeCriada,
+  contagemPersonagensCriados,
 };

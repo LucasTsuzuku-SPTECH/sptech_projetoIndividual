@@ -177,7 +177,11 @@ SELECT * FROM personagem;
 SELECT MAX(idPersonagem) FROM personagem;
 
 -- teste erro de login sem personagem
-SELECT * FROM personagem WHERE fkUsuario = 1
+SELECT * FROM personagem WHERE fkUsuario = 1;
+
+-- contagem de quantidade de personagens criados
+
+SELECT COUNT(*) AS Quantidade_Personagens_Criados_Total FROM personagem;
 
 /*
 INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 
