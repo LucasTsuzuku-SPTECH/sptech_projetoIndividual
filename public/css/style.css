@@ -762,3 +762,12 @@ body {
   text-align: center;
   font-size: 38px;
 }
+
+.cardBox a:hover {
+  transition: transform 1.2s;
+  transform: scale(1.2);
+}
+
+#cardBoxProjetos img {
+  width: 200px;
+}
