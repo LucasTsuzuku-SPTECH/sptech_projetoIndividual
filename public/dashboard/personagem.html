@@ -24,9 +24,6 @@
   </head>
 
   <body onload="pegarDadosPersonagemEspecifico()">
-
-  </div>
-
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -60,27 +57,27 @@
       <div class="dash">
         <!-- <div id="alerta"></div> -->
         <!-- <div class="area-parametros-alerta"></div> -->
-        <div class="dash-right-personagem-container" >
+        <div class="dash-right-personagem-container">
           <div id="painelPersonagem">
             <div class="partePainel" id="painel_1">
               <div class="div_cards" id="div_desempenho">
                 <span id="nomePersonagem"></span>
-                <br>
-                <div id="div_desempenho_imagem">
-                  
-                </div>
+                <br />
+                <div id="div_desempenho_imagem"></div>
                 <div id="div_desempenho_texto">
-                  <br>
-                  <span>Quantidade de acertos: <span id="quantidadeAcertos"></span></span>
-                  <br>
-                  <br>
+                  <br />
+                  <span
+                    >Quantidade de acertos: <span id="quantidadeAcertos"></span
+                  ></span>
+                  <br />
+                  <br />
                   <span id="avaliacaoFuncionario"></span>
                 </div>
               </div>
               <div class="div_cards">
                 <div class="informacao">
                   <div id="div_cards_titulo">
-                    <h1>ATRIBUTOS: </h1>
+                    <h1>ATRIBUTOS:</h1>
                   </div>
                   <h1>CORPO</h1>
                   <div class="informacao__registro">
@@ -120,31 +117,30 @@
               <div class="div_cards">
                 <div class="informacao">
                   <h1>APTIDÃO</h1>
-                  
-                    <span id="aptidaoSelecionado"></span>
-                  
+
+                  <span id="aptidaoSelecionado"></span>
+
                   <h1>FALHAS</h1>
-                  
-                    <span id="falhaSelecionado"></span>
-                  
+
+                  <span id="falhaSelecionado"></span>
+
                   <h1>TOKENS</h1>
                   <span id="tokenSelecionado1"></span>
-                  <br>
+                  <br />
                   <span id="tokenSelecionado2"></span>
-      
+
                   <h1>Companheiros</h1>
-                  <span id="companheiroSelecionado1"></span> 
-                  <br>
+                  <span id="companheiroSelecionado1"></span>
+                  <br />
                   <span id="companheiroSelecionado2"></span>
                 </div>
               </div>
             </div>
             <div class="partePainel" id="painel_2">
-              
               <div class="div_cards" id="div_habilidades">
                 <div class="informacao">
                   <div id="div_cards_titulo">
-                    <h1>HABILIDADES: </h1>
+                    <h1>HABILIDADES:</h1>
                   </div>
                   <h1>ARMAS BRANCAS</h1>
                   <div class="informacao__registro">
@@ -245,11 +241,13 @@
                   </div>
                 </div>
               </div>
-              <br>
-              <img src="../assets/imgs/logoSpacersChoice.png" alt="spacers choice logo">
+              <br />
+              <img
+                src="../assets/imgs/logoSpacersChoice.png"
+                alt="spacers choice logo"
+              />
             </div>
           </div>
-          
         </div>
       </div>
     </div>
@@ -260,83 +258,82 @@
   var personagemSelecionado;
   var personagemSelecionadoAtributo;
   var personagemSelecionadoHabilidade;
-  function pegarDadosPersonagemEspecifico () {
-    var listaPersonagensUsuario = JSON.parse(sessionStorage.PERSONAGENS)
-    var idPersonagemSelecionado = sessionStorage.PERSONAGEM_SELECIONADO
-    console.log(idPersonagemSelecionado)
-    console.log(listaPersonagensUsuario)
-    for(var i = 0; i< listaPersonagensUsuario.length;i++){
-      if(listaPersonagensUsuario[i].idPersonagem == idPersonagemSelecionado) {
-        console.log("Personagem Encontrado")
+  function pegarDadosPersonagemEspecifico() {
+    var listaPersonagensUsuario = JSON.parse(sessionStorage.PERSONAGENS);
+    var idPersonagemSelecionado = sessionStorage.PERSONAGEM_SELECIONADO;
+    console.log(idPersonagemSelecionado);
+    console.log(listaPersonagensUsuario);
+    for (var i = 0; i < listaPersonagensUsuario.length; i++) {
+      if (listaPersonagensUsuario[i].idPersonagem == idPersonagemSelecionado) {
+        console.log("Personagem Encontrado");
         personagemSelecionado = listaPersonagensUsuario[i];
       }
     }
-    console.log(personagemSelecionado)
+    console.log(personagemSelecionado);
 
-    fetch(`/medidas/todosAtributosPersonagem/${idPersonagemSelecionado}`, { cache: "no-store" })
+    fetch(`/medidas/todosAtributosPersonagem/${idPersonagemSelecionado}`, {
+      cache: "no-store",
+    })
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
-            console.log(resposta)   
-            personagemSelecionadoAtributo = resposta;         
+            console.log(resposta);
+            personagemSelecionadoAtributo = resposta;
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na API");
         }
       })
       .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados: ${error.message}`
-        );
+        console.error(`Erro na obtenção dos dados: ${error.message}`);
       });
 
-      fetch(`/medidas/todasHabilidadesPersonagem/${idPersonagemSelecionado}`, { cache: "no-store" })
+    fetch(`/medidas/todasHabilidadesPersonagem/${idPersonagemSelecionado}`, {
+      cache: "no-store",
+    })
       .then(function (response) {
         if (response.ok) {
           response.json().then(function (resposta) {
             console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
             resposta.reverse();
-            console.log(resposta)   
+            console.log(resposta);
             personagemSelecionadoHabilidade = resposta;
-            atualizarValores()         
+            atualizarValores();
           });
         } else {
           console.error("Nenhum dado encontrado ou erro na API");
         }
       })
       .catch(function (error) {
-        console.error(
-          `Erro na obtenção dos dados: ${error.message}`
-        );
+        console.error(`Erro na obtenção dos dados: ${error.message}`);
       });
-
   }
 
-  function atualizarValores(){
-
-    nomePersonagem.innerHTML = personagemSelecionado.nome
+  function atualizarValores() {
+    nomePersonagem.innerHTML = personagemSelecionado.nome;
 
     if (personagemSelecionado.sexo == 1) {
-      div_desempenho_imagem.innerHTML = 
-      `
+      div_desempenho_imagem.innerHTML = `
       <img src="../assets/imgs/maleProfile.png" alt="Imagem Personagem">
-      `
+      `;
     } else {
-      div_desempenho_imagem.innerHTML = 
-      `
+      div_desempenho_imagem.innerHTML = `
       <img src="../assets/imgs/femaleProfile.png" alt="Imagem Personagem">
-      `
+      `;
     }
 
-    quantidadeAcertos.innerHTML = personagemSelecionado.acertosTeste
-    if (personagemSelecionado.acertosTeste < 2) {
-      avaliacaoFuncionario.innerHTML = "Que a Lei tenha piedade desse empregado"
+    quantidadeAcertos.innerHTML = personagemSelecionado.acertosTeste;
+    if (personagemSelecionado.acertosTeste < 1) {
+      avaliacaoFuncionario.innerHTML =
+        "Que a Lei tenha piedade desse empregado";
     } else if (personagemSelecionado.acertosTeste < 3) {
-      avaliacaoFuncionario.innerHTML = "Com pouco de empenho, sua chance de sobrevivência é bem razoável !"
+      avaliacaoFuncionario.innerHTML =
+        "Com pouco de empenho, sua chance de sobrevivência é bem razoável !";
     } else {
-      avaliacaoFuncionario.innerHTML = "Bonança pode se beneficiar muito com esse funcionário !"
+      avaliacaoFuncionario.innerHTML =
+        "Bonança pode se beneficiar muito com esse funcionário !";
     }
 
     valorForca.innerHTML = personagemSelecionadoAtributo[0].forca;
@@ -352,28 +349,32 @@
     tokenSelecionado2.innerHTML = personagemSelecionado.token2;
     companheiroSelecionado1.innerHTML = personagemSelecionado.companheiro1;
     companheiroSelecionado2.innerHTML = personagemSelecionado.companheiro2;
-    
+
     valor1Mao.innerHTML = personagemSelecionadoHabilidade[0]["1mao"];
     valor2Mao.innerHTML = personagemSelecionadoHabilidade[0]["2mao"];
     valorPistolas.innerHTML = personagemSelecionadoHabilidade[0]["pistolas"];
-    valorArmasLongas.innerHTML = personagemSelecionadoHabilidade[0]["armasLongas"];
-    valorArmasPesadas.innerHTML = personagemSelecionadoHabilidade[0]["armasPesadas"];
+    valorArmasLongas.innerHTML =
+      personagemSelecionadoHabilidade[0]["armasLongas"];
+    valorArmasPesadas.innerHTML =
+      personagemSelecionadoHabilidade[0]["armasPesadas"];
     valorEvasao.innerHTML = personagemSelecionadoHabilidade[0]["evasao"];
     valorBloqueio.innerHTML = personagemSelecionadoHabilidade[0]["bloqueio"];
     valorPersuasao.innerHTML = personagemSelecionadoHabilidade[0]["persuasao"];
     valorMentira.innerHTML = personagemSelecionadoHabilidade[0]["mentira"];
-    valorIntimidacao.innerHTML = personagemSelecionadoHabilidade[0]["intimidacao"];
+    valorIntimidacao.innerHTML =
+      personagemSelecionadoHabilidade[0]["intimidacao"];
     valorEsgueira.innerHTML = personagemSelecionadoHabilidade[0]["esgueira"];
     valorHacking.innerHTML = personagemSelecionadoHabilidade[0]["hacking"];
     valorGazua.innerHTML = personagemSelecionadoHabilidade[0]["gazua"];
     valorMedicina.innerHTML = personagemSelecionadoHabilidade[0]["medicina"];
     valorCiencia.innerHTML = personagemSelecionadoHabilidade[0]["ciencia"];
-    valorEngenharia.innerHTML = personagemSelecionadoHabilidade[0]["engenharia"];
-    valorInspiracao.innerHTML = personagemSelecionadoHabilidade[0]["inspiracao"];
-    valorDeterminacao.innerHTML = personagemSelecionadoHabilidade[0]["determinacao"];
-    
+    valorEngenharia.innerHTML =
+      personagemSelecionadoHabilidade[0]["engenharia"];
+    valorInspiracao.innerHTML =
+      personagemSelecionadoHabilidade[0]["inspiracao"];
+    valorDeterminacao.innerHTML =
+      personagemSelecionadoHabilidade[0]["determinacao"];
   }
-
 </script>
 
 <!-- 
