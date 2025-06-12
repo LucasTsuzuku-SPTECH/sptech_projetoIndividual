@@ -129,9 +129,9 @@
       /* cardErro.style.display = "block";
       mensagem_erro.innerHTML =
         "(Mensagem de erro para todos os campos em branco)"; */
-      finalizarAguardar();
       div_erros_login.style.display = "flex";
       div_erros_login.innerHTML = "Não pode ter campos vazios";
+      finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);

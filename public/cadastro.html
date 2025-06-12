@@ -161,10 +161,8 @@
       senhaVar == "" ||
       confirmacaoSenhaVar == ""
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
-
+      div_erros_login.style.display = "flex";
+      div_erros_login.innerHTML = "Não pode ter campos vazios";
       finalizarAguardar();
       return false;
     } else {
@@ -173,9 +171,8 @@
 
     // Verificando se nome tem mais de 1 caractere
     if (nomeVar.length <= 1) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Nome tem que ter mais de 1 caractere)";
-
+      div_erros_login.style.display = "flex";
+      div_erros_login.innerHTML = "Nome tem que ter mais de 1 caractere";
       finalizarAguardar();
       return false;
     } else {
@@ -183,32 +180,25 @@
     }
 
     // Verificando se email contém "@" e "."
-    if (
-      emailVar.indexOf("@") == undefined ||
-      emailVar.indexOf(".") == undefined
-    ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Email tem que ter os caracteres '@' e '.')";
+    console.log(emailVar.indexOf("@"));
 
+    if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
+      div_erros_login.style.display = "flex";
+      div_erros_login.innerHTML = "Email tem que ter os caracteres '@' e '.'";
       finalizarAguardar();
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
     }
 
-    // Verificando se o código de ativação é de alguma empresa cadastrada
-    /* for (let i = 0; i < listaEmpresasCadastradas.length; i++) {
-      if (listaEmpresasCadastradas[i].codigo_ativacao == codigoVar) {
-        idEmpresaVincular = listaEmpresasCadastradas[i].id;
-        console.log("Código de ativação válido.");
-        break;
-      } else {
-        cardErro.style.display = "block";
-        mensagem_erro.innerHTML = "(Mensagem de erro para código inválido)";
-        finalizarAguardar();
-      }
-    } */
-
+    if (senhaVar != confirmacaoSenhaVar) {
+      div_erros_login.style.display = "flex";
+      div_erros_login.innerHTML = "Os campos da senha tem que ser iguais";
+      finalizarAguardar();
+      return false;
+    } else {
+      setInterval(sumirMensagem, 5000);
+    }
     // Enviando o valor da nova input
     fetch("/usuarios/cadastrar", {
       method: "POST",
@@ -229,9 +219,8 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
-
-          mensagem_erro.innerHTML =
+          div_erros_login.style.display = "flex";
+          div_erros_login.innerHTML =
             "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
