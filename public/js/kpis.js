@@ -32,7 +32,23 @@ function obterKpiDiaSemana() {
         response.json().then(function (resposta) {
           console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
           for (var i = 0; i < resposta.length; i++) {
-            kpi_diaSemanaKpi.innerHTML += `${resposta[i].diaSemanaMaiorCriacao}<br>`;
+            var diaDaSemana = resposta[i].diaSemanaMaiorCriacao;
+            if (diaDaSemana == "Sunday") {
+              diaDaSemana = "Domingo";
+            } else if (diaDaSemana == "Monday") {
+              diaDaSemana = "Segunda-feira";
+            } else if (diaDaSemana == "Tuesday") {
+              diaDaSemana = "Terça-feira";
+            } else if (diaDaSemana == "Wednesday") {
+              diaDaSemana = "Quarta-feira";
+            } else if (diaDaSemana == "Thursday") {
+              diaDaSemana = "Quinta-feira";
+            } else if (diaDaSemana == "Friday") {
+              diaDaSemana = "Sexta-feira";
+            } else if (diaDaSemana == "Saturday") {
+              diaDaSemana = "Sábado";
+            }
+            kpi_diaSemanaKpi.innerHTML += `${diaDaSemana}<br>`;
           }
         });
       } else {
