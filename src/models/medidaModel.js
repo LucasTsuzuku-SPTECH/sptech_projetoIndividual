@@ -147,7 +147,21 @@ function buscarIdHabilidadeCriada() {
 }
 
 function contagemPersonagensCriados() {
-  var instrucaoSql = `SELECT COUNT(*) AS totalPersonagens FROM personagem;`;
+  var instrucaoSql = `SELECT COUNT(*) AS totalPersonagens, DATEDIFF(DATE(CURRENT_TIMESTAMP()),MIN(DATE(dataCriacao))) AS diasPassados FROM personagem`;
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+function diaSemanaKpi() {
+  var instrucaoSql = `
+  SELECT DATE_FORMAT(dataCriacao, '%W') AS diaSemanaMaiorCriacao 
+from personagem a
+group by DATE_FORMAT(dataCriacao, '%W')
+having count(*) = (select max(qtde) from (
+							SELECT date(dataCriacao) dataCriacao, COUNT(*) qtde 
+							from personagem a
+							group by date(dataCriacao)) as x);
+  
+  `;
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
 }
@@ -165,4 +179,5 @@ module.exports = {
   buscarIdPersonagemCriado,
   buscarIdHabilidadeCriada,
   contagemPersonagensCriados,
+  diaSemanaKpi,
 };

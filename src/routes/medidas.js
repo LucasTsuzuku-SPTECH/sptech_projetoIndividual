@@ -51,4 +51,7 @@ router.get("/contagemPersonagensCriados", function (req, res) {
   medidaController.contagemPersonagensCriados(req, res);
 });
 
+router.get("/diaSemanaKpi", function (req, res) {
+  medidaController.diaSemanaKpi(req, res);
+});
 module.exports = router;

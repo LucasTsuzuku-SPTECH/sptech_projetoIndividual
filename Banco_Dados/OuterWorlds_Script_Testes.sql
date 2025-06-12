@@ -181,7 +181,52 @@ SELECT * FROM personagem WHERE fkUsuario = 1;
 
 -- contagem de quantidade de personagens criados
 
-SELECT COUNT(*) AS Quantidade_Personagens_Criados_Total FROM personagem;
+SELECT COUNT(*) AS totalPersonagens FROM personagem;
+
+SELECT * FROM personagem;
+
+SELECT MIN(DATE(dataCriacao)) FROM personagem;
+
+SELECT DATEDIFF(DATE(CURRENT_TIMESTAMP()),MIN(DATE(dataCriacao))) AS diasPassados FROM personagem;
+
+SELECT COUNT(*) AS totalPersonagens, DATEDIFF(DATE(CURRENT_TIMESTAMP()),MIN(DATE(dataCriacao))) AS diasPassados FROM personagem;
+
+SELECT DATE(dataCriacao), COUNT(*) from personagem group by DATE(dataCriacao);
+
+
+select *
+from (
+SELECT DATE(dataCriacao) dataCriacao, COUNT(*) qtde 
+from personagem a
+group by DATE(dataCriacao)) as x
+
+select dataCriacao, max(qtde)
+from (
+SELECT date(dataCriacao) dataCriacao, COUNT(*) qtde 
+from personagem a
+group by date(dataCriacao)) as x
+group by dataCriacao
+
+where qtde = (
+
+select count(*) from personagem;
+-- select paa pegar as datas com maior quantidade personagens criados
+
+SELECT date(dataCriacao) dataCriacao, COUNT(*) qtde 
+from personagem a
+group by date(dataCriacao)
+having count(*) = (select max(qtde) from (
+							SELECT date(dataCriacao) dataCriacao, COUNT(*) qtde 
+							from personagem a
+							group by date(dataCriacao)) as x);
+
+SELECT DATE_FORMAT(date(dataCriacao), '%W') AS dia da semana, COUNT(*) qtde 
+from personagem a
+group by date(dataCriacao)
+having count(*) = (select max(qtde) from (
+							SELECT date(dataCriacao) dataCriacao, COUNT(*) qtde 
+							from personagem a
+							group by date(dataCriacao)) as x);
 
 /*
 INSERT INTO habilidadeBase (categoria, pontoExtra) VALUES 

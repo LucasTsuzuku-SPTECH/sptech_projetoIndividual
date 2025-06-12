@@ -35,7 +35,7 @@
   <!-- <body onload=" atualizarFeed()"> -->
 
   <!-- <body onload="obterDados()"> -->
-  <body onload="obterDados(), obterQUantidadePersonagensCriados()">
+  <body onload="obterDados(), obterKpis(), obterKpiDiaSemana()">
     <div class="janela">
       <div class="header-left dash-header">
         <img src="../assets/imgs/Logo_OuterWorlds.png" alt="" />
@@ -74,17 +74,17 @@
           <div class="bloco">
             <span>Quantidade Personagens criados</span>
             <br />
-            <span id="kpi_QuantidadeTotalPersonagens">15</span>
+            <span id="kpi_QuantidadeTotalPersonagens"></span>
           </div>
           <div class="bloco">
             <span>Quantidade de dias monitorados</span>
             <br />
-            <span>14</span>
+            <span id="kpi_QuantidadeDiasMonitorados"></span>
           </div>
           <div class="bloco">
             <span>Dia com maior quantidade de personagens criados</span>
             <br />
-            <span>10-10-2025</span>
+            <span id="kpi_diaSemanaKpi"></span>
           </div>
         </div>
 

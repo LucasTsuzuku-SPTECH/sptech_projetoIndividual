@@ -532,6 +532,7 @@ canvas {
   justify-content: space-evenly;
   width: 100%;
   flex-wrap: wrap;
+  margin-bottom: 45px;
 }
 
 .bloco {
@@ -541,12 +542,13 @@ canvas {
   justify-content: center;
   margin: 15px;
   width: 125px;
-  height: 125px;
+  height: 100%;
   color: #feac19;
   background-color: #000000;
   border: #feac19 solid 3px;
   text-align: center;
   border-radius: 15px;
+  padding: 5px;
 }
 
 #graficos_colunas_blocos {
