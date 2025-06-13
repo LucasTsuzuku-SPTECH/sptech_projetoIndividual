@@ -153,14 +153,7 @@ function contagemPersonagensCriados() {
 }
 function diaSemanaKpi() {
   var instrucaoSql = `
-  SELECT DATE_FORMAT(dataCriacao, '%W') AS diaSemanaMaiorCriacao 
-from personagem a
-group by DATE_FORMAT(dataCriacao, '%W')
-having count(*) = (select max(qtde) from (
-							SELECT date(dataCriacao) dataCriacao, COUNT(*) qtde 
-							from personagem a
-							group by date(dataCriacao)) as x);
-  
+  SELECT DATE_FORMAT(dataCriacao, "%Y-%m-%d") AS diaSemanaMaiorCriacao from personagem a group by DATE_FORMAT(dataCriacao, "%Y-%m-%d") having count(*) = (select max(qtde) from (SELECT date(dataCriacao) dataCriacao, COUNT(*) qtde from personagem a group by date(dataCriacao)) as x)
   `;
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);

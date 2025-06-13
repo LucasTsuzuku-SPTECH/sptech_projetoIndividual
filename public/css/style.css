@@ -434,6 +434,7 @@ body {
   justify-content: space-around;
   align-items: center;
   height: 100%;
+  width: 95%;
 }
 
 .footer_desenvolvedor button {
